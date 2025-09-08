@@ -1,24 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const products = document.querySelectorAll(".product");
-  const body = document.body;
+<section class="products">
+  <div class="product">
+    <img src="images/car-seat.jpg" alt="Car Seat Cover"/>
+    <h2>Luxury Car Seat Cover</h2>
+    <p>Comfortable, durable, and stylish.</p>
+    <button>Buy Now</button>
+  </div>
 
-  products.forEach(product => {
-    product.addEventListener("click", e => {
-      e.stopPropagation(); // stop bubbling
+  <div class="product">
+    <img src="images/stereo.jpg" alt="Car Stereo System"/>
+    <h2>Car Stereo System</h2>
+    <p>Crystal clear sound for your journey.</p>
+    <button>Buy Now</button>
+  </div>
 
-      // Reset
-      products.forEach(p => p.classList.remove("active"));
-      body.classList.remove("blurred");
-
-      // Set active
-      product.classList.add("active");
-      body.classList.add("blurred");
-    });
-  });
-
-  // Click outside → reset
-  document.addEventListener("click", () => {
-    products.forEach(p => p.classList.remove("active"));
-    body.classList.remove("blurred");
-  });
-});
+  <div class="product">
+    <img src="images/mats.jpg" alt="Car Floor Mats"/>
+    <h2>Premium Floor Mats</h2>
+    <p>Easy to clean, high-quality design.</p>
+    <button>Buy Now</button>
+  </div>
+</section>
