@@ -12,3 +12,9 @@ const appearOnScroll = new IntersectionObserver((entries, observer) => {
 }, appearOptions);
 
 faders.forEach(fader => { appearOnScroll.observe(fader); });
+// Simple click alert for now
+document.querySelectorAll('.product-card, .product').forEach(card => {
+  card.addEventListener('click', () => {
+    alert(You clicked on ${card.querySelector('h3').textContent});
+  });
+});

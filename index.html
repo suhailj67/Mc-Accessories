@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Build From Zero - Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build From Zero</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -12,59 +12,40 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="index.html" class="logo">Build From Zero</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="explore.html">Explore</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
   <!-- Hero Section -->
-  <section class="hero home-hero">
-    <h1 class="hero-title">Build From Zero</h1>
-    <p class="hero-subtitle">Premium Car Accessories for the Modern Driver</p>
-    <a href="explore.html" class="btn">Explore Now</a>
-  </section>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Build From Zero</h1>
+      <p>Premium Car Accessories</p>
+      <a href="explore.html" class="btn">Explore Now</a>
+    </div>
+  </header>
 
   <!-- Featured Products -->
   <section class="featured">
     <h2>Featured Products</h2>
-    <div class="featured-grid">
-      <div class="product-card">
-        <img src="images/car-seat.jpg" alt="Luxury Car Seat Cover">
+    <div class="product-grid">
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1614356425486-5ff1dd6ec8ab?auto=format&fit=crop&w=800&q=80" alt="Alloy Wheels">
+        <h3>Alloy Wheels</h3>
+        <p>Precision engineered for performance.</p>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1605559424843-9c89c8f8a97c?auto=format&fit=crop&w=800&q=80" alt="Luxury Car Seat Cover">
         <h3>Luxury Car Seat Cover</h3>
         <p>Comfortable, durable, and stylish.</p>
       </div>
-      <div class="product-card">
-        <img src="images/stereo.jpg" alt="Car Stereo">
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1597002959155-61dcf61fc84f?auto=format&fit=crop&w=800&q=80" alt="Car Stereo System">
         <h3>Car Stereo System</h3>
-        <p>Crystal-clear sound for every journey.</p>
-      </div>
-      <div class="product-card">
-        <img src="images/mats.jpg" alt="Car Mats">
-        <h3>Premium Floor Mats</h3>
-        <p>Durable and easy to clean.</p>
+        <p>Crystal clear sound for your journey.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="5"></textarea>
-      <button type="submit" class="btn">Send</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Build From Zero. All Rights Reserved.</p>
+    <p>© 2025 Build From Zero. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
