@@ -1,22 +1,14 @@
-<section class="products">
-  <div class="product">
-    <img src="images/car-seat.jpg" alt="Car Seat Cover"/>
-    <h2>Luxury Car Seat Cover</h2>
-    <p>Comfortable, durable, and stylish.</p>
-    <button>Buy Now</button>
-  </div>
+// Fade-in animation on scroll
+const faders = document.querySelectorAll('.product-card, .hero-title, .hero-subtitle');
 
-  <div class="product">
-    <img src="images/stereo.jpg" alt="Car Stereo System"/>
-    <h2>Car Stereo System</h2>
-    <p>Crystal clear sound for your journey.</p>
-    <button>Buy Now</button>
-  </div>
+const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
 
-  <div class="product">
-    <img src="images/mats.jpg" alt="Car Floor Mats"/>
-    <h2>Premium Floor Mats</h2>
-    <p>Easy to clean, high-quality design.</p>
-    <button>Buy Now</button>
-  </div>
-</section>
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("fade-in");
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+
+faders.forEach(fader => { appearOnScroll.observe(fader); });
