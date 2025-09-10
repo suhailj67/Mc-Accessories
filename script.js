@@ -1,20 +1,19 @@
-// Fade-in animation on scroll
-const faders = document.querySelectorAll('.product-card, .hero-title, .hero-subtitle');
+function showModal(productElem) {
+  document.getElementById('modal-img').src = productElem.querySelector('img').src;
+  document.getElementById('modal-title').textContent = productElem.querySelector('h3').textContent;
+  document.getElementById('modal-description').textContent = productElem.querySelector('p').textContent;
+  document.getElementById('modal-price').textContent = productElem.querySelector('.price').textContent;
+  document.getElementById('product-modal').classList.add('show');
+  document.body.style.overflow = 'hidden'; // Disable background scroll
+}
 
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+function closeModal() {
+  document.getElementById('product-modal').classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
 
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("fade-in");
-    observer.unobserve(entry.target);
-  });
-}, appearOptions);
-
-faders.forEach(fader => { appearOnScroll.observe(fader); });
-// Simple click alert for now
-document.querySelectorAll('.product-card, .product').forEach(card => {
-  card.addEventListener('click', () => {
-    alert(`You clicked on ${card.querySelector('h3').textContent}`);
-  });
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
 });

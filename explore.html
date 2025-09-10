@@ -2,59 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explore - Build From Zero</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <title>Car Accessories - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="logo">Build From Zero</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="explore.html" class="active">Explore</a></li>
-      <li><a href="#contact">Contact</a></li>
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
   </nav>
+  <h1>Car Accessories Shop</h1>
+</header>
 
-  <header class="explore-hero">
-    <h1>Explore Accessories</h1>
-    <p>Discover our full premium collection</p>
-  </header>
-
-  <!-- Explore Grid -->
-  <section class="explore-grid">
-    <div class="product-card">
-      <img src="https://www.gettyimages.in/detail/photo/gray-vinyl-carpets-for-dust-traps-royalty-free-image/1247634983" alt="Floor Mats">
-      <h3>Premium Floor Mats</h3>
-      <p>Easy to clean, high-quality design.</p>
+<main>
+  <section class="products">
+    <h2>Featured Products</h2>
+    <div class="product-list">
+      <div class="product" onclick="showModal(this)">
+        <img src="images/wheel-cover.jpg" alt="Wheel Cover" />
+        <h3>Wheel Cover</h3>
+        <p>Premium quality wheel covers for all car models.</p>
+        <span class="price">₹650</span>
+      </div>
+      <div class="product" onclick="showModal(this)">
+        <img src="images/seat-cover.jpg" alt="Seat Cover" />
+        <h3>Seat Cover</h3>
+        <p>Comfortable and stylish seat covers. Multiple designs.</p>
+        <span class="price">₹1,200</span>
+      </div>
     </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1606220588916-3c57e1d7fcd3?auto=format&fit=crop&w=800&q=80" alt="Steering Wheel">
-      <h3>Leather Steering Wheel</h3>
-      <p>Luxury grip with durable finish.</p>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1597003045185-c644e2aa8b4f?auto=format&fit=crop&w=800&q=80" alt="LED Lights">
-      <h3>LED Lights</h3>
-      <p>Bright, stylish, energy efficient.</p>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1582146718419-fbc70f2f0e42?auto=format&fit=crop&w=800&q=80" alt="Performance Exhaust">
-      <h3>Performance Exhaust</h3>
-      <p>Unleash the sound of power.</p>
-    </div>
+    <a href="explore.html" class="btn explore-btn">Explore More Products</a>
   </section>
+</main>
 
-  <footer>
-    <p>© 2025 Build From Zero. All rights reserved.</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Car Accessories Shop. All rights reserved.</p>
+</footer>
 
-  <script src="script.js"></script>
+<div id="product-modal" class="modal" onclick="if(event.target === this) closeModal()">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="" alt="" />
+    <h3 id="modal-title"></h3>
+    <p id="modal-description"></p>
+    <span class="price" id="modal-price"></span>
+  </div>
+</div>
+
+<script src="scripts.js"></script>
 </body>
 </html>

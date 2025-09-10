@@ -1,69 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build From Zero</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <title>Car Accessories Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="logo">Build From Zero</div>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="explore.html">Explore</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <header>
+        <h1>Car Accessories Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="intro">
+            <h2>Welcome to Premium Car Accessories</h2>
+            <p>Explore top-quality car accessories that combine style, comfort, and durability.</p>
+            <a href="explore.html" class="btn-primary">Explore Products</a>
+        </section>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Build From Zero</h1>
-      <p>Premium Car Accessories</p>
-      <a href="explore.html" class="btn">Explore Now</a>
+        <section class="products-preview">
+            <h2>Featured Products</h2>
+            <div class="product-list">
+                <div class="product" onclick="showModal(this)">
+                    <img src="wheel-cover.jpg" alt="Wheel Cover" />
+                    <h3>Wheel Cover</h3>
+                    <p>Premium quality wheel covers for all car models.</p>
+                    <span class="price">₹650</span>
+                </div>
+                <div class="product" onclick="showModal(this)">
+                    <img src="seat-cover.jpg" alt="Seat Cover" />
+                    <h3>Seat Cover</h3>
+                    <p>Comfortable and stylish seat covers. Multiple designs.</p>
+                    <span class="price">₹1,200</span>
+                </div>
+                <div class="product" onclick="showModal(this)">
+                    <img src="led-headlight.jpg" alt="LED Headlight" />
+                    <h3>LED Headlight</h3>
+                    <p>Bright and energy-efficient LED headlights to enhance night visibility.</p>
+                    <span class="price">₹2,400</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Car Accessories Shop. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="product-modal" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="close" aria-label="Close modal" onclick="closeModal()">&times;</button>
+            <img id="modal-img" src="" alt="" />
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <span class="price" id="modal-price"></span>
+        </div>
     </div>
-  </header>
 
-  <!-- Featured Products -->
-  <section class="featured">
-    <h2>Featured Products</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1614356425486-5ff1dd6ec8ab?auto=format&fit=crop&w=800&q=80" alt="Alloy Wheels">
-        <h3>Alloy Wheels</h3>
-        <p>Precision engineered for performance.</p>
-      </div>
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1605559424843-9c89c8f8a97c?auto=format&fit=crop&w=800&q=80" alt="Luxury Car Seat Cover">
-        <h3>Luxury Car Seat Cover</h3>
-        <p>Comfortable, durable, and stylish.</p>
-      </div>
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1597002959155-61dcf61fc84f?auto=format&fit=crop&w=800&q=80" alt="Car Stereo System">
-        <h3>Car Stereo System</h3>
-        <p>Crystal clear sound for your journey.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="featured">
-    <h2>Contact Us</h2>
-    <p>Email: info@buildfromzero.com</p>
-  </section>
-
-  <footer>
-    <p>© 2025 Build From Zero. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
