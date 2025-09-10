@@ -1,5 +1,6 @@
 /* Reset and base */
 * {
+  <link rel="stylesheet" href="CSS/main.css">
   box-sizing: border-box;
 }
 body {
