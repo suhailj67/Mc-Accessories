@@ -1,6 +1,9 @@
 /* Reset and base */
+body {
+  background-color: #222; /* dark background */
+  color: #eee; /* light text */
+}
 * {
-  <link rel="stylesheet" href="CSS/main.css">
   box-sizing: border-box;
 }
 body {
