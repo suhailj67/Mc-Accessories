@@ -1,43 +1,45 @@
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: "Poppins", sans-serif; background: #f7f7f7; color: #222; }
+body { font-family: "Poppins", sans-serif; background: #111; color: #eee; }
 
 /* Hero Section */
 .hero {
   position: relative;
   height: 100vh;
   background: url("https://images.unsplash.com/photo-1601933470238-bdde47f92a3f?auto=format&fit=crop&w=1650&q=80") 
-              no-repeat center center/cover; /* Car interior background */
-  display: flex; justify-content: center; align-items: center; text-align: center; color: #fff;
+              no-repeat center center/cover;
+  display: flex; justify-content: center; align-items: center;
+  text-align: center; color: #fff;
 }
 .overlay {
   position: absolute; inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(15,15,15,0.6));
 }
 .hero-content { position: relative; z-index: 1; }
-.title { font-size: 3.5rem; font-weight: 700; color: #ffcc00; }
-.tagline { font-size: 1.3rem; margin: 15px 0; }
+.title { font-size: 3.5rem; font-weight: 700; color: #ff3b3b; text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
+.tagline { font-size: 1.3rem; margin: 15px 0; color: #f0f0f0; }
 .cta-btn {
   display: inline-block; margin-top: 20px; padding: 12px 30px;
-  background: #ffcc00; color: #000; font-weight: bold; font-size: 1.1rem;
+  background: #ff3b3b; color: #fff; font-weight: bold; font-size: 1.1rem;
   border-radius: 30px; text-decoration: none; transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255,59,59,0.4);
 }
-.cta-btn:hover { background: #fff; color: #000; transform: scale(1.1); }
+.cta-btn:hover { background: #fff; color: #ff3b3b; transform: scale(1.08); }
 
 /* Quick Preview */
 .quick-preview { text-align: center; padding: 3em 1em; }
-.quick-preview h2 { font-size: 2rem; margin-bottom: 1em; }
+.quick-preview h2 { font-size: 2rem; margin-bottom: 1em; color: #ff3b3b; }
 .preview-list {
   display: flex; justify-content: center; gap: 2em; flex-wrap: wrap;
 }
 .preview-item {
-  background: #fff; border-radius: 12px; padding: 1em;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  background: #1c1c1c; border-radius: 12px; padding: 1em;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
-.preview-item:hover { transform: scale(1.08); }
+.preview-item:hover { transform: scale(1.08); background: #222; }
 .preview-item img {
   width: 150px; height: 150px; object-fit: cover;
   border-radius: 8px; margin-bottom: 0.5em;
 }
-.preview-item p { font-weight: 600; }
+.preview-item p { font-weight: 600; color: #ddd; }
