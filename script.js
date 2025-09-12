@@ -1,18 +1,30 @@
-function scrollToProducts() {
-  document.getElementById("products").scrollIntoView({ 
-    behavior: "smooth" 
+// Zoom + Blur effect on product click
+document.querySelectorAll('.product').forEach(product => {
+  product.addEventListener('click', () => {
+    product.classList.toggle('zoomed');
+    document.body.classList.toggle('blur-bg');
   });
-}
+});
 
-function openModal(imgSrc) {
-  let modal = document.getElementById("modal");
-  let modalImg = document.getElementById("modalImg");
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
+    }
+  });
+});
 
-  modal.style.display = "block";
-  modalImg.src = imgSrc;
-}
+document.querySelectorAll('.scroll-effect').forEach((el) => observer.observe(el));
 
-function closeModal() {
-  let modal = document.getElementById("modal");
-  modal.style.display = "none";
-}
+// Smooth scroll for "Shop Now" button
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
