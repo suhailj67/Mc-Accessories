@@ -4,25 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MC Accessories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #ffdd00;
+      text-shadow: 0 0 10px #ffdd00, 0 0 20px #ffdd00, 0 0 40px #ffaa00;
+      margin-bottom: 1rem;
+      animation: flicker 2s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from { opacity: 0.9; text-shadow: 0 0 10px #ffdd00; }
+      to { opacity: 1; text-shadow: 0 0 25px #ffaa00, 0 0 50px #ff6600; }
+    }
+
+    .btn {
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #000;
+      background: #ffdd00;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+      z-index: 3;
+      position: relative;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      background: #ffaa00;
+    }
+
+    /* Car Outline SVG Background */
+    .car-outline {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 900px;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    .car-outline path {
+      fill: none;
+      stroke: #0ff;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 2000;
+      animation: draw 6s linear infinite;
+      filter: drop-shadow(0 0 6px #0ff) drop-shadow(0 0 16px #0ff);
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Car Outline SVG -->
+  <svg class="car-outline" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Example traced outline (stylized) -->
+    <path d="M100 300 Q200 150 400 150 Q600 150 700 300 
+             M130 280 Q200 220 270 220 
+             M530 220 Q600 220 670 280 
+             M250 220 Q400 120 550 220 
+             M180 320 Q400 340 620 320" />
+  </svg>
+
   <!-- Hero Section -->
   <div class="hero">
-    <div class="overlay"></div>
-    <div class="content">
-      <h1 class="fade-in">MC ACCESSORIES</h1>
-      <p class="fade-in delay">Premium Quality Car Accessories for Every Ride</p>
-      <a href="shop.html" class="btn zoom-in delay2">Shop Now</a>
-    </div>
+    <h1>MC ACCESSORIES</h1>
+    <button class="btn" onclick="location.href='shop.html'">Shop Now</button>
   </div>
 
-  <!-- Optional: Add smooth scroll for later sections -->
-  <script src="script.js"></script>
 </body>
 </html>
