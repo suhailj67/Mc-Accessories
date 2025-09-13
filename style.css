@@ -170,3 +170,12 @@ body {
     box-shadow: 0 0 25px #FFD700, 0 0 50px #FFC107;
     background: linear-gradient(90deg, #FFC107, #FFD700); /* hover gradient effect */
 }
+/* Fade-in without vertical movement */
+@keyframes fadeUpFixed {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.brand-text {
+  animation: fadeUpFixed 1.5s ease-out forwards;
+}
