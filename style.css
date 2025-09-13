@@ -246,3 +246,18 @@ body {
     width: 90%; /* smaller car for mobile */
   }
 }
+.parallax-bg {
+  background: url('https://images.pexels.com/photos/733745/pexels-photo-733745.jpeg') center/cover no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  animation: parallaxMove 15s infinite alternate ease-in-out;
+}
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll; /* Disables fixed background on mobile */
+  }
+}
