@@ -165,3 +165,9 @@ body {
   transform: scale(1.05);
   box-shadow: 0 0 25px cyan;
 }
+body {
+  margin: 0;
+  height: 100vh;
+  background: url("Mc-Accessories-logo.png") no-repeat center center;
+  background-size: cover;
+}
