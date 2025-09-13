@@ -195,4 +195,15 @@ body {
     background-position: top center; /* show main subject */
     height: 100vh;
   }
+}.parallax-bg,
+.parallax-bg img {
+  position: fixed;  /* stays behind content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;      /* fills screen */
+  object-position: center; /* keeps car centered */
+  z-index: 1;
 }
+
