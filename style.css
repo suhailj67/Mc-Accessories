@@ -246,8 +246,7 @@ body {
     width: 90%; /* smaller car for mobile */
   }
 }
-.parallax-bg {
-  background: url('https://images.pexels.com/photos/733745/pexels-photo-733745.jpeg') center/cover no-repeat;
+.parallax-bg {background: url('images/Mc-Accessories-logo.png') center/cover no-repeat;
   position: absolute;
   width: 100%;
   height: 100%;
