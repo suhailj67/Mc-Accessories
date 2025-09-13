@@ -36,4 +36,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
-// Zoom + Blur effect on product click
+// Zoom + Blur effect on// Subtle glowing effect for car on pulse
+const car = document.querySelector('.car');
+const pulse = document.querySelector('.pulse');
+
+pulse.addEventListener('animationiteration', () => {
+  car.style.filter = "drop-shadow(0 0 40px cyan)";
+  setTimeout(() => {
+    car.style.filter = "drop-shadow(0 0 25px #00f)";
+  }, 800);
+});
