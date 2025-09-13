@@ -152,3 +152,21 @@ body {
 @keyframes fadeInLogo {
   to { opacity: 1; }
 }
+/* Override Brand Text and Shop Button Colors to Yellow */
+.brand-text h1 {
+    color: #FFD700; /* Golden yellow for shop name */
+    text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.7); /* subtle glow effect */
+}
+
+.shop-btn {
+    background: linear-gradient(90deg, #FFD700, #FFC107); /* Unique yellow gradient */
+    color: #000; /* black text for contrast */
+    box-shadow: 0 0 15px #FFD700;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.shop-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #FFD700, 0 0 50px #FFC107;
+    background: linear-gradient(90deg, #FFC107, #FFD700); /* hover gradient effect */
+}
