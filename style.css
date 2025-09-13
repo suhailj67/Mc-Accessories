@@ -5,29 +5,28 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: #0a0a0a;
-  overflow: hidden;
   font-family: 'Orbitron', sans-serif;
   color: white;
+  /* overflow: hidden; ❌ removed to allow scrolling */
 }
 
 /* Background Parallax */
 .parallax-bg {
   background: url('images/Mc-Accessories-logo.png') center/cover no-repeat;
-  position: absolute;
+  position: fixed; /* stays behind all content */
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 1;
   animation: parallaxMove 15s infinite alternate ease-in-out;
-  background-attachment: fixed; /* parallax effect for desktop */
 }
 
 @keyframes parallaxMove {
-  0% { transform: translate(0,0) scale(1.05); }
-  100% { transform: translate(-30px,-30px) scale(1.1); }
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.1) translate(-20px,-20px); }
 }
 
 /* Light Trails */
@@ -192,7 +191,8 @@ body {
     width: 90%;
   }
   .parallax-bg {
-    background-attachment: scroll; /* fix for mobile */
-    background-position: top center; /* show top part */
+    position: absolute; /* prevent stretch bug */
+    background-position: top center; /* show main subject */
+    height: 100vh;
   }
 }
