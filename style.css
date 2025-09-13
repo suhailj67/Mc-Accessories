@@ -164,3 +164,31 @@ body {
   to { opacity: 1; transform: translate(-50%, 0) scale(1); }
 }
 
+/* CTA Button */
+.cta {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.btn {
+  padding: 14px 36px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff8c00, #ffd700);
+  color: #111;
+  border: none;
+  border-radius: 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #ffd700, #ff8c00);
+  box-shadow: 0 0 25px #ffd700, 0 0 45px #ff8c00;
+  transform: scale(1.05);
+}
