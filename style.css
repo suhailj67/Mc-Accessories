@@ -179,3 +179,37 @@ body {
 .brand-text {
   animation: fadeUpFixed 1.5s ease-out forwards;
 }
+/* Brand Text Font & Animation */
+.brand-text h1 {
+    font-family: 'Audiowide', cursive;
+    font-size: 4rem;
+    color: #FFD700; /* golden yellow */
+    text-shadow: 2px 2px 12px rgba(255, 215, 0, 0.7);
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeScale 1.5s ease-out forwards;
+}
+
+.brand-text p {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.3rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: fadeUpText 1.5s ease-out 0.5s forwards; /* delayed for smooth effect */
+}
+
+/* Smooth scale-in animation for shop name */
+@keyframes fadeScale {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Fade-up animation for subtext */
+@keyframes fadeUpText {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
