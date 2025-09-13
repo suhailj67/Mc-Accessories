@@ -1,60 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Car Accessories - Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore - Mc Accessories</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="explore.html">Explore</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-  <h1>Car Accessories Shop</h1>
-</header>
+  <div class="explore-page">
+    <header>
+      <h1>Explore Our Accessories</h1>
+      <a href="index.html" class="btn">⬅ Back to Home</a>
+    </header>
 
-<main>
-  <section class="products">
-    <h2>Featured Products</h2>
-    <div class="product-list">
-      <div class="product" onclick="showModal(this)">
-        <img src="images/wheel-cover.jpg" alt="Wheel Cover" />
-        <h3>Wheel Cover</h3>
-        <p>Premium quality wheel covers for all car models.</p>
-        <span class="price">₹650</span>
+    <section class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x150" alt="Car Cover">
+        <h2>Premium Car Cover</h2>
+        <p>Protects your car in style</p>
       </div>
-      <div class="product" onclick="showModal(this)">
-        <img src="images/seat-cover.jpg" alt="Seat Cover" />
-        <h3>Seat Cover</h3>
-        <p>Comfortable and stylish seat covers. Multiple designs.</p>
-        <span class="price">₹1,200</span>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x150" alt="Car Seat Covers">
+        <h2>Leather Seat Covers</h2>
+        <p>Comfort + Luxury</p>
       </div>
-    </div>
-    <a href="explore.html" class="btn explore-btn">Explore More Products</a>
-  </section>
-</main>
 
-<footer>
-  <p>&copy; 2025 Car Accessories Shop. All rights reserved.</p>
-</footer>
-
-<div id="product-modal" class="modal" onclick="if(event.target === this) closeModal()">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img id="modal-img" src="" alt="" />
-    <h3 id="modal-title"></h3>
-    <p id="modal-description"></p>
-    <span class="price" id="modal-price"></span>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x150" alt="LED Lights">
+        <h2>LED Light Kit</h2>
+        <p>Make your car glow at night</p>
+      </div>
+    </section>
   </div>
-</div>
-
-<script src="scripts.js"></script>
 </body>
 </html>
