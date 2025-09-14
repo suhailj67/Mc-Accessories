@@ -12,10 +12,9 @@ body {
   /* overflow: hidden; ❌ removed to allow scrolling */
 }
 
-/* Background Parallax */
+/* ---------------- Background Parallax ---------------- */
 .parallax-bg {
   background: url('images/Mc-Accessories-logo.png') center/cover no-repeat;
-  
   position: fixed; /* stays behind all content */
   top: 0;
   left: 0;
@@ -30,7 +29,7 @@ body {
   100% { transform: scale(1.1) translate(-20px,-20px); }
 }
 
-/* Light Trails */
+/* ---------------- Light Trails ---------------- */
 .light-trails {
   position: absolute;
   top: 0;
@@ -48,7 +47,7 @@ body {
   to { transform: translateX(50%); }
 }
 
-/* Car */
+/* ---------------- Car ---------------- */
 .car-container {
   position: relative;
   z-index: 3;
@@ -65,7 +64,7 @@ body {
   transition: filter 0.3s ease-in-out;
 }
 
-/* Energy Pulse */
+/* ---------------- Energy Pulse ---------------- */
 .pulse {
   position: absolute;
   top: 0;
@@ -82,7 +81,7 @@ body {
   45% { transform: translateX(100%); }
 }
 
-/* Brand Text */
+/* ---------------- Brand Text ---------------- */
 .brand-text {
   position: absolute;
   top: 20%;
@@ -133,7 +132,7 @@ body {
   background: linear-gradient(90deg, #FFC107, #FFD700);
 }
 
-/* Animations */
+/* ---------------- Animations ---------------- */
 @keyframes fadeUpFixed {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -149,19 +148,21 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Logo */
+/* ---------------- Logo ---------------- */
 .logo {
   position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 20px;
+  left: 20px;
+  max-width: 180px;
   z-index: 5;
   opacity: 0;
   animation: fadeInLogo 3s forwards 6s;
 }
 
 .logo img {
-  width: 200px;
+  width: 100%;
+  height: auto;
+  display: block;
   filter: drop-shadow(0 0 20px cyan);
 }
 
@@ -169,7 +170,7 @@ body {
   to { opacity: 1; }
 }
 
-/* ---------- Responsive Styles ---------- */
+/* ---------------- Responsive Styles ---------------- */
 @media (max-width: 768px) {
   .brand-text h1 {
     font-size: 2.2rem;
@@ -192,31 +193,9 @@ body {
     width: 90%;
   }
   .parallax-bg {
+    background: url('images/Mc-Accessories-logo-mobile.png') top center / contain no-repeat;
     position: absolute; /* prevent stretch bug */
-    background-position: top center; /* show main subject */
     height: 100vh;
+    animation: none; /* disable heavy animation on mobile */
   }
-}.parallax-bg,
-.parallax-bg img {
-  position: fixed;  /* stays behind content */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;      /* fills screen */
-  object-position: center; /* keeps car centered */
-  z-index: 1;
 }
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  max-width: 180px;
-}
-
-.logo img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
