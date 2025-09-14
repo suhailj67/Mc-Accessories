@@ -11,12 +11,14 @@ if (car && pulse) {
   });
 }
 
-// Smooth scroll for "Shop Now"
+// Smooth scroll for in-page links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+    if (this.getAttribute('href').startsWith("#")) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   });
 });
