@@ -10,14 +10,14 @@ body {
   line-height: 1.5;
 }
 
-/* ---------------- Navbar ---------------- */
+/* ---------------- Navbar (logo only) ---------------- */
 .navbar {
   position: sticky;
   top: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.85);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 12px 24px;
   z-index: 1000;
@@ -27,178 +27,4 @@ body {
   font-family: 'Audiowide', cursive;
   font-size: 1.4rem;
   color: #FFD700;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.2rem;
-}
-.nav-links li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-.nav-links li a:hover {
-  color: #FFD700;
-}
-
-/* ---------------- Hero ---------------- */
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.parallax-bg {
-  background: url('images/Mc-Accessories-logo.png') center/cover no-repeat;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: 1;
-  animation: bgZoom 20s ease-in-out infinite alternate;
-}
-@keyframes bgZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
-}
-
-/* Car */
-.car-container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.car {
-  max-width: 800px;
-  width: 80%;
-  filter: drop-shadow(0 0 25px #00f);
-  animation: fadeUp 1.5s ease-out forwards;
-  opacity: 0;
-}
-@keyframes fadeUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Pulse */
-.pulse {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: radial-gradient(circle, rgba(0,255,255,0.15) 20%, transparent 70%);
-  animation: pulse 2s infinite;
-  z-index: 1;
-}
-@keyframes pulse {
-  0%,100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.2); opacity: 0.8; }
-}
-
-/* Brand Text */
-.brand-text {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 3;
-}
-.brand-text h1 {
-  font-family: 'Audiowide', cursive;
-  font-size: 4rem;
-  color: #FFD700;
-  text-shadow: 2px 2px 12px rgba(255, 215, 0, 0.7);
-  letter-spacing: 3px;
-  margin-bottom: 15px;
-  opacity: 0;
-  animation: fadeDown 1.5s ease-out forwards;
-}
-.brand-text p {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.3rem;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-  margin-bottom: 25px;
-  opacity: 0;
-  animation: fadeDown 1.5s ease-out 0.5s forwards;
-}
-@keyframes fadeDown {
-  from { transform: translateY(-30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Buttons */
-.shop-btn, .cta-btn, .btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background: linear-gradient(90deg, #FFD700, #FFC107);
-  color: #000;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 0 15px #FFD700;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.shop-btn:hover, .cta-btn:hover, .btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px #FFD700;
-}
-
-/* Logo */
-.logo {
-  position: absolute;
-  top: 20px; left: 20px;
-  max-width: 180px;
-  z-index: 4;
-  opacity: 0;
-  animation: fadeIn 2s ease-out 2s forwards;
-}
-.logo img { width: 100%; filter: drop-shadow(0 0 20px cyan); }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-/* ---------------- Products ---------------- */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  background: #111;
-}
-.product-card {
-  background: #1a1a1a;
-  padding: 1rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-.product-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-.product-card h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-.product-card p { font-size: 0.95rem; color: #bbb; }
-
-/* ---------------- Responsive ---------------- */
-@media (max-width: 768px) {
-  .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
-  .brand-text p { font-size: 1rem; }
-  .shop-btn { padding: 10px 20px; font-size: 1rem; }
-  .car-container .car { width: 90%; }
-  .parallax-bg {
-    background: url('images/Mc-Accessories-logo-mobile.png') top center/contain no-repeat;
-    background-color: #000;
-    animation: none;
-    position: fixed;
-  }
-  .navbar { flex-direction: column; padding: 8px 12px; }
-  .nav-links { flex-direction: column; gap: 0.5rem; }
 }
