@@ -28,37 +28,20 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      text-align: center;
     }
 
     /* Background */
     .parallax-bg {
+      background: url('images/Mc-Accessories-logo.png') center/cover no-repeat;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      z-index: -1;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      z-index: 1;
       animation: bgZoom 20s ease-in-out infinite alternate;
-      background-image: url('images/Mc-Accessories-logo-desktop.png');
     }
     @keyframes bgZoom {
       from { transform: scale(1); }
       to { transform: scale(1.08); }
-    }
-
-    @media (max-width: 768px) {
-      .parallax-bg {
-        background-image: url('images/Mc-Accessories-logo-mobile.png');
-        background-size: contain;
-        background-position: top center;
-        animation: moveBg 10s linear infinite alternate;
-      }
-      @keyframes moveBg {
-        from { background-position: left center; }
-        to { background-position: right center; }
-      }
     }
 
     /* Brand Text */
@@ -67,22 +50,24 @@
       top: 20%;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 2;
+      text-align: center;
+      z-index: 3;
     }
     .brand-text h1 {
       font-family: 'Audiowide', cursive;
       font-size: 4rem;
-      color: #FFD700;
-      text-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
+      color: #FFD700; /* Bright yellow */
       letter-spacing: 3px;
       margin-bottom: 15px;
+      opacity: 0;
       animation: fadeDown 1.5s ease-out forwards;
     }
     .brand-text p {
       font-family: 'Rajdhani', sans-serif;
       font-size: 1.3rem;
-      text-shadow: 0 0 6px rgba(255,215,0,0.5);
+      color: #f0f0f0;
       margin-bottom: 25px;
+      opacity: 0;
       animation: fadeDown 1.5s ease-out 0.5s forwards;
     }
     @keyframes fadeDown {
@@ -90,39 +75,54 @@
       to { transform: translateY(0); opacity: 1; }
     }
 
-    /* Shop Now Button - Yellow with subtle glow */
-    .shop-btn {
+    /* Shop Now Button - Clean Yellow */
+    .shop-btn, .cta-btn, .btn {
       display: inline-block;
       padding: 12px 25px;
-      background: linear-gradient(90deg, #FFD700, #FFA500);
+      background: linear-gradient(90deg, #FFD700, #FFC107); /* subtle yellow */
       color: #111;
       font-weight: bold;
       border-radius: 8px;
       text-decoration: none;
       font-size: 1.1rem;
-      box-shadow: 0 0 10px #FFD700, 0 0 20px #FFA500;
       transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: none;
     }
-    .shop-btn:hover {
+    .shop-btn:hover, .cta-btn:hover, .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 15px #FFD700, 0 0 25px #FFA500;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); /* subtle hover */
     }
 
-    /* Top-right name */
+    /* Mafia Cars Top-right Name */
     .top-right-name {
       position: absolute;
       top: 20px;
       right: 20px;
       font-family: 'Orbitron', sans-serif;
-      color: #fff;
+      color: #fff; /* white */
       font-size: 1.5rem;
       letter-spacing: 1px;
       text-shadow: 1px 1px 4px black;
       z-index: 5;
     }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
+      .brand-text p { font-size: 1rem; }
+      .shop-btn { padding: 10px 20px; font-size: 1rem; }
+      .parallax-bg {
+        background: url('images/Mc-Accessories-logo-mobile.png') top center/contain no-repeat;
+        background-color: #000;
+        animation: none;
+        position: fixed;
+      }
+    }
+
   </style>
 </head>
 <body>
+  <!-- Hero Section -->
   <div class="hero">
     <!-- Background -->
     <div class="parallax-bg"></div>
