@@ -23,18 +23,34 @@ body {
 
 /* Background */
 .parallax-bg {
-  background: url('images/Mc-Accessories-logo.png') center/cover no-repeat;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   animation: bgZoom 20s ease-in-out infinite alternate;
-}
-@keyframes bgZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
+  /* Correct path to your desktop image */
+  background-image: url('images/Mc-Accessories-logo-desktop.png');
 }
 
+/* Mobile background */
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-image: url('images/Mc-Accessories-logo-mobile.png');
+    background-size: contain;
+    background-position: top center;
+    animation: moveBg 10s linear infinite alternate;
+  }
+
+  @keyframes moveBg {
+    from { background-position: left center; }
+    to { background-position: right center; }
+  }
+}
 /* Car */
 .car-container {
   position: relative;
