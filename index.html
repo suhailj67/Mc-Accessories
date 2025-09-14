@@ -106,18 +106,29 @@
       z-index: 5;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
-      .brand-text p { font-size: 1rem; }
-      .shop-btn { padding: 10px 20px; font-size: 1rem; }
-      .parallax-bg {
-        background: url('images/Mc-Accessories-logo-mobile.png') top center/contain no-repeat;
-        background-color: #000;
-        animation: none;
-        position: fixed;
-      }
-    }
+   @media (max-width: 768px) {
+  .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
+  .brand-text p { font-size: 1rem; }
+  .shop-btn { padding: 10px 20px; font-size: 1rem; }
+  .car { width: 70%; }
+
+  /* Mobile Background */
+  .parallax-bg {
+    background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: moveBg 15s linear infinite alternate;
+  }
+
+  @keyframes moveBg {
+    from { background-position: center left; }
+    to   { background-position: center right; }
+  }
+}
+
 
   </style>
 </head>
