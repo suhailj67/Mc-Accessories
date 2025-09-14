@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <picture class="parallax-bg">
-  <!-- Mobile (portrait) -->
-  <source media="(max-width: 768px)" srcset="images/Mc-Accessories-logo-mobile.png">
-  <!-- Desktop (landscape) -->
-    <source media="(max-width: 768px)" srcset="images/Mc-Accessories-logo-mobile.png">
-  <img src="images/Mc-Accessories-logo-desktop.png" alt="Car Background">
-</picture>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mc Accessories</title>
@@ -26,7 +18,7 @@
     <div class="light-trails"></div>
     <div class="pulse"></div>
 
-    <!-- Car placeholder (you can add an <img> here if needed) -->
+    <!-- Car placeholder -->
     <div class="car-container"></div>
 
     <!-- Text Intro -->
@@ -36,8 +28,15 @@
       <a href="explore.html" class="shop-btn">Shop Now</a>
     </div>
 
-    <!-- Logo (optional add image here later) -->
-    <div class="logo"></div>
+    <!-- Responsive Logo -->
+    <div class="logo">
+      <picture>
+        <!-- Mobile -->
+        <source media="(max-width: 768px)" srcset="images/Mc-Accessories-logo-mobile.png">
+        <!-- Desktop -->
+        <img src="images/Mc-Accessories-logo-desktop.png" alt="MC Accessories Logo">
+      </picture>
+    </div>
   </div>
 
   <script src="script.js"></script>
