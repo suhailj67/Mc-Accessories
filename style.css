@@ -82,8 +82,8 @@ body {
 .brand-text h1 {
   font-family: 'Audiowide', cursive;
   font-size: 4rem;
-  color: #FFD700;
-  text-shadow: 2px 2px 12px rgba(255, 215, 0, 0.7);
+  color: #FFD700; /* Bright yellow */
+  text-shadow: 0 0 12px #FFD700, 0 0 24px #FFA500;
   letter-spacing: 3px;
   margin-bottom: 15px;
   opacity: 0;
@@ -106,18 +106,18 @@ body {
 .shop-btn, .cta-btn, .btn {
   display: inline-block;
   padding: 12px 25px;
-  background: linear-gradient(90deg, #FFD700, #FFC107);
-  color: #000;
+  background: linear-gradient(90deg, #FFD700, #FFA500); /* yellow gradient */
+  color: #111; /* dark text for contrast */
   font-weight: bold;
   border-radius: 8px;
   text-decoration: none;
   font-size: 1.1rem;
-  box-shadow: 0 0 15px #FFD700;
+  box-shadow: 0 0 20px #FFD700, 0 0 35px #FFA500;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .shop-btn:hover, .cta-btn:hover, .btn:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px #FFD700;
+  box-shadow: 0 0 25px #FFD700, 0 0 45px #FFA500;
 }
 
 /* Logo */

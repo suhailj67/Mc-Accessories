@@ -11,7 +11,31 @@
       font-family: "Rajdhani", sans-serif;
       background: #f5f5f5;
       color: #222;
-      scroll-behavior: smooth; /* 👈 smooth scrolling */
+      scroll-behavior: smooth;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Scroll Progress Bar */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(0,0,0,0.1);
+      z-index: 2000;
+    }
+    #progress-bar {
+      height: 4px;
+      width: 0;
+      background: #ff0000;
+      transition: width 0.1s ease;
     }
 
     /* Header */
@@ -52,11 +76,13 @@
       text-decoration: none;
       color: #222;
       font-weight: bold;
-      transition: color 0.3s;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 4px;
     }
 
-    nav a:hover {
+    nav a.active {
       color: #ff0000;
+      border-bottom: 2px solid #ff0000;
     }
 
     /* Products grid */
@@ -75,13 +101,28 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: cardFadeUp 0.8s ease forwards;
     }
 
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    @keyframes cardFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
+    /* Delay effect for staggered animation */
+    .product-card:nth-child(1) { animation-delay: 0.3s; }
+    .product-card:nth-child(2) { animation-delay: 0.6s; }
+    .product-card:nth-child(3) { animation-delay: 0.9s; }
+    .product-card:nth-child(4) { animation-delay: 1.2s; }
+    .product-card:nth-child(5) { animation-delay: 1.5s; }
 
     .product-card img {
       max-width: 100%;
@@ -116,6 +157,11 @@
   </style>
 </head>
 <body>
+  <!-- Scroll Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
   <header>
     <h1>Mc Accessories</h1>
     <a href="index.html">← Back to Home</a>
@@ -158,6 +204,15 @@
     </div>
   </section>
 
+  <section id="mats" class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250x150" alt="Floor Mats">
+      <h2>Luxury Floor Mats</h2>
+      <p>Durable & Premium Finish</p>
+      <a href="#" class="cta-btn">Buy Now</a>
+    </div>
+  </section>
+
   <section id="steering" class="products">
     <div class="product-card">
       <img src="https://via.placeholder.com/250x150" alt="Steering Cover">
@@ -167,14 +222,35 @@
     </div>
   </section>
 
-  <section id="mats" class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/250x150" alt="Floor Mats">
-      <h2>Luxury Floor Mats</h2>
-      <p>Durable & Premium Finish</p>
-      <a href="#" class="cta-btn">Buy Now</a>
-    </div>
-  </section>
+  <script>
+    // Highlight active navbar link while scrolling
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+
+      // Scroll Progress Bar update
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      document.getElementById("progress-bar").style.width = scrollPercent + "%";
+    });
+  </script>
 </body>
 </html>
 
