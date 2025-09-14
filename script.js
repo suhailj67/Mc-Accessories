@@ -20,3 +20,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+document.querySelector('.shop-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.body.style.overflow = "auto";
+  const products = document.querySelector('#products');
+  products.scrollIntoView({ behavior: 'smooth' });
+  products.classList.add('highlight');
+  setTimeout(() => products.classList.remove('highlight'), 2000);
+});

@@ -4,35 +4,177 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore - Mc Accessories</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Rajdhani", sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      scroll-behavior: smooth; /* 👈 smooth scrolling */
+    }
+
+    /* Header */
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: "Orbitron", sans-serif;
+      margin: 0;
+    }
+
+    header a {
+      color: #ff0000;
+      text-decoration: none;
+      margin-top: 8px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      padding: 12px 20px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff0000;
+    }
+
+    /* Products grid */
+    .products {
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .product-card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .product-card h2 {
+      font-family: "Orbitron", sans-serif;
+      margin: 10px 0;
+    }
+
+    .product-card p {
+      color: #555;
+      margin: 0 0 15px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff0000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #cc0000;
+    }
+  </style>
 </head>
 <body>
-  <div class="explore-page">
-    <header>
-      <h1>Explore Our Accessories</h1>
-      <a href="index.html" class="btn">⬅ Back to Home</a>
-    </header>
+  <header>
+    <h1>Mc Accessories</h1>
+    <a href="index.html">← Back to Home</a>
+  </header>
 
-    <section class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Car Cover">
-        <h2>Premium Car Cover</h2>
-        <p>Protects your car in style</p>
-      </div>
+  <!-- Sticky Navbar -->
+  <nav>
+    <a href="#covers">Covers</a>
+    <a href="#seats">Seat Covers</a>
+    <a href="#lights">Lights</a>
+    <a href="#mats">Floor Mats</a>
+    <a href="#steering">Steering</a>
+  </nav>
 
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Car Seat Covers">
-        <h2>Leather Seat Covers</h2>
-        <p>Comfort + Luxury</p>
-      </div>
+  <!-- Products Section -->
+  <section id="covers" class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250x150" alt="Car Cover">
+      <h2>Premium Car Cover</h2>
+      <p>Protects your car in style</p>
+      <a href="#" class="cta-btn">Buy Now</a>
+    </div>
+  </section>
 
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="LED Lights">
-        <h2>LED Light Kit</h2>
-        <p>Make your car glow at night</p>
-      </div>
-    </section>
-  </div>
+  <section id="seats" class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250x150" alt="Car Seat Covers">
+      <h2>Leather Seat Covers</h2>
+      <p>Comfort + Luxury</p>
+      <a href="#" class="cta-btn">Buy Now</a>
+    </div>
+  </section>
+
+  <section id="lights" class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250x150" alt="LED Lights">
+      <h2>LED Light Kit</h2>
+      <p>Make your car glow at night</p>
+      <a href="#" class="cta-btn">Buy Now</a>
+    </div>
+  </section>
+
+  <section id="steering" class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250x150" alt="Steering Cover">
+      <h2>Steering Cover</h2>
+      <p>Grip & Style</p>
+      <a href="#" class="cta-btn">Buy Now</a>
+    </div>
+  </section>
+
+  <section id="mats" class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250x150" alt="Floor Mats">
+      <h2>Luxury Floor Mats</h2>
+      <p>Durable & Premium Finish</p>
+      <a href="#" class="cta-btn">Buy Now</a>
+    </div>
+  </section>
 </body>
 </html>
-/html>
+
