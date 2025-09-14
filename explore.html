@@ -134,23 +134,23 @@
       margin: 0 0 15px;
     }
 
-    /* Shop Now Button updated to yellow */
+    /* Clean Yellow Buy Now / Shop Now Buttons */
     .cta-btn {
       display: inline-block;
       padding: 12px 25px;
-      background: linear-gradient(90deg, #FFD700, #FFA500); /* yellow gradient */
+      background: #FFD700; /* solid yellow */
       color: #000; /* dark text */
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
-      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 0 20px #FFD700, 0 0 35px #FFA500;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: none; /* remove glow */
     }
 
     .cta-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 25px #FFD700, 0 0 45px #FFA500;
-      background: linear-gradient(90deg, #FFC700, #FFB500);
+      background: #FFC700; /* slightly brighter on hover */
+      box-shadow: none; /* keep clean */
     }
 
   </style>
