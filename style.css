@@ -114,3 +114,6 @@ body {
     animation: none; /* no heavy zoom on mobile */
   }
 }
+html {
+  scroll-behavior: smooth;
+}
