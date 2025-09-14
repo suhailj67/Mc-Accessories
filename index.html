@@ -145,7 +145,30 @@
       <a href="explore.html" class="shop-btn">Shop Now</a>
     </div>
 
-    <div class="top-right-name">Mafia Cars</div>
+   <!-- Top-right name -->
+<div class="top-right-name">Mafia Cars</div>
+
+<style>
+  /* Top-right name styling */
+  .top-right-name {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff; /* changed to white */
+    font-size: 1.2rem; /* smaller, professional size */
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px black;
+    z-index: 5;
+  }
+
+  @media (max-width: 768px) {
+    .top-right-name {
+      font-size: 1rem; /* mobile-friendly */
+    }
+  }
+</style>
+
   </div>
 </body>
 </html>
