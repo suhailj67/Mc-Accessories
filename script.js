@@ -1,4 +1,3 @@
-
 // Glow effect for car when pulse animation hits
 const car = document.querySelector('.car');
 const pulse = document.querySelector('.pulse');
@@ -11,3 +10,13 @@ if (car && pulse) {
     }, 800);
   });
 }
+
+// Smooth scroll for "Shop Now"
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});

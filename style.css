@@ -1,84 +1,73 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: #0a0a0a;
-  overflow: hidden;
   font-family: 'Orbitron', sans-serif;
   color: white;
+  overflow-x: hidden;
+  line-height: 1.5;
 }
 
-/* Background Parallax */
+/* ---------------- Hero ---------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background */
 .parallax-bg {
-  background: url('Mc-Accessories-logo.png') center/cover no-repeat;
-  position: absolute;
-  width: 110%;
-  height: 110%;
-  top: -5%;
-  left: -5%;
+  background: url('images/Mc-Accessories-logo.png') center/cover no-repeat;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: 1;
-  animation: parallaxMove 15s infinite alternate ease-in-out;
+  animation: bgZoom 20s ease-in-out infinite alternate;
 }
-
-@keyframes parallaxMove {
-  0% { transform: translate(0,0) scale(1.05); }
-  100% { transform: translate(-30px,-30px) scale(1.1); }
-}
-
-/* Light Trails */
-.light-trails {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(0,255,255,0.2), transparent, rgba(255,0,255,0.2));
-  z-index: 2;
-  animation: trails 6s infinite linear;
-  mix-blend-mode: screen;
-}
-
-@keyframes trails {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(50%); }
+@keyframes bgZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
 }
 
 /* Car */
 .car-container {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-
 .car {
   max-width: 800px;
   width: 80%;
   filter: drop-shadow(0 0 25px #00f);
-  transition: filter 0.3s ease-in-out;
+  animation: fadeUp 1.5s ease-out forwards;
+  opacity: 0;
+}
+@keyframes fadeUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-/* Energy Pulse */
+/* Pulse Effect */
 .pulse {
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0,255,255,0.3), transparent);
-  z-index: 4;
-  animation: pulseWave 8s infinite;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(0,255,255,0.15) 20%, transparent 70%);
+  animation: pulse 2s infinite;
+  z-index: 1;
 }
-
-@keyframes pulseWave {
-  0%, 90%, 100% { transform: translateX(-100%); }
-  45% { transform: translateX(100%); }
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0.8; }
 }
 
 /* Brand Text */
@@ -88,68 +77,104 @@ body {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  z-index: 6;
-  animation: fadeUp 2s ease-out forwards;
+  z-index: 3;
 }
-
 .brand-text h1 {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: cyan;
-  text-transform: uppercase;
-  text-shadow: 0 0 20px cyan, 0 0 40px #00f;
+  font-family: 'Audiowide', cursive;
+  font-size: 4rem;
+  color: #FFD700;
+  text-shadow: 2px 2px 12px rgba(255, 215, 0, 0.7);
   letter-spacing: 3px;
   margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeDown 1.5s ease-out forwards;
 }
-
 .brand-text p {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.2rem;
-  color: #ddd;
-  text-shadow: 0 0 10px rgba(0,255,255,0.4);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   margin-bottom: 25px;
+  opacity: 0;
+  animation: fadeDown 1.5s ease-out 0.5s forwards;
+}
+@keyframes fadeDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-.shop-btn {
+/* Buttons */
+.shop-btn, .cta-btn, .btn {
+  display: inline-block;
   padding: 12px 25px;
-  background: linear-gradient(90deg, cyan, #00f);
-  color: black;
+  background: linear-gradient(90deg, #FFD700, #FFC107);
+  color: #000;
   font-weight: bold;
   border-radius: 8px;
   text-decoration: none;
   font-size: 1.1rem;
-  box-shadow: 0 0 15px cyan;
+  box-shadow: 0 0 15px #FFD700;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.shop-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px #0ff, 0 0 50px #00f;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translate(-50%, 40px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+.shop-btn:hover, .cta-btn:hover, .btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px #FFD700;
 }
 
 /* Logo */
 .logo {
   position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
+  top: 20px; left: 20px;
+  max-width: 180px;
+  z-index: 4;
   opacity: 0;
-  animation: fadeInLogo 3s forwards 6s;
+  animation: fadeIn 2s ease-out 2s forwards;
 }
+.logo img { width: 100%; filter: drop-shadow(0 0 20px cyan); }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.logo img {
-  width: 200px;
-  filter: drop-shadow(0 0 20px cyan);
+/* ---------------- Products ---------------- */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: #111;
 }
-
-@keyframes fadeInLogo {
-  to { opacity: 1; }
+.product-card {
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.product-card h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+.product-card p { font-size: 0.95rem; color: #bbb; }
 
+/* ---------------- Explore Page ---------------- */
+.explore-page { padding: 2rem; }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+header h1 { font-size: 1.8rem; }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
+  .brand-text p { font-size: 1rem; }
+  .shop-btn { padding: 10px 20px; font-size: 1rem; }
+  .car-container .car { width: 90%; }
+  .parallax-bg {
+    background: url('images/Mc-Accessories-logo-mobile.png') top center/contain no-repeat;
+    background-color: #000;
+    animation: none;
+    position: fixed;
+  }
+}
