@@ -107,14 +107,8 @@
     }
 
     @keyframes cardFadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Delay effect for staggered animation */
@@ -140,20 +134,25 @@
       margin: 0 0 15px;
     }
 
+    /* Shop Now Button updated to yellow */
     .cta-btn {
       display: inline-block;
-      padding: 10px 20px;
-      background: #ff0000;
-      color: #fff;
+      padding: 12px 25px;
+      background: linear-gradient(90deg, #FFD700, #FFA500); /* yellow gradient */
+      color: #000; /* dark text */
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
-      transition: background 0.3s ease;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 20px #FFD700, 0 0 35px #FFA500;
     }
 
     .cta-btn:hover {
-      background: #cc0000;
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px #FFD700, 0 0 45px #FFA500;
+      background: linear-gradient(90deg, #FFC700, #FFB500);
     }
+
   </style>
 </head>
 <body>
@@ -253,4 +252,3 @@
   </script>
 </body>
 </html>
-
