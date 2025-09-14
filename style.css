@@ -8,74 +8,112 @@
 body {
   min-height: 100vh;
   background: #0a0a0a;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   color: white;
-  overflow-x: hidden;
+  overflow-x: hidden; /* prevent sideways scroll */
 }
 
-/* ---------------- Hero Background ---------------- */
+/* ---------------- Background ---------------- */
 .parallax-bg {
   background: url('images/Mc-Accessories-logo.png') center/cover no-repeat;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1;
-  animation: subtleZoom 25s infinite alternate ease-in-out;
+  transform: scale(1);
+  animation: bgZoom 20s ease-in-out infinite alternate;
 }
 
-@keyframes subtleZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
+@keyframes bgZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
 }
 
-/* ---------------- Brand Text Panel ---------------- */
+/* ---------------- Car ---------------- */
+.car-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.car {
+  max-width: 800px;
+  width: 80%;
+  filter: drop-shadow(0 0 25px #00f);
+  animation: fadeUp 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------------- Brand Text ---------------- */
 .brand-text {
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
   text-align: center;
-  background: rgba(15, 15, 15, 0.65);
-  padding: 25px 35px;
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  max-width: 90%;
+  z-index: 3;
 }
 
 .brand-text h1 {
   font-family: 'Audiowide', cursive;
-  font-size: 3rem;
+  font-size: 4rem;
   color: #FFD700;
-  margin-bottom: 12px;
-  letter-spacing: 2px;
+  text-shadow: 2px 2px 12px rgba(255, 215, 0, 0.7);
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeDown 1.5s ease-out forwards;
 }
 
 .brand-text p {
-  font-size: 1.1rem;
-  color: #ddd;
-  margin-bottom: 20px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  margin-bottom: 25px;
+  opacity: 0;
+  animation: fadeDown 1.5s ease-out 0.5s forwards;
 }
 
-/* ---------------- Shop Button ---------------- */
+@keyframes fadeDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------------- Button ---------------- */
 .shop-btn {
-  padding: 12px 30px;
-  border: 2px solid #FFD700;
-  color: #FFD700;
-  background: transparent;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 1rem;
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #FFD700, #FFC107);
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  box-shadow: 0 0 15px #FFD700;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out 1s forwards;
 }
 
 .shop-btn:hover {
-  background: #FFD700;
-  color: #000;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px #FFD700;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ---------------- Logo ---------------- */
@@ -83,37 +121,38 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  max-width: 160px;
+  max-width: 180px;
   z-index: 4;
+  opacity: 0;
+  animation: fadeIn 2s ease-out 2s forwards;
 }
 
 .logo img {
   width: 100%;
   height: auto;
   display: block;
+  filter: drop-shadow(0 0 20px cyan);
 }
 
 /* ---------------- Responsive ---------------- */
 @media (max-width: 768px) {
-  .brand-text {
-    padding: 20px;
-    top: 25%;
-  }
   .brand-text h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    letter-spacing: 1.5px;
   }
   .brand-text p {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   .shop-btn {
-    padding: 10px 22px;
-    font-size: 0.95rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  .car-container .car {
+    width: 90%;
   }
   .parallax-bg {
-    background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
-    animation: none; /* no heavy zoom on mobile */
+    background: url('images/Mc-Accessories-logo-mobile.png') top center/contain no-repeat;
+    position: fixed;
+    animation: none; /* simpler on mobile */
   }
-}
-html {
-  scroll-behavior: smooth;
 }
