@@ -82,8 +82,8 @@ body {
 .brand-text h1 {
   font-family: 'Audiowide', cursive;
   font-size: 4rem;
-  color: #FFD700 !important; /* Yellow */
-  text-shadow: 0 0 5px #000000, 0 0 10px #000000 !important; /* subtle black glow */
+  color: #FFD700; /* Bright yellow */
+  text-shadow: 0 0 12px #FFD700, 0 0 24px #FFA500;
   letter-spacing: 3px;
   margin-bottom: 15px;
   opacity: 0;
@@ -106,46 +106,18 @@ body {
 .shop-btn, .cta-btn, .btn {
   display: inline-block;
   padding: 12px 25px;
-  background: linear-gradient(90deg, #FFD700, #FFA500);
-  color: #111;
+  background: linear-gradient(90deg, #FFD700, #FFA500); /* yellow gradient */
+  color: #111; /* dark text for contrast */
   font-weight: bold;
   border-radius: 8px;
   text-decoration: none;
   font-size: 1.1rem;
   box-shadow: 0 0 20px #FFD700, 0 0 35px #FFA500;
   transition: transform 0.3s, box-shadow 0.3s;
-  position: relative; /* for car animation */
-  overflow: hidden;
 }
 .shop-btn:hover, .cta-btn:hover, .btn:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 25px #FFD700, 0 0 45px #FFA500;
-}
-
-/* Car animation inside button */
-.shop-btn .btn-text {
-  display: inline-block;
-  transition: opacity 0.3s;
-}
-.shop-btn .btn-car {
-  position: absolute;
-  left: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.shop-btn.animate .btn-text {
-  opacity: 0;
-}
-.shop-btn.animate .btn-car {
-  opacity: 1;
-  animation: carRun 1s linear forwards;
-}
-@keyframes carRun {
-  from { left: -30px; }
-  to { left: 100%; }
 }
 
 /* Logo */
@@ -160,7 +132,7 @@ body {
 .logo img { width: 100%; filter: drop-shadow(0 0 20px cyan); }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* Products */
+/* ---------------- Products ---------------- */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -183,7 +155,7 @@ body {
 .product-card h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 .product-card p { font-size: 0.95rem; color: #bbb; }
 
-/* Explore Page */
+/* ---------------- Explore Page ---------------- */
 .explore-page { padding: 2rem; }
 header {
   display: flex;
@@ -193,7 +165,7 @@ header {
 }
 header h1 { font-size: 1.8rem; }
 
-/* Responsive */
+/* ---------------- Responsive ---------------- */
 @media (max-width: 768px) {
   .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
   .brand-text p { font-size: 1rem; }
@@ -206,3 +178,17 @@ header h1 { font-size: 1.8rem; }
     position: fixed;
   }
 }
+.highlight {
+  animation: glow 1.5s ease-in-out 2;
+}
+.brand-text h1 {
+  font-family: 'Audiowide', cursive;
+  font-size: 4rem;
+  color: #FFD700 !important; /* Yellow */
+  text-shadow: 0 0 12px #FFD700, 0 0 24px #FFA500 !important;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeDown 1.5s ease-out forwards;
+}
+
