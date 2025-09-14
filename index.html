@@ -7,30 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>Mc Accessories</h1>
-  </header>
+  <div class="hero">
+    <div class="parallax-bg"></div>
+    <div class="light-trails"></div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="car"></div>
+    <!-- 🔹 Headline Added -->
+    <h1 class="hero-title">Mc Accessories</h1>
+    <div class="car-container">
+    </div>
     <div class="pulse"></div>
-    <a href="explore.html" class="btn">Shop Now</a>
-  </section>
+    <div class="logo">
+      <img src="Mc-Accessories-logo.png" alt="Mc Accessories Logo">
+    </div>
 
-  <!-- Script -->
-  <script>
-    // Glow effect for car when pulse animation hits
-    const car = document.querySelector('.car');
-    const pulse = document.querySelector('.pulse');
+    <!-- 🔹 CTA button fixed -->
+    <div class="cta">
+      <a href="explore.html" class="btn">Shop Now</a>
+    </div>
+  </div>
 
-    pulse.addEventListener('animationiteration', () => {
-      car.style.filter = "drop-shadow(0 0 40px cyan)";
-      setTimeout(() => {
-        car.style.filter = "drop-shadow(0 0 25px #00f)";
-      }, 800);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
