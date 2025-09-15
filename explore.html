@@ -21,6 +21,18 @@
       to { opacity: 1; }
     }
 
+    /* Product fade-up animation */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* Scroll Progress Bar */
     #progress-container {
       position: fixed;
@@ -112,12 +124,15 @@
       text-align: center;
       opacity: 0;
       transform: translateY(30px);
-      transition: transform 0.6s ease, opacity 0.6s ease;
+      animation: fadeUp 0.8s ease forwards;
     }
-    .product-card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* Stagger effect */
+    .product-card:nth-child(1) { animation-delay: 0.2s; }
+    .product-card:nth-child(2) { animation-delay: 0.4s; }
+    .product-card:nth-child(3) { animation-delay: 0.6s; }
+    .product-card:nth-child(4) { animation-delay: 0.8s; }
+    .product-card:nth-child(5) { animation-delay: 1s; }
+
     .product-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 8px 18px rgba(0,0,0,0.15);
@@ -247,7 +262,6 @@
   <script>
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll("nav a");
-    const cards = document.querySelectorAll(".product-card");
     const backToTop = document.getElementById("back-to-top");
 
     window.addEventListener("scroll", () => {
@@ -272,14 +286,6 @@
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPercent = (scrollTop / scrollHeight) * 100;
       document.getElementById("progress-bar").style.width = scrollPercent + "%";
-
-      // Reveal cards on scroll
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          card.classList.add("show");
-        }
-      });
 
       // Back to Top button
       if (window.scrollY > 400) {
