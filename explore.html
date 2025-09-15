@@ -9,21 +9,40 @@
     body {
       margin: 0;
       font-family: "Rajdhani", sans-serif;
-      background: 
-        linear-gradient(0deg, rgba(255,255,255,0.85), rgba(255,255,255,0.85)), 
-        url("Mc-Accessories-b.png"); /* ✅ your background */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #111; /* ✅ darker text for light background */
+      color: #111; /* darker text for readability */
       scroll-behavior: smooth;
       opacity: 0;
       animation: fadeIn 1s ease forwards;
+      position: relative;
+      min-height: 100vh;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
+    }
+
+    /* Animated background with overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(0deg, rgba(255,255,255,0.25), rgba(255,255,255,0.25)), 
+        url("Mc-Accessories-b.png"); /* ✅ background image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -1;
+      animation: bgMove 30s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgMove {
+      from { background-position: center top; }
+      to { background-position: center bottom; }
     }
 
     /* Scroll Progress Bar */
@@ -195,7 +214,18 @@
     <a href="#steering">Steering</a>
   </nav>
 
-  <!-- Sections remain the same as your code ... -->
+  <!-- Example Section -->
+  <section id="covers">
+    <div class="section-headline"><h2>Covers</h2></div>
+    <div class="products">
+      <div class="product-card">
+        <img src="cover1.png" alt="Car Cover">
+        <h3>Car Cover</h3>
+        <p>Durable all-weather protection.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
+    </div>
+  </section>
 
   <script>
     // Fade animation for products
