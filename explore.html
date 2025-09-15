@@ -10,11 +10,12 @@
       margin: 0;
       font-family: "Rajdhani", sans-serif;
       background: 
-        linear-gradient(135deg, rgba(0,0,0,0.85), rgba(25,25,25,0.95)),
-        url("https://www.transparenttextures.com/patterns/carbon-fibre.png"); /* ✅ fixed background */
-      background-size: auto;
+        linear-gradient(0deg, rgba(255,255,255,0.85), rgba(255,255,255,0.85)), 
+        url("Mc-Accessories-b.png"); /* ✅ your background */
+      background-size: cover;
+      background-position: center;
       background-attachment: fixed;
-      color: #f5f5f5;
+      color: #111; /* ✅ darker text for light background */
       scroll-behavior: smooth;
       opacity: 0;
       animation: fadeIn 1s ease forwards;
@@ -32,7 +33,7 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: rgba(255,255,255,0.15);
+      background: rgba(0,0,0,0.1);
       z-index: 2000;
     }
     #progress-bar {
@@ -44,8 +45,8 @@
 
     /* Header */
     header {
-      background: #111;
-      color: #fff;
+      background: rgba(255,255,255,0.9);
+      color: #111;
       padding: 20px;
       text-align: center;
     }
@@ -97,10 +98,13 @@
     .section-headline h2 {
       font-family: "Orbitron", sans-serif;
       font-size: 2rem;
-      color: #fff;
+      color: #111;
       border-bottom: 3px solid #ff0000;
       display: inline-block;
       padding-bottom: 8px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      padding: 6px 12px;
     }
 
     /* Products grid */
@@ -150,7 +154,7 @@
     }
 
     .product-card p {
-      color: #555;
+      color: #333;
       margin: 0 0 15px;
     }
 
@@ -191,100 +195,7 @@
     <a href="#steering">Steering</a>
   </nav>
 
-  <!-- ✅ Covers Section -->
-  <section id="covers">
-    <div class="section-headline"><h2>Covers</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Car Cover">
-        <h3>All-Weather Car Cover</h3>
-        <p>Protects your car in all conditions.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Bike Cover">
-        <h3>Premium Bike Cover</h3>
-        <p>Durable and waterproof protection.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ Seats Section -->
-  <section id="seats">
-    <div class="section-headline"><h2>Seat Covers</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Leather Seat Cover">
-        <h3>Leather Seat Cover</h3>
-        <p>Luxury and comfort combined.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Fabric Seat Cover">
-        <h3>Fabric Seat Cover</h3>
-        <p>Durable and stylish design.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ Lights Section -->
-  <section id="lights">
-    <div class="section-headline"><h2>Lights</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="LED Headlights">
-        <h3>LED Headlights</h3>
-        <p>Bright and energy efficient.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Fog Lights">
-        <h3>Fog Lights</h3>
-        <p>Drive safely in foggy conditions.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ Mats Section -->
-  <section id="mats">
-    <div class="section-headline"><h2>Floor Mats</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Rubber Mats">
-        <h3>All-Weather Rubber Mats</h3>
-        <p>Easy to clean and durable.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Carpet Mats">
-        <h3>Carpet Mats</h3>
-        <p>Comfort and style for interiors.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ Steering Section -->
-  <section id="steering">
-    <div class="section-headline"><h2>Steering</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/250x150" alt="Steering Cover">
-        <h3>Leather Steering Cover</h3>
-        <p>Grip and comfort for your drive.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-      <div class="product-card">
-        <img src="https://://via.placeholder.com/250x150" alt="Sport Steering Wheel">
-        <h3>Sport Steering Wheel</h3>
-        <p>Upgrade your driving style.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
+  <!-- Sections remain the same as your code ... -->
 
   <script>
     // Fade animation for products

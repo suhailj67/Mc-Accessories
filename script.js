@@ -17,23 +17,3 @@ document.querySelector('.shop-btn').addEventListener('click', function(e) {
   products.classList.add('highlight');
   setTimeout(() => products.classList.remove('highlight'), 2000);
 });
-
-document.getElementById("shopNowBtn").addEventListener("click", function(e) {
-  e.preventDefault();
-
-  const lights = document.querySelectorAll(".headlight");
-  lights.forEach(light => {
-    light.classList.add("blink");
-  });
-
-  // After animation, redirect
-  setTimeout(() => {
-    window.location.href = "explore.html";
-  }, 1300);
-
-  // Reset blink class so it can play again on next click
-  setTimeout(() => {
-    lights.forEach(light => light.classList.remove("blink"));
-  }, 2000);
-});
-

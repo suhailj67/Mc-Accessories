@@ -219,35 +219,3 @@ header h1 { font-size: 1.8rem; }
   height: 100%;
   object-fit: cover;
 }
-
-/* Headlight glow */
-.headlight {
-  position: absolute;
-  top: 62%;             /* adjust vertically to match headlights */
-  width: 65px;
-  height: 65px;
-  background: rgba(255, 255, 200, 0.9);
-  border-radius: 50%;
-  filter: blur(20px);
-  opacity: 0.2;         /* faint idle glow always visible */
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
-}
-
-.headlight.left {
-  left: 27%;            /* adjust horizontally to match left headlight */
-}
-.headlight.right {
-  right: 27%;           /* adjust horizontally to match right headlight */
-}
-
-/* Blink effect */
-.blink {
-  animation: blinkLights 1.2s ease-in-out forwards;
-}
-
-@keyframes blinkLights {
-  0%, 100% { opacity: 0.2; }
-  25%, 75% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
