@@ -6,206 +6,199 @@
   <title>Explore - Mc Accessories</title>
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    /* --------------------
+       Base / Background
+       -------------------- */
+    :root{
+      --card-max-width: 320px;
+      --page-max-width: 1200px;
+      --overlay-alpha: 0.12; /* change to taste */
+    }
+
+    html,body { height: 100%; }
     body {
       margin: 0;
       font-family: "Rajdhani", sans-serif;
-      color: #111; /* darker text for readability */
+      color: #111;
       scroll-behavior: smooth;
       opacity: 0;
-      animation: fadeIn 1s ease forwards;
+      animation: fadeIn 0.9s ease forwards;
       position: relative;
       min-height: 100vh;
+      background: #fff; /* fallback while image loads */
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 
-    /* Animated background with overlay */
+    /* background layer (image + light overlay). Keep z-index behind everything */
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        linear-gradient(0deg, rgba(255,255,255,0.25), rgba(255,255,255,0.25)), 
-        url("Mc-Accessories-b.png"); /* ✅ background image */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      inset: 0 0 0 0;
       z-index: -1;
-      animation: bgMove 30s ease-in-out infinite alternate;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,var(--overlay-alpha)) 0%, rgba(255,255,255,var(--overlay-alpha)) 100%),
+        url("Mc-Accessories-b.png") center/cover no-repeat;
+      /* subtle slow vertical shift */
+      animation: bgMove 35s ease-in-out infinite alternate;
+      will-change: background-position;
     }
 
     @keyframes bgMove {
-      from { background-position: center top; }
-      to { background-position: center bottom; }
+      from { background-position: center 15%; }
+      to   { background-position: center 85%; }
     }
 
-    /* Scroll Progress Bar */
+    /* Add a thin darker vignette so edges remain readable on very bright images */
+    body::after{
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.00) 45%, rgba(0,0,0,0.04) 100%);
+    }
+
+    /* --------------------
+       Progress bar / header / nav
+       -------------------- */
     #progress-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 4px;
-      background: rgba(0,0,0,0.1);
+      background: rgba(0,0,0,0.06);
       z-index: 2000;
     }
-    #progress-bar {
-      height: 4px;
-      width: 0;
-      background: #ff0000;
-      transition: width 0.1s ease;
-    }
+    #progress-bar { height: 4px; width: 0; background: #ff0000; transition: width .12s linear; }
 
-    /* Header */
     header {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.88);
       color: #111;
       padding: 20px;
       text-align: center;
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
     }
+    header h1 { font-family: "Orbitron", sans-serif; margin: 0; letter-spacing: 0.5px; }
+    header a { color: #ff0000; text-decoration: none; display:inline-block; margin-top:8px; font-weight:700 }
 
-    header h1 {
-      font-family: "Orbitron", sans-serif;
-      margin: 0;
-    }
-
-    header a {
-      color: #ff0000;
-      text-decoration: none;
-      margin-top: 8px;
-      display: inline-block;
-      font-weight: bold;
-    }
-
-    /* Navbar */
     nav {
       position: sticky;
       top: 0;
-      background: #fff;
+      background: rgba(255,255,255,0.95);
       padding: 12px 20px;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 24px;
       z-index: 1000;
+      backdrop-filter: blur(6px);
+      font-weight:700;
     }
+    nav a { text-decoration: none; color: #222; padding-bottom: 4px; }
+    nav a.active { color: #ff0000; border-bottom: 2px solid #ff0000; }
 
-    nav a {
-      text-decoration: none;
-      color: #222;
-      font-weight: bold;
-      transition: color 0.3s, border-bottom 0.3s;
-      padding-bottom: 4px;
-    }
-
-    nav a.active {
-      color: #ff0000;
-      border-bottom: 2px solid #ff0000;
-    }
-
-    /* Section Headline */
-    .section-headline {
-      text-align: center;
-      margin: 60px 0 30px;
-    }
-    .section-headline h2 {
+    /* --------------------
+       Sections / Headline
+       -------------------- */
+    .section-headline { text-align: center; margin: 60px 0 28px; }
+    .section-headline h2{
       font-family: "Orbitron", sans-serif;
       font-size: 2rem;
       color: #111;
-      border-bottom: 3px solid #ff0000;
       display: inline-block;
-      padding-bottom: 8px;
-      background: rgba(255,255,255,0.7);
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.75);
       border-radius: 8px;
-      padding: 6px 12px;
+      border-bottom: 3px solid #ff0000;
     }
 
-    /* Products grid */
+    /* --------------------
+       Products grid — centered + limited card width
+       -------------------- */
     .products {
       padding: 0 20px 60px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 300px)); /* columns max at ~300px */
       gap: 20px;
-      max-width: 1200px;
-      margin: auto;
+      max-width: var(--page-max-width);
+      margin: 20px auto 60px;
+      justify-content: center; /* center grid when few items */
+      align-items: start;
     }
 
     .product-card {
+      max-width: var(--card-max-width);
+      width: 100%;
       background: #fff;
-      padding: 20px;
+      padding: 18px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 22px rgba(10,10,10,0.06);
       text-align: center;
       opacity: 0;
-      transform: translateY(20px);
-      transition: box-shadow 0.4s ease, transform 0.4s ease, background 0.4s ease;
+      transform: translateY(16px);
+      transition: box-shadow .35s ease, transform .35s ease, background .25s ease;
+      margin: 0 auto; /* center inside the grid cell */
     }
 
     .product-card:hover {
-      transform: translateY(-8px);
-      background: #fff8d1;
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(10,10,10,0.10);
     }
 
     .product-card img {
-      max-width: 100%;
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
       border-radius: 8px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg,#f0f0f0,#e9e9e9); /* visible when image missing */
     }
 
     .product-card h3 {
       font-family: "Rajdhani", sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin: 8px 0;
+      font-size: 1.05rem;
+      margin: 6px 0;
       color: #111;
     }
 
-    .product-card p {
-      color: #333;
-      margin: 0 0 15px;
-    }
+    .product-card p { color: #444; margin: 0 0 12px; font-size: .95rem; }
 
     .cta-btn {
       display: inline-block;
-      padding: 12px 25px;
-      background: #FFD700;
-      color: #000;
+      padding: 10px 20px;
+      background: #ffd100;
+      color: #111;
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.3s;
+      border-radius: 8px;
+      font-weight: 700;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
+    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.10); }
 
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      background: #FFC700;
+    /* Fade-up animation used by JS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: translateY(0) } }
+
+    /* Responsive tweaks */
+    @media (max-width:550px){
+      .product-card img{ height:120px; }
+      .section-headline h2{ font-size:1.5rem; padding:6px 10px; }
     }
   </style>
 </head>
 <body>
-  <!-- Scroll Progress Bar -->
-  <div id="progress-container">
-    <div id="progress-bar"></div>
-  </div>
+  <!-- Progress bar -->
+  <div id="progress-container"><div id="progress-bar"></div></div>
 
   <header>
     <h1>Mc Accessories</h1>
     <a href="index.html">← Back to Home</a>
   </header>
 
-  <!-- Sticky Navbar -->
   <nav>
     <a href="#covers">Covers</a>
     <a href="#seats">Seat Covers</a>
@@ -214,53 +207,61 @@
     <a href="#steering">Steering</a>
   </nav>
 
-  <!-- Example Section -->
   <section id="covers">
     <div class="section-headline"><h2>Covers</h2></div>
+
     <div class="products">
+      <!-- Example product cards. Replace placeholder URLs with your real images (e.g. images/cover1.jpg) -->
       <div class="product-card">
-        <img src="cover1.png" alt="Car Cover">
-        <h3>Car Cover</h3>
+        <img src="https://via.placeholder.com/380x150?text=Car+Cover" alt="Car Cover">
+        <h3>All-Weather Car Cover</h3>
         <p>Durable all-weather protection.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Bike+Cover" alt="Bike Cover">
+        <h3>Premium Bike Cover</h3>
+        <p>Durable and waterproof protection.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Seat+Cover" alt="Seat Cover">
+        <h3>Leather Seat Cover</h3>
+        <p>Luxury and comfort combined.</p>
         <a href="#" class="cta-btn">Shop Now</a>
       </div>
     </div>
   </section>
 
   <script>
-    // Fade animation for products
-    function animateProducts(sectionId) {
+    // animate visible product cards with small stagger
+    function animateProducts(sectionId){
       const section = document.getElementById(sectionId);
-      if (!section) return;
+      if(!section) return;
       const cards = section.querySelectorAll(".product-card");
-      cards.forEach((card, index) => {
-        card.style.opacity = "0";
-        card.style.transform = "translateY(30px)";
-        card.style.animation = "none";
-        setTimeout(() => {
-          card.style.animation = `fadeUp 0.8s ease forwards`;
-          card.style.animationDelay = `${index * 0.2}s`;
-        }, 50);
+      cards.forEach((card, i) => {
+        card.style.animation = `fadeUp .7s ease forwards`;
+        card.style.animationDelay = `${i * 0.12}s`;
       });
     }
 
-    window.addEventListener("load", () => {
-      animateProducts("covers");
-    });
+    window.addEventListener("load", () => { animateProducts("covers"); });
 
     document.querySelectorAll("nav a").forEach(link => {
       link.addEventListener("click", e => {
-        const targetId = link.getAttribute("href").replace("#", "");
-        setTimeout(() => animateProducts(targetId), 300);
+        const targetId = link.getAttribute("href").replace("#","");
+        setTimeout(()=> animateProducts(targetId), 250);
       });
     });
 
-    // Progress bar
+    // progress bar
     window.addEventListener("scroll", () => {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = (scrollTop / scrollHeight) * 100;
-      document.getElementById("progress-bar").style.width = scrollPercent + "%";
+      const percent = (scrollTop / (scrollHeight || 1)) * 100;
+      document.getElementById("progress-bar").style.width = percent + "%";
     });
   </script>
 </body>
