@@ -21,18 +21,6 @@
       to { opacity: 1; }
     }
 
-    /* Product fade-up animation */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* Scroll Progress Bar */
     #progress-container {
       position: fixed;
@@ -57,10 +45,12 @@
       padding: 20px;
       text-align: center;
     }
+
     header h1 {
       font-family: "Orbitron", sans-serif;
       margin: 0;
     }
+
     header a {
       color: #ff0000;
       text-decoration: none;
@@ -81,30 +71,18 @@
       gap: 25px;
       z-index: 1000;
     }
+
     nav a {
-      position: relative;
       text-decoration: none;
       color: #222;
       font-weight: bold;
+      transition: color 0.3s, border-bottom 0.3s;
       padding-bottom: 4px;
-      transition: color 0.3s;
     }
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0%;
-      height: 2px;
-      background: #ff0000;
-      transition: width 0.3s;
-    }
-    nav a:hover::after,
-    nav a.active::after {
-      width: 100%;
-    }
+
     nav a.active {
       color: #ff0000;
+      border-bottom: 2px solid #ff0000;
     }
 
     /* Products grid */
@@ -116,6 +94,7 @@
       max-width: 1200px;
       margin: auto;
     }
+
     .product-card {
       background: #fff;
       padding: 20px;
@@ -123,78 +102,63 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: center;
       opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 0.8s ease forwards;
+      transform: translateY(20px);
+      transition: box-shadow 0.4s ease, transform 0.4s ease, background 0.4s ease;
     }
-    /* Stagger effect */
-    .product-card:nth-child(1) { animation-delay: 0.2s; }
-    .product-card:nth-child(2) { animation-delay: 0.4s; }
-    .product-card:nth-child(3) { animation-delay: 0.6s; }
-    .product-card:nth-child(4) { animation-delay: 0.8s; }
-    .product-card:nth-child(5) { animation-delay: 1s; }
 
+    /* Hover Glow Effect */
     .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+      transform: translateY(-8px);
+      background: #fff8d1; /* soft yellow background */
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
     }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .product-card img {
       max-width: 100%;
       border-radius: 8px;
       margin-bottom: 15px;
     }
+
     .product-card h2 {
       font-family: "Orbitron", sans-serif;
       margin: 10px 0;
     }
+
     .product-card p {
       color: #555;
       margin: 0 0 15px;
     }
 
-    /* Buttons */
+    /* Clean Yellow Buy Now / Shop Now Buttons */
     .cta-btn {
       display: inline-block;
       padding: 12px 25px;
-      background: #FFD700;
-      color: #000;
+      background: #FFD700; /* solid yellow */
+      color: #000; /* dark text */
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
       transition: background 0.3s, transform 0.3s;
+      box-shadow: none; /* remove glow */
     }
+
     .cta-btn:hover {
       transform: translateY(-3px);
-      background: #FFC700;
-    }
-
-    /* Alternating backgrounds */
-    #covers, #lights, #steering { background: #fafafa; }
-    #seats, #mats { background: #fff; }
-
-    /* Back to Top */
-    #back-to-top {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #ff0000;
-      color: #fff;
-      font-size: 1.2rem;
-      padding: 10px 14px;
-      border-radius: 50%;
-      text-align: center;
-      display: none;
-      transition: opacity 0.3s;
-      z-index: 1500;
-    }
-    #back-to-top.show {
-      display: block;
-      opacity: 0.9;
+      background: #FFC700; /* slightly brighter on hover */
+      box-shadow: none; /* keep clean */
     }
   </style>
 </head>
 <body>
   <!-- Scroll Progress Bar -->
-  <div id="progress-container"><div id="progress-bar"></div></div>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
 
   <header>
     <h1>Mc Accessories</h1>
@@ -256,43 +220,41 @@
     </div>
   </section>
 
-  <!-- Back to Top Button -->
-  <a href="#" id="back-to-top">↑</a>
-
   <script>
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
-    const backToTop = document.getElementById("back-to-top");
+    // Function to trigger fade animation on product cards
+    function animateProducts(sectionId) {
+      const cards = document.querySelectorAll(`#${sectionId} .product-card`);
+      cards.forEach((card, index) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.animation = "none"; // reset
+        // re-trigger with stagger
+        setTimeout(() => {
+          card.style.animation = `fadeUp 0.8s ease forwards`;
+          card.style.animationDelay = `${index * 0.2}s`;
+        }, 50);
+      });
+    }
 
+    // Run once on page load
+    window.addEventListener("load", () => {
+      animateProducts("covers");
+    });
+
+    // Trigger on nav click
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", e => {
+        const targetId = link.getAttribute("href").replace("#", "");
+        setTimeout(() => animateProducts(targetId), 200); // wait for scroll
+      });
+    });
+
+    // Scroll progress bar
     window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 80;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active");
-        }
-      });
-
-      // Scroll Progress Bar update
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPercent = (scrollTop / scrollHeight) * 100;
       document.getElementById("progress-bar").style.width = scrollPercent + "%";
-
-      // Back to Top button
-      if (window.scrollY > 400) {
-        backToTop.classList.add("show");
-      } else {
-        backToTop.classList.remove("show");
-      }
     });
   </script>
 </body>
