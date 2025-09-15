@@ -57,7 +57,7 @@
       font-family: 'Audiowide', cursive;
       font-size: 4rem;
       color: #FFD700;
-      text-shadow: 0 0 12px #FFD700, 0 0 24px #FFA500;
+      text-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500; /* reduced glow */
       letter-spacing: 3px;
       margin-bottom: 15px;
       opacity: 0;
@@ -66,7 +66,7 @@
     .brand-text p {
       font-family: 'Rajdhani', sans-serif;
       font-size: 1.3rem;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      text-shadow: 0 0 4px rgba(255, 215, 0, 0.4); /* softer glow */
       margin-bottom: 25px;
       opacity: 0;
       animation: fadeDown 1.5s ease-out 0.5s forwards;
@@ -86,12 +86,12 @@
       border-radius: 8px;
       text-decoration: none;
       font-size: 1.1rem;
-      box-shadow: 0 0 15px #FFD700;
+      box-shadow: 0 0 6px #FFD700; /* softer glow */
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .shop-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px #FFD700;
+      box-shadow: 0 0 10px #FFD700; /* reduced hover glow */
     }
 
     /* Mafia Cars Top Right */
@@ -145,30 +145,8 @@
       <a href="explore.html" class="shop-btn">Shop Now</a>
     </div>
 
-   <!-- Top-right name -->
-<div class="top-right-name">Mafia Cars</div>
-
-<style>
-  /* Top-right name styling */
-  .top-right-name {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-family: 'Orbitron', sans-serif;
-    color: #fff; /* changed to white */
-    font-size: 1.2rem; /* smaller, professional size */
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 4px black;
-    z-index: 5;
-  }
-
-  @media (max-width: 768px) {
-    .top-right-name {
-      font-size: 1rem; /* mobile-friendly */
-    }
-  }
-</style>
-
+    <!-- Top-right name -->
+    <div class="top-right-name">Mafia Cars</div>
   </div>
 </body>
 </html>
