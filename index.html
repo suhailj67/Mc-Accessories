@@ -57,7 +57,7 @@
       font-family: 'Audiowide', cursive;
       font-size: 4rem;
       color: #FFD700;
-      text-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500; /* reduced glow */
+      text-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500;
       letter-spacing: 3px;
       margin-bottom: 15px;
       opacity: 0;
@@ -66,7 +66,7 @@
     .brand-text p {
       font-family: 'Rajdhani', sans-serif;
       font-size: 1.3rem;
-      text-shadow: 0 0 4px rgba(255, 215, 0, 0.4); /* softer glow */
+      text-shadow: 0 0 4px rgba(255, 215, 0, 0.4);
       margin-bottom: 25px;
       opacity: 0;
       animation: fadeDown 1.5s ease-out 0.5s forwards;
@@ -86,12 +86,12 @@
       border-radius: 8px;
       text-decoration: none;
       font-size: 1.1rem;
-      box-shadow: 0 0 6px #FFD700; /* softer glow */
+      box-shadow: 0 0 6px #FFD700;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .shop-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 10px #FFD700; /* reduced hover glow */
+      box-shadow: 0 0 10px #FFD700;
     }
 
     /* Mafia Cars Top Right */
@@ -129,8 +129,24 @@
       }
 
       body, .hero {
-        overflow: hidden; /* prevent scrolling */
+        overflow: hidden;
         height: 100vh;
+      }
+    }
+
+    /* iPhone/iOS fix: reduce glow only on Safari (WebKit) */
+    @supports (-webkit-touch-callout: none) {
+      .brand-text h1 {
+        text-shadow: 0 0 2px #FFD700, 0 0 4px #FFA500;
+      }
+      .brand-text p {
+        text-shadow: 0 0 2px rgba(255, 215, 0, 0.3);
+      }
+      .shop-btn {
+        box-shadow: 0 0 3px #FFD700;
+      }
+      .shop-btn:hover {
+        box-shadow: 0 0 6px #FFD700;
       }
     }
   </style>
