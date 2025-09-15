@@ -88,7 +88,6 @@
       font-size: 1.1rem;
       box-shadow: 0 0 6px #FFD700;
       transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
     }
     .shop-btn:hover {
       transform: translateY(-3px);
@@ -106,45 +105,6 @@
       letter-spacing: 1px;
       text-shadow: 1px 1px 4px black;
       z-index: 5;
-    }
-
-    /* Car Image */
-    .car-container {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      max-width: 700px;
-      z-index: 2;
-    }
-    .car-container img {
-      width: 100%;
-      opacity: 0.85;
-    }
-
-    /* Headlight Blink Effect */
-    .headlight {
-      position: absolute;
-      top: 50%;
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 200, 0.8);
-      border-radius: 50%;
-      filter: blur(15px);
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-    .headlight.left { left: 30%; }
-    .headlight.right { right: 30%; }
-
-    .blink {
-      animation: blinkLights 1s ease-in-out forwards;
-    }
-    @keyframes blinkLights {
-      0%, 100% { opacity: 0; }
-      25%, 75% { opacity: 1; }
-      50% { opacity: 0.6; }
     }
 
     /* Responsive Mobile Fix */
@@ -198,35 +158,11 @@
     <div class="brand-text">
       <h1>Mc Accessories</h1>
       <p>Premium Car Accessories • Style • Performance</p>
-      <a class="shop-btn" id="shopNow">Shop Now</a>
-    </div>
-
-    <!-- Car image -->
-    <div class="car-container">
-      <img src="images/Mc-Accessories-e.png" alt="Car with headlights" />
-      <div class="headlight left" id="leftLight"></div>
-      <div class="headlight right" id="rightLight"></div>
+      <a href="explore.html" class="shop-btn">Shop Now</a>
     </div>
 
     <!-- Top-right name -->
     <div class="top-right-name">Mafia Cars</div>
   </div>
-
-  <script>
-    const shopBtn = document.getElementById('shopNow');
-    const leftLight = document.getElementById('leftLight');
-    const rightLight = document.getElementById('rightLight');
-
-    shopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      leftLight.classList.add('blink');
-      rightLight.classList.add('blink');
-
-      // Go to explore after blink
-      setTimeout(() => {
-        window.location.href = 'explore.html';
-      }, 1200);
-    });
-  </script>
 </body>
 </html>
