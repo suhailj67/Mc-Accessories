@@ -47,7 +47,7 @@
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       padding: 20px;
       max-width: 1100px;
@@ -57,24 +57,41 @@
     .product-card {
       background: #fff;
       padding: 16px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       text-align: center;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
     }
     .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      background: #fff9d6; /* yellow glow background */
+      border-color: #ffd100;
+      animation: glowPulse 1.6s infinite;
     }
+    @keyframes glowPulse {
+      0%   { box-shadow: 0 0 0px rgba(255, 209, 0, 0.4); }
+      50%  { box-shadow: 0 0 12px rgba(255, 209, 0, 0.6); }
+      100% { box-shadow: 0 0 0px rgba(255, 209, 0, 0.4); }
+    }
+
     .product-card img {
       width: 100%;
       height: 140px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
       margin-bottom: 12px;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.07);
     }
     .product-card h3 { font-size: 1rem; margin: 6px 0; }
     .product-card p { font-size: 0.9rem; margin: 0 0 12px; color: #444; }
+
     .cta-btn {
       display: inline-block;
       padding: 8px 18px;
@@ -83,45 +100,9 @@
       border-radius: 6px;
       font-weight: 700;
       text-decoration: none;
-      transition: 0.2s;
+      transition: background 0.2s ease;
     }
     .cta-btn:hover { background: #ffcc00; }
-
-    /* Accordion Styling */
-    .accordion {
-      max-width: 1100px;
-      margin: 20px auto 60px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    }
-    .accordion-item {
-      border-bottom: 1px solid #eee;
-    }
-    .accordion-header {
-      padding: 16px 20px;
-      background: #fafafa;
-      cursor: pointer;
-      font-weight: 700;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s;
-    }
-    .accordion-header:hover { background: #f0f0f0; }
-    .accordion-header span { color: #ff0000; font-weight: bold; transition: 0.3s; }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.45s ease, padding 0.3s ease;
-      background: #fff;
-      padding: 0 20px;
-    }
-    .accordion-content.open {
-      max-height: 600px;
-      padding: 20px;
-    }
 
     @media(max-width:600px) {
       nav { flex-wrap: wrap; gap: 12px; }
@@ -161,165 +142,68 @@
   <!-- Accessories -->
   <section id="accessories">
     <div class="section-headline"><h2>Accessories</h2></div>
-    <div class="accordion">
-      <!-- Gear Knobs -->
-      <div class="accordion-item">
-        <div class="accordion-header">Gear Knobs <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Gear+Knob" alt="Gear Knob">
-              <h3>Premium Gear Knob</h3>
-              <p>Upgrade your driving feel.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Gear+Knob" alt="Gear Knob">
+        <h3>Premium Gear Knob</h3>
+        <p>Upgrade your driving feel.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
-      <!-- DRL Lights -->
-      <div class="accordion-item">
-        <div class="accordion-header">DRL Lights <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=DRL+Light" alt="DRL Light">
-              <h3>LED DRL Strip</h3>
-              <p>Bright and stylish day-time running light.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=DRL+Light" alt="DRL Light">
+        <h3>LED DRL Strip</h3>
+        <p>Bright and stylish day-time running light.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
-      <!-- Mobile Holders -->
-      <div class="accordion-item">
-        <div class="accordion-header">Mobile Holders <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Mobile+Holder" alt="Mobile Holder">
-              <h3>Dashboard Phone Mount</h3>
-              <p>Hands-free, safe, and secure driving.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Mobile+Holder" alt="Mobile Holder">
+        <h3>Dashboard Phone Mount</h3>
+        <p>Hands-free, safe, and secure driving.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
-      <!-- Steering -->
-      <div class="accordion-item">
-        <div class="accordion-header">Steering <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Steering+Cover" alt="Steering Cover">
-              <h3>Leather Steering Cover</h3>
-              <p>Better grip, premium comfort.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Steering+Cover" alt="Steering Cover">
+        <h3>Leather Steering Cover</h3>
+        <p>Better grip, premium comfort.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
-      <!-- Dashboard Wax -->
-      <div class="accordion-item">
-        <div class="accordion-header">Dashboard Wax <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Dashboard+Wax" alt="Dashboard Wax">
-              <h3>Shine Protect Wax</h3>
-              <p>Keeps your dashboard polished and fresh.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Dashboard+Wax" alt="Dashboard Wax">
+        <h3>Shine Protect Wax</h3>
+        <p>Keeps your dashboard polished and fresh.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
-      <!-- Dashboard Perfumes -->
-      <div class="accordion-item">
-        <div class="accordion-header">Dashboard Perfumes <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Car+Perfume" alt="Car Perfume">
-              <h3>Ocean Breeze Perfume</h3>
-              <p>Long-lasting refreshing fragrance.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Car+Perfume" alt="Car Perfume">
+        <h3>Ocean Breeze Perfume</h3>
+        <p>Long-lasting refreshing fragrance.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
-      <!-- Car Antennas -->
-      <div class="accordion-item">
-        <div class="accordion-header">Car Antennas <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Car+Antenna" alt="Car Antenna">
-              <h3>Shark Fin Antenna</h3>
-              <p>Sleek design with clear signal.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Car+Antenna" alt="Car Antenna">
+        <h3>Shark Fin Antenna</h3>
+        <p>Sleek design with clear signal.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
-      <!-- Mirror Covers -->
-      <div class="accordion-item">
-        <div class="accordion-header">Mirror Covers <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Mirror+Cover" alt="Mirror Cover">
-              <h3>Chrome Mirror Cover</h3>
-              <p>Protects & adds premium shine.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Mirror+Cover" alt="Mirror Cover">
+        <h3>Chrome Mirror Cover</h3>
+        <p>Protects & adds premium shine.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
-      <!-- Armrest -->
-      <div class="accordion-item">
-        <div class="accordion-header">Armrest <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Armrest" alt="Armrest">
-              <h3>Comfort Armrest</h3>
-              <p>Extra comfort with storage space.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Armrest" alt="Armrest">
+        <h3>Comfort Armrest</h3>
+        <p>Extra comfort with storage space.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
-      <!-- Pedal Covers -->
-      <div class="accordion-item">
-        <div class="accordion-header">Pedal Covers <span>+</span></div>
-        <div class="accordion-content">
-          <div class="products">
-            <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Pedal+Cover" alt="Pedal Cover">
-              <h3>Sport Pedal Covers</h3>
-              <p>Stylish grip and sporty design.</p>
-              <a href="#" class="cta-btn">Shop Now</a>
-            </div>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Pedal+Cover" alt="Pedal Cover">
+        <h3>Sport Pedal Covers</h3>
+        <p>Stylish grip and sporty design.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
       </div>
     </div>
   </section>
-
-  <script>
-    document.querySelectorAll(".accordion-header").forEach(header => {
-      header.addEventListener("click", () => {
-        const content = header.nextElementSibling;
-        const isOpen = content.classList.contains("open");
-
-        document.querySelectorAll(".accordion-content").forEach(c => c.classList.remove("open"));
-        document.querySelectorAll(".accordion-header span").forEach(s => s.textContent = "+");
-
-        if (!isOpen) {
-          content.classList.add("open");
-          header.querySelector("span").textContent = "−";
-        }
-      });
-    });
-  </script>
 </body>
 </html>
