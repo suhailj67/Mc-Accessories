@@ -103,10 +103,7 @@ nav a.active, nav a:hover { color: #ffd100; border-bottom: 2px solid #ffd100; }
   color: #111;
   transition: color 0.3s, border-color 0.3s;
 }
-body.dark .section-headline h2 {
-  color: #fff; 
-  border-bottom: 3px solid #ff3b3b;
-}
+body.dark .section-headline h2 { color: #fff; border-bottom: 3px solid #ff3b3b; }
 
 /* --- Products Grid --- */
 .products {
@@ -135,9 +132,7 @@ body.dark .section-headline h2 {
   transform: translateY(20px);
 }
 body.dark .product-card { background: #1a1a1a; color: #fff; box-shadow: 0 4px 12px rgba(255,255,255,0.05); }
-
 .product-card.visible { opacity: 1; transform: translateY(0); }
-
 .product-card img {
   width: 100%;
   height: 140px;
@@ -146,7 +141,6 @@ body.dark .product-card { background: #1a1a1a; color: #fff; box-shadow: 0 4px 12
   margin-bottom: 12px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
 .product-card h3 { font-size: 1rem; margin: 6px 0; }
 .product-card p { font-size: 0.9rem; margin: 0 0 12px; color: #555; }
 body.dark .product-card p { color: #ccc; }
@@ -201,13 +195,11 @@ body.dark .product-card:hover img {
   <a href="index.html">← Back to Home</a>
 </header>
 
-<!-- Search -->
 <div class="search-box">
   <input type="text" id="searchInput" placeholder="Search products...">
   <button onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
 </div>
 
-<!-- Nav -->
 <nav>
   <a href="#gear-knobs"><i class="fas fa-cog"></i> Gear Knobs</a>
   <a href="#drl-lights"><i class="fas fa-lightbulb"></i> DRL Lights</a>
@@ -221,7 +213,8 @@ body.dark .product-card:hover img {
   <a href="#pedal-covers"><i class="fas fa-shoe-prints"></i> Pedal Covers</a>
 </nav>
 
-<!-- Example Section -->
+<!-- --- Sections --- -->
+<!-- Gear Knobs -->
 <section id="gear-knobs">
   <div class="section-headline"><h2>Gear Knobs</h2></div>
   <div class="products">
@@ -240,7 +233,176 @@ body.dark .product-card:hover img {
   </div>
 </section>
 
-<!-- Repeat similar sections for other categories -->
+<!-- DRL Lights -->
+<section id="drl-lights">
+  <div class="section-headline"><h2>DRL Lights</h2></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=DRL+Light+1" alt="DRL Light 1">
+      <h3>LED DRL Light</h3>
+      <p>Bright and efficient.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=DRL+Light+2" alt="DRL Light 2">
+      <h3>Sport DRL Light</h3>
+      <p>Modern design for your car.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Mobile Holders -->
+<section id="mobile-holders">
+  <div class="section-headline"><h2>Mobile Holders</h2></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Mobile+Holder+1" alt="Mobile Holder 1">
+      <h3>360° Mobile Holder</h3>
+      <p>Flexible and secure.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Mobile+Holder+2" alt="Mobile Holder 2">
+      <h3>Magnetic Mobile Holder</h3>
+      <p>Easy mount & remove.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Steerings -->
+<section id="steerings">
+  <div class="section-headline"><h2>Steerings</h2></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Steering+1" alt="Steering 1">
+      <h3>Leather Steering</h3>
+      <p>Premium grip and comfort.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Steering+2" alt="Steering 2">
+      <h3>Sport Steering</h3>
+      <p>Perfect for racing look.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard Wax -->
+<section id="dashboard-wax">
+  <div class="section-headline"><h2>Dashboard Wax</h2></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Dashboard+Wax+1" alt="Dashboard Wax 1">
+      <h3>Shine Wax</h3>
+      <p>Keep your dashboard glossy.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Dashboard+Wax+2" alt="Dashboard Wax 2">
+      <h3>Quick Wax</h3>
+      <p>Easy application, lasting shine.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard Perfumes -->
+<section id="dashboard-perfumes">
+  <div class="section-headline"><h2>Dashboard Perfumes</h2></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Perfume+1" alt="Perfume 1">
+      <h3>Luxury Perfume</h3>
+      <p>Fresh scent for your car.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Perfume+2" alt="Perfume 2">
+      <h3>Sport Perfume</h3>
+      <p>Energizing fragrance.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Car Antennas -->
+<section id="car-antennas">
+  <div class="section-headline"><h2>Car Antennas</h2></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Antenna+1" alt="Antenna 1">
+      <h3>Short Antenna</h3>
+      <p>Compact design.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Antenna+2" alt="Antenna 2">
+      <h3>Long Antenna</h3>
+      <p>Improved signal reception.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Mirror Covers -->
+<section id="mirror-covers">
+  <div class="section-headline"><h2>Mirror Covers</h2></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Mirror+Cover+1" alt="Mirror Cover 1">
+      <h3>Carbon Mirror Cover</h3>
+      <p>Sporty look.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Mirror+Cover+2" alt="Mirror Cover 2">
+      <h3>Chrome Mirror Cover</h3>
+      <p>Stylish & durable.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Armrest -->
+<section id="armrest">
+  <div class="section-headline"><h2>Armrest</h2></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Armrest+1" alt="Armrest 1">
+      <h3>Leather Armrest</h3>
+      <p>Comfortable support.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Armrest+2" alt="Armrest 2">
+      <h3>Adjustable Armrest</h3>
+      <p>Ergonomic design.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Pedal Covers -->
+<section id="pedal-covers">
+  <div class="section-headline"><h2>Pedal Covers</h2></div>
+  <div class="products">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Pedal+Cover+1" alt="Pedal Cover 1">
+      <h3>Sport Pedal Cover</h3>
+      <p>Enhanced grip & style.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/380x150?text=Pedal+Cover+2" alt="Pedal Cover 2">
+      <h3>Aluminum Pedal Cover</h3>
+      <p>Durable and sleek.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+</section>
 
 <script>
 // Dark Mode Toggle
