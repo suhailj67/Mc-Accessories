@@ -255,3 +255,9 @@ body.dark .section-headline h2 {
   color: #fff; /* white headline in dark mode */
   border-bottom: 3px solid #ff3b3b;
 }
+/* Click highlight for headline */
+.section-headline h2.highlight-red {
+  color: #ff0000;
+  border-bottom-color: #ff0000;
+  text-shadow: 0 0 12px #ff0000;
+}

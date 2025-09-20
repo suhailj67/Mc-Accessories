@@ -29,4 +29,27 @@ document.querySelectorAll("nav a").forEach(anchor => {
     }
   });
 });
+// Highlight headline on nav click
+navLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const targetId = link.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+    if(targetSection){
+      // Scroll to exact section
+      const offsetTop = targetSection.offsetTop - 70;
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+
+      // Remove previous highlights
+      document.querySelectorAll(".section-headline h2").forEach(h => h.classList.remove("highlight-red"));
+
+      // Add highlight only to clicked section
+      const headline = targetSection.querySelector(".section-headline h2");
+      headline.classList.add("highlight-red");
+
+      // Remove highlight after 2 seconds
+      setTimeout(() => headline.classList.remove("highlight-red"), 2000);
+    }
+  });
+});
 
