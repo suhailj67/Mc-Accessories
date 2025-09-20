@@ -1,167 +1,91 @@
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
   min-height: 100vh;
-  background: #0a0a0a;
   font-family: 'Orbitron', sans-serif;
+  background: #0a0a0a;
   color: white;
   overflow-x: hidden;
   line-height: 1.5;
 }
 
-/* ---------------- Hero ---------------- */
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #222;
+  background: #111;
+}
+header h1 { font-size: 1.8rem; }
+header a { color: #ff0000; text-decoration: none; font-weight: 700; }
+
+/* Nav */
+nav {
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Background */
-.parallax-bg {
-  position: fixed;
+  gap: 16px;
+  background: #111;
+  padding: 10px 0;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  animation: bgZoom 20s ease-in-out infinite alternate;
-  background-image: url('images/Mc-Accessories-logo-desktop.png');
+  z-index: 100;
 }
-
-/* Mobile background */
-@media (max-width: 768px) {
-  .parallax-bg {
-    background-image: url('images/Mc-Accessories-logo-mobile.png');
-    background-size: contain;
-    background-position: top center;
-    animation: moveBg 10s linear infinite alternate;
-  }
-
-  @keyframes moveBg {
-    from { background-position: left center; }
-    to { background-position: right center; }
-  }
-}
-
-/* Car */
-.car-container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.car {
-  max-width: 800px;
-  width: 80%;
-  filter: drop-shadow(0 0 25px #00f);
-  animation: fadeUp 1.5s ease-out forwards;
-  opacity: 0;
-}
-@keyframes fadeUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Pulse Effect */
-.pulse {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: radial-gradient(circle, rgba(0,255,255,0.15) 20%, transparent 70%);
-  animation: pulse 2s infinite;
-  z-index: 1;
-}
-@keyframes pulse {
-  0%,100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.2); opacity: 0.8; }
-}
-
-/* Brand Text */
-.brand-text {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 3;
-}
-.brand-text h1 {
-  font-family: 'Audiowide', cursive;
-  font-size: 4rem;
-  color: #FFD700; /* Bright yellow */
-  text-shadow: 0 0 12px #FFD700, 0 0 24px #FFA500;
-  letter-spacing: 3px;
-  margin-bottom: 15px;
-  opacity: 0;
-  animation: fadeDown 1.5s ease-out forwards;
-}
-.brand-text p {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.3rem;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-  margin-bottom: 25px;
-  opacity: 0;
-  animation: fadeDown 1.5s ease-out 0.5s forwards;
-}
-@keyframes fadeDown {
-  from { transform: translateY(-30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Buttons */
-.shop-btn, .cta-btn, .btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background: linear-gradient(90deg, #FFD700, #FFA500);
-  color: #111;
-  font-weight: bold;
-  border-radius: 8px;
+nav a {
   text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 0 20px #FFD700, 0 0 35px #FFA500;
-  transition: transform 0.3s, box-shadow 0.3s;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 5px 10px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
 }
-.shop-btn:hover, .cta-btn:hover, .btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px #FFD700, 0 0 45px #FFA500;
+nav a.active, nav a:hover {
+  color: #ff0000;
+  border-bottom: 2px solid #ff0000;
 }
 
-/* Logo */
-.logo {
-  position: absolute;
-  top: 20px; left: 20px;
-  max-width: 180px;
-  z-index: 4;
-  opacity: 0;
-  animation: fadeIn 2s ease-out 2s forwards;
+/* Search */
+.search-box {
+  text-align: center;
+  margin: 20px;
 }
-.logo img { width: 100%; filter: drop-shadow(0 0 20px cyan); }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.search-box input {
+  padding: 10px 14px;
+  width: 300px;
+  max-width: 90%;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+}
 
-/* ---------------- Products ---------------- */
+/* Sections */
+.section-headline {
+  text-align: center;
+  margin: 60px 0 25px;
+}
+.section-headline h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  display: inline-block;
+  border-bottom: 3px solid #ff0000;
+  padding-bottom: 5px;
+  color: #fff;
+}
+
+/* Products */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  padding: 2rem;
-  background: #111;
+  padding: 1rem 2rem 3rem;
 }
 .product-card {
-  background: #fff;
+  background: #1a1a1a;
   padding: 16px;
-  border-radius: 14px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
   border: 2px solid transparent;
 }
@@ -170,7 +94,7 @@ body {
   border-radius: 8px;
   margin-bottom: 1rem;
 }
-.product-card h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+.product-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
 .product-card p { font-size: 0.95rem; color: #bbb; }
 
 /* Hover Glow */
@@ -192,66 +116,21 @@ body.dark .product-card:hover {
   box-shadow: 0 0 18px rgba(255, 209, 0, 0.7), 0 0 28px rgba(255, 209, 0, 0.5);
 }
 
-/* ---------------- Explore Page ---------------- */
-.explore-page { padding: 2rem; }
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+/* Fade-in on scroll */
+.section-headline,
+.products {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
-header h1 { font-size: 1.8rem; }
+.section-headline.visible,
+.products.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* ---------------- Responsive ---------------- */
+/* Responsive */
 @media (max-width: 768px) {
-  .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
-  .brand-text p { font-size: 1rem; }
-  .shop-btn { padding: 10px 20px; font-size: 1rem; }
-  .car-container .car { width: 90%; }
-  .parallax-bg {
-    background: url('images/Mc-Accessories-logo-mobile.png') top center/contain no-repeat;
-    background-color: #000;
-    animation: none;
-    position: fixed;
-  }
-}
-
-.highlight {
-  animation: glow 1.5s ease-in-out 2;
-}
-
-/* Hero image setup */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-.hero-car {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin: 10px 0;
-}
-@media (max-width: 600px) {
-  .hero h2 { font-size: 1.6rem; }
-}
-
-/* Headline */
-.section-headline h2 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.6rem;
-  display: inline-block;
-  border-bottom: 3px solid #ff0000;
-  padding-bottom: 5px;
-  color: #111;
-}
-body.dark .section-headline h2 {
-  color: #fff; /* white headline in dark mode */
-  border-bottom: 3px solid #ff3b3b;
+  .search-box input { width: 90%; }
+  .products { grid-template-columns: 1fr; }
 }

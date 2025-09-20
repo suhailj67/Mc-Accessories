@@ -1,438 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Explore - Mc Accessories</title>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-/* --- Reset & Base --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  min-height: 100vh;
-  background: #fff;
-  font-family: 'Orbitron', sans-serif;
-  color: #111;
-  overflow-x: hidden;
-  line-height: 1.5;
-  scroll-behavior: smooth;
-  transition: background 0.3s, color 0.3s;
-}
-body.dark { background: #0a0a0a; color: #fff; }
-
-/* --- Header --- */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #f5f5f5;
-}
-body.dark header { background: #111; color: #fff; }
-header h1 { font-size: 1.8rem; }
-header a { color: #ff0000; text-decoration: none; font-weight: 700; }
-
-/* --- Search --- */
-.search-box { text-align: center; margin: 20px; }
-.search-box input {
-  padding: 10px 14px;
-  width: 300px;
-  max-width: 90%;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #fff;
-  color: #111;
-  transition: border 0.3s, background 0.3s, color 0.3s;
-}
-body.dark .search-box input { background: #222; color: #fff; border-color: #555; }
-.search-box input:focus { border-color: #ff0000; outline: none; }
-.search-box button {
-  padding: 10px 12px;
-  margin-left: 8px;
-  background: #ffd100;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-.search-box button:hover { transform: scale(1.05); }
-
-/* --- Nav --- */
-nav {
-  position: sticky;
-  top: 0;
-  background: #f5f5f5;
-  padding: 12px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  z-index: 100;
-}
-body.dark nav { background: #111; }
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 6px 8px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: color 0.2s, border-bottom 0.2s;
-}
-nav a.active, nav a:hover { color: #ffd100; border-bottom: 2px solid #ffd100; }
-
-/* --- Section Headline --- */
-.section-headline {
-  text-align: center;
-  margin: 60px 0 25px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-}
-.section-headline.visible { opacity: 1; transform: translateY(0); }
-.section-headline h2 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.6rem;
-  display: inline-block;
-  border-bottom: 3px solid #ff0000;
-  padding-bottom: 5px;
-  color: #111;
-  transition: color 0.3s, border-color 0.3s;
-}
-body.dark .section-headline h2 { color: #fff; border-bottom: 3px solid #ff3b3b; }
-
-/* --- Products Grid --- */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 0 20px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-.products.visible { opacity: 1; transform: translateY(0); }
-
-/* --- Product Card --- */
-.product-card {
-  background: #fff;
-  padding: 16px;
-  border-radius: 14px;
-  text-align: center;
-  border: 2px solid transparent;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.3s ease, box-shadow 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-}
-body.dark .product-card { background: #1a1a1a; color: #fff; box-shadow: 0 4px 12px rgba(255,255,255,0.05); }
-.product-card.visible { opacity: 1; transform: translateY(0); }
-.product-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.product-card h3 { font-size: 1rem; margin: 6px 0; }
-.product-card p { font-size: 0.9rem; margin: 0 0 12px; color: #555; }
-body.dark .product-card p { color: #ccc; }
-
-/* Hover Effects */
-.product-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  border-color: #ffd100;
-  box-shadow: 0 8px 20px rgba(255, 209, 0, 0.4);
-  background: #fffbea;
-}
-body.dark .product-card:hover {
-  background: #222;
-  border-color: #ffd100;
-  box-shadow: 0 0 18px rgba(255, 209, 0, 0.7), 0 0 28px rgba(255, 209, 0, 0.5);
-}
-.product-card:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(255, 200, 0, 0.4);
-}
-body.dark .product-card:hover img {
-  box-shadow: 0 8px 25px rgba(255, 209, 0, 0.7), 0 0 15px rgba(255, 209, 0, 0.4);
-}
-
-/* --- CTA --- */
-.cta-btn {
-  display: inline-block;
-  padding: 8px 16px;
-  background: #ffd100;
-  color: #111;
-  border-radius: 6px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.cta-btn:hover { 
-  background: #ffcc00; 
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #ffd100, 0 0 20px #ffa500;
-}
-
-/* --- Responsive --- */
-@media(max-width:600px){
-  .products { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-  .search-box input { width: 80%; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore - Mc Accessories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="explore.css">
 </head>
 <body>
-<header>
-  <h1>Mc Accessories</h1>
-  <a href="index.html">← Back to Home</a>
-</header>
+  <header>
+    <h1>Mc Accessories</h1>
+    <a href="index.html">← Back to Home</a>
+  </header>
 
-<div class="search-box">
-  <input type="text" id="searchInput" placeholder="Search products...">
-  <button onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
-</div>
-
-<nav>
-  <a href="#gear-knobs"><i class="fas fa-cog"></i> Gear Knobs</a>
-  <a href="#drl-lights"><i class="fas fa-lightbulb"></i> DRL Lights</a>
-  <a href="#mobile-holders"><i class="fas fa-mobile-alt"></i> Mobile Holders</a>
-  <a href="#steerings"><i class="fas fa-circle-notch"></i> Steerings</a>
-  <a href="#dashboard-wax"><i class="fas fa-spray-can"></i> Dashboard Wax</a>
-  <a href="#dashboard-perfumes"><i class="fas fa-wind"></i> Dashboard Perfumes</a>
-  <a href="#car-antennas"><i class="fas fa-signal"></i> Car Antennas</a>
-  <a href="#mirror-covers"><i class="fas fa-car-side"></i> Mirror Covers</a>
-  <a href="#armrest"><i class="fas fa-chair"></i> Armrest</a>
-  <a href="#pedal-covers"><i class="fas fa-shoe-prints"></i> Pedal Covers</a>
-</nav>
-
-<!-- --- Sections --- -->
-<!-- Gear Knobs -->
-<section id="gear-knobs">
-  <div class="section-headline"><h2>Gear Knobs</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Gear+Knob+1" alt="Gear Knob 1">
-      <h3>Premium Gear Knob</h3>
-      <p>Upgrade your driving feel.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Gear+Knob+2" alt="Gear Knob 2">
-      <h3>Sporty Gear Knob</h3>
-      <p>Stylish & comfortable.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <button id="darkModeBtn"><i class="fas fa-moon"></i></button>
   </div>
-</section>
 
-<!-- DRL Lights -->
-<section id="drl-lights">
-  <div class="section-headline"><h2>DRL Lights</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=DRL+Light+1" alt="DRL Light 1">
-      <h3>LED DRL Light</h3>
-      <p>Bright and efficient.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=DRL+Light+2" alt="DRL Light 2">
-      <h3>Sport DRL Light</h3>
-      <p>Modern design for your car.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
+  <!-- Nav -->
+  <nav>
+    <a href="#gear-knobs"><i class="fas fa-cog"></i> Gear Knobs</a>
+    <a href="#drl-lights"><i class="fas fa-lightbulb"></i> DRL Lights</a>
+    <a href="#mobile-holders"><i class="fas fa-mobile-alt"></i> Mobile Holders</a>
+    <a href="#steerings"><i class="fas fa-circle-notch"></i> Steerings</a>
+  </nav>
 
-<!-- Mobile Holders -->
-<section id="mobile-holders">
-  <div class="section-headline"><h2>Mobile Holders</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Mobile+Holder+1" alt="Mobile Holder 1">
-      <h3>360° Mobile Holder</h3>
-      <p>Flexible and secure.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
+  <!-- Sections -->
+  <section id="gear-knobs">
+    <div class="section-headline"><h2>Gear Knobs</h2></div>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Gear+Knob+1" alt="Gear Knob 1">
+        <h3>Premium Gear Knob</h3>
+        <p>Upgrade your driving feel.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Gear+Knob+2" alt="Gear Knob 2">
+        <h3>Luxury Gear Knob</h3>
+        <p>Stylish and smooth grip.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
     </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Mobile+Holder+2" alt="Mobile Holder 2">
-      <h3>Magnetic Mobile Holder</h3>
-      <p>Easy mount & remove.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Steerings -->
-<section id="steerings">
-  <div class="section-headline"><h2>Steerings</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Steering+1" alt="Steering 1">
-      <h3>Leather Steering</h3>
-      <p>Premium grip and comfort.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
+  <section id="drl-lights">
+    <div class="section-headline"><h2>DRL Lights</h2></div>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=DRL+Light+1" alt="DRL Light 1">
+        <h3>LED DRL Light</h3>
+        <p>Bright and energy-efficient.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=DRL+Light+2" alt="DRL Light 2">
+        <h3>Stylish DRL</h3>
+        <p>Modern car look upgrade.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
     </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Steering+2" alt="Steering 2">
-      <h3>Sport Steering</h3>
-      <p>Perfect for racing look.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Dashboard Wax -->
-<section id="dashboard-wax">
-  <div class="section-headline"><h2>Dashboard Wax</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Dashboard+Wax+1" alt="Dashboard Wax 1">
-      <h3>Shine Wax</h3>
-      <p>Keep your dashboard glossy.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
+  <section id="mobile-holders">
+    <div class="section-headline"><h2>Mobile Holders</h2></div>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Mobile+Holder+1" alt="Mobile Holder 1">
+        <h3>360° Mobile Holder</h3>
+        <p>Flexible viewing angles.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Mobile+Holder+2" alt="Mobile Holder 2">
+        <h3>Magnetic Holder</h3>
+        <p>Strong grip for safety.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
     </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Dashboard+Wax+2" alt="Dashboard Wax 2">
-      <h3>Quick Wax</h3>
-      <p>Easy application, lasting shine.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Dashboard Perfumes -->
-<section id="dashboard-perfumes">
-  <div class="section-headline"><h2>Dashboard Perfumes</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Perfume+1" alt="Perfume 1">
-      <h3>Luxury Perfume</h3>
-      <p>Fresh scent for your car.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
+  <section id="steerings">
+    <div class="section-headline"><h2>Steerings</h2></div>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Steering+1" alt="Steering 1">
+        <h3>Sport Steering</h3>
+        <p>Comfortable driving.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/380x150?text=Steering+2" alt="Steering 2">
+        <h3>Luxury Steering</h3>
+        <p>Premium leather finish.</p>
+        <a href="#" class="cta-btn">Shop Now</a>
+      </div>
     </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Perfume+2" alt="Perfume 2">
-      <h3>Sport Perfume</h3>
-      <p>Energizing fragrance.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Car Antennas -->
-<section id="car-antennas">
-  <div class="section-headline"><h2>Car Antennas</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Antenna+1" alt="Antenna 1">
-      <h3>Short Antenna</h3>
-      <p>Compact design.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Antenna+2" alt="Antenna 2">
-      <h3>Long Antenna</h3>
-      <p>Improved signal reception.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
-
-<!-- Mirror Covers -->
-<section id="mirror-covers">
-  <div class="section-headline"><h2>Mirror Covers</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Mirror+Cover+1" alt="Mirror Cover 1">
-      <h3>Carbon Mirror Cover</h3>
-      <p>Sporty look.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Mirror+Cover+2" alt="Mirror Cover 2">
-      <h3>Chrome Mirror Cover</h3>
-      <p>Stylish & durable.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
-
-<!-- Armrest -->
-<section id="armrest">
-  <div class="section-headline"><h2>Armrest</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Armrest+1" alt="Armrest 1">
-      <h3>Leather Armrest</h3>
-      <p>Comfortable support.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Armrest+2" alt="Armrest 2">
-      <h3>Adjustable Armrest</h3>
-      <p>Ergonomic design.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
-
-<!-- Pedal Covers -->
-<section id="pedal-covers">
-  <div class="section-headline"><h2>Pedal Covers</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Pedal+Cover+1" alt="Pedal Cover 1">
-      <h3>Sport Pedal Cover</h3>
-      <p>Enhanced grip & style.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/380x150?text=Pedal+Cover+2" alt="Pedal Cover 2">
-      <h3>Aluminum Pedal Cover</h3>
-      <p>Durable and sleek.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
-
-<script>
-// Dark Mode Toggle
-function toggleDarkMode() { document.body.classList.toggle("dark"); }
-
-// Search Filter
-const searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("keyup", () => {
-  const filter = searchInput.value.toLowerCase();
-  document.querySelectorAll(".product-card").forEach(card => {
-    const text = card.innerText.toLowerCase();
-    card.style.display = text.includes(filter) ? "block" : "none";
-  });
-});
-
-// Fade-in Observer
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("visible"); });
-}, { threshold: 0.1 });
-document.querySelectorAll(".section-headline, .products, .product-card").forEach(el => observer.observe(el));
-
-// Active Nav on Scroll
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => { if(window.scrollY >= section.offsetTop - 100) current = section.id; });
-  navLinks.forEach(link => link.classList.remove("active"));
-  navLinks.forEach(link => { if(link.getAttribute("href").includes(current)) link.classList.add("active"); });
-});
-</script>
+  <script src="explore.js"></script>
 </body>
 </html>
