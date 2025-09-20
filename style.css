@@ -230,3 +230,44 @@ header h1 { font-size: 1.8rem; }
     font-size: 1.6rem; /* 🔥 auto smaller on mobile */
   }
 }
+/* Headline */
+.section-headline h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  display: inline-block;
+  border-bottom: 3px solid #ff0000;
+  padding-bottom: 5px;
+  color: #111;
+}
+body.dark .section-headline h2 {
+  color: #fff; /* headline stays white in dark mode */
+  border-bottom: 3px solid #ff3b3b; /* red accent */
+}
+/* Product Card */
+.product-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+body.dark .product-card {
+  background: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+
+/* Hover Glow */
+.product-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: #ffd100;
+  background: #fffbea;
+  box-shadow: 0 6px 20px rgba(255, 209, 0, 0.4);
+}
+body.dark .product-card:hover {
+  background: #222;
+  border-color: #ffd100;
+  box-shadow: 0 0 18px rgba(255, 209, 0, 0.7), 0 0 28px rgba(255, 209, 0, 0.5);
+}
+
