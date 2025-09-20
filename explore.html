@@ -434,5 +434,32 @@ window.addEventListener("scroll", () => {
   navLinks.forEach(link => { if(link.getAttribute("href").includes(current)) link.classList.add("active"); });
 });
 </script>
+<script>
+// Category Click Scroll & Headline Fix
+const navLinksClick = document.querySelectorAll("nav a");
+navLinksClick.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const targetId = link.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+    if(targetSection) {
+      // Scroll exactly to the section headline
+      targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Remove active class from all links
+      navLinksClick.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+
+      // Remove previous red highlight from all headlines
+      document.querySelectorAll(".section-headline h2").forEach(h2 => h2.style.color = "");
+
+      // Highlight the current headline red
+      const headline = targetSection.querySelector(".section-headline h2");
+      if(headline) headline.style.color = "#ff0000"; // red
+    }
+  });
+});
+</script>
+
 </body>
 </html>
