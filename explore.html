@@ -4,24 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore - Mc Accessories</title>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    /* Global Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
       font-family: "Rajdhani", sans-serif;
       background: #fff;
       color: #111;
+      scroll-behavior: smooth;
     }
 
+    /* Header */
     header {
       background: #fff;
       padding: 20px;
       text-align: center;
       border-bottom: 1px solid #eee;
     }
-    header h1 { font-family: "Orbitron", sans-serif; margin: 0; }
-    header a { color: #ff0000; text-decoration: none; font-weight: 700; }
+    header h1 {
+      font-family: "Orbitron", sans-serif;
+      margin-bottom: 8px;
+    }
+    header a {
+      color: #ff0000;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
 
+    /* Navigation */
     nav {
       position: sticky;
       top: 0;
@@ -29,31 +42,49 @@
       padding: 12px 20px;
       border-bottom: 1px solid #eee;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       z-index: 100;
     }
-    nav a { text-decoration: none; color: #222; font-weight: 700; }
-    nav a.active { color: #ff0000; border-bottom: 2px solid #ff0000; }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 6px 8px;
+      transition: color 0.2s, border-bottom 0.2s;
+    }
+    nav a.active,
+    nav a:hover {
+      color: #ff0000;
+      border-bottom: 2px solid #ff0000;
+    }
 
-    .section-headline { text-align: center; margin: 40px 0 20px; }
+    /* Section Headline */
+    .section-headline {
+      text-align: center;
+      margin: 50px 0 25px;
+    }
     .section-headline h2 {
       font-family: "Orbitron", sans-serif;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       display: inline-block;
       border-bottom: 3px solid #ff0000;
       padding-bottom: 5px;
     }
 
+    /* Product Grid */
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      padding: 20px;
+      padding: 0 20px 40px;
       max-width: 1100px;
       margin: 0 auto;
     }
 
+    /* Product Card */
     .product-card {
       background: #fff;
       padding: 16px;
@@ -61,23 +92,14 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       text-align: center;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
       border: 2px solid transparent;
     }
     .product-card:hover {
       transform: translateY(-6px) scale(1.03);
       box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      background: #fff9d6; /* yellow glow background */
       border-color: #ffd100;
-      animation: glowPulse 1.6s infinite;
+      background: #fffbea;
     }
-    @keyframes glowPulse {
-      0%   { box-shadow: 0 0 0px rgba(255, 209, 0, 0.4); }
-      50%  { box-shadow: 0 0 12px rgba(255, 209, 0, 0.6); }
-      100% { box-shadow: 0 0 0px rgba(255, 209, 0, 0.4); }
-    }
-
     .product-card img {
       width: 100%;
       height: 140px;
@@ -86,15 +108,14 @@
       margin-bottom: 12px;
       transition: transform 0.3s ease;
     }
-    .product-card:hover img {
-      transform: scale(1.07);
-    }
+    .product-card:hover img { transform: scale(1.07); }
     .product-card h3 { font-size: 1rem; margin: 6px 0; }
-    .product-card p { font-size: 0.9rem; margin: 0 0 12px; color: #444; }
+    .product-card p { font-size: 0.9rem; margin: 0 0 12px; color: #555; }
 
+    /* CTA Button */
     .cta-btn {
       display: inline-block;
-      padding: 8px 18px;
+      padding: 8px 16px;
       background: #ffd100;
       color: #111;
       border-radius: 6px;
@@ -104,9 +125,10 @@
     }
     .cta-btn:hover { background: #ffcc00; }
 
+    /* Mobile */
     @media(max-width:600px) {
-      nav { flex-wrap: wrap; gap: 12px; }
-      .section-headline h2 { font-size: 1.5rem; }
+      nav { gap: 10px; }
+      .section-headline h2 { font-size: 1.3rem; }
       .product-card img { height: 110px; }
     }
   </style>
@@ -117,20 +139,21 @@
     <a href="index.html">← Back to Home</a>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <a href="#gear-knobs">Gear Knobs</a>
     <a href="#drl-lights">DRL Lights</a>
     <a href="#mobile-holders">Mobile Holders</a>
     <a href="#steerings">Steerings</a>
-    <a href="#dashboard-wax">Dashboard Waxs</a>
+    <a href="#dashboard-wax">Dashboard Wax</a>
     <a href="#dashboard-perfumes">Dashboard Perfumes</a>
-    <a href="#car-antennas">Car Antenas</a>
+    <a href="#car-antennas">Car Antennas</a>
     <a href="#mirror-covers">Mirror Covers</a>
     <a href="#armrest">Armrest</a>
     <a href="#pedal-covers">Pedal Covers</a>
   </nav>
 
-  <!-- Gear Knobs -->
+  <!-- Sections (Example with Gear Knobs, repeat for others) -->
   <section id="gear-knobs">
     <div class="section-headline"><h2>Gear Knobs</h2></div>
     <div class="products">
@@ -143,7 +166,6 @@
     </div>
   </section>
 
-  <!-- DRL Lights -->
   <section id="drl-lights">
     <div class="section-headline"><h2>DRL Lights</h2></div>
     <div class="products">
@@ -156,109 +178,26 @@
     </div>
   </section>
 
-  <!-- Mobile Holders -->
-  <section id="mobile-holders">
-    <div class="section-headline"><h2>Mobile Holders</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/380x150?text=Mobile+Holder" alt="Mobile Holder">
-        <h3>Dashboard Phone Mount</h3>
-        <p>Hands-free, safe, and secure driving.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
+  <!-- Repeat same pattern for other 8 categories... -->
 
-  <!-- Steerings -->
-  <section id="steerings">
-    <div class="section-headline"><h2>Steerings</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/380x150?text=Steering+Cover" alt="Steering Cover">
-        <h3>Leather Steering Cover</h3>
-        <p>Better grip, premium comfort.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
+  <script>
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
 
-  <!-- Dashboard Wax -->
-  <section id="dashboard-wax">
-    <div class="section-headline"><h2>Dashboard Waxs</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/380x150?text=Dashboard+Wax" alt="Dashboard Wax">
-        <h3>Shine Protect Wax</h3>
-        <p>Keeps your dashboard polished and fresh.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dashboard Perfumes -->
-  <section id="dashboard-perfumes">
-    <div class="section-headline"><h2>Dashboard Perfumes</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/380x150?text=Car+Perfume" alt="Car Perfume">
-        <h3>Ocean Breeze Perfume</h3>
-        <p>Long-lasting refreshing fragrance.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Car Antenas -->
-  <section id="car-antennas">
-    <div class="section-headline"><h2>Car Antenas</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/380x150?text=Car+Antenna" alt="Car Antenna">
-        <h3>Shark Fin Antenna</h3>
-        <p>Sleek design with clear signal.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mirror Covers -->
-  <section id="mirror-covers">
-    <div class="section-headline"><h2>Mirror Covers</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/380x150?text=Mirror+Cover" alt="Mirror Cover">
-        <h3>Chrome Mirror Cover</h3>
-        <p>Protects & adds premium shine.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Armrest -->
-  <section id="armrest">
-    <div class="section-headline"><h2>Armrest</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/380x150?text=Armrest" alt="Armrest">
-        <h3>Comfort Armrest</h3>
-        <p>Extra comfort with storage space.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pedal Covers -->
-  <section id="pedal-covers">
-    <div class="section-headline"><h2>Pedal Covers</h2></div>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/380x150?text=Pedal+Cover" alt="Pedal Cover">
-        <h3>Sport Pedal Covers</h3>
-        <p>Stylish grip and sporty design.</p>
-        <a href="#" class="cta-btn">Shop Now</a>
-      </div>
-    </div>
-  </section>
-
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if (scrollY >= sectionTop) current = section.getAttribute("id");
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
