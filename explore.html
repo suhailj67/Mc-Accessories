@@ -110,12 +110,18 @@
     }
     .accordion-header:hover { background: #f0f0f0; }
     .accordion-header span { color: #ff0000; font-weight: bold; transition: 0.3s; }
+
     .accordion-content {
-      display: none;
-      padding: 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease, padding 0.3s ease;
       background: #fff;
+      padding: 0 20px;
     }
-    .accordion-content.open { display: block; }
+    .accordion-content.open {
+      max-height: 600px;
+      padding: 20px;
+    }
 
     @media(max-width:600px) {
       nav { flex-wrap: wrap; gap: 12px; }
@@ -152,7 +158,7 @@
     </div>
   </section>
 
-  <!-- Accessories with Accordion -->
+  <!-- Accessories -->
   <section id="accessories">
     <div class="section-headline"><h2>Accessories</h2></div>
     <div class="accordion">
@@ -177,8 +183,8 @@
           <div class="products">
             <div class="product-card">
               <img src="https://via.placeholder.com/380x150?text=DRL+Light" alt="DRL Light">
-              <h3>LED DRL Lights</h3>
-              <p>Stylish & safe day running lights.</p>
+              <h3>LED DRL Strip</h3>
+              <p>Bright and stylish day-time running light.</p>
               <a href="#" class="cta-btn">Shop Now</a>
             </div>
           </div>
@@ -191,8 +197,22 @@
           <div class="products">
             <div class="product-card">
               <img src="https://via.placeholder.com/380x150?text=Mobile+Holder" alt="Mobile Holder">
-              <h3>Magnetic Mobile Holder</h3>
-              <p>Keep your phone secure while driving.</p>
+              <h3>Dashboard Phone Mount</h3>
+              <p>Hands-free, safe, and secure driving.</p>
+              <a href="#" class="cta-btn">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Steering -->
+      <div class="accordion-item">
+        <div class="accordion-header">Steering <span>+</span></div>
+        <div class="accordion-content">
+          <div class="products">
+            <div class="product-card">
+              <img src="https://via.placeholder.com/380x150?text=Steering+Cover" alt="Steering Cover">
+              <h3>Leather Steering Cover</h3>
+              <p>Better grip, premium comfort.</p>
               <a href="#" class="cta-btn">Shop Now</a>
             </div>
           </div>
@@ -205,8 +225,8 @@
           <div class="products">
             <div class="product-card">
               <img src="https://via.placeholder.com/380x150?text=Dashboard+Wax" alt="Dashboard Wax">
-              <h3>Shine Dashboard Wax</h3>
-              <p>Protect & shine your dashboard.</p>
+              <h3>Shine Protect Wax</h3>
+              <p>Keeps your dashboard polished and fresh.</p>
               <a href="#" class="cta-btn">Shop Now</a>
             </div>
           </div>
@@ -218,9 +238,9 @@
         <div class="accordion-content">
           <div class="products">
             <div class="product-card">
-              <img src="https://via.placeholder.com/380x150?text=Dashboard+Perfume" alt="Dashboard Perfume">
-              <h3>Luxury Dashboard Perfume</h3>
-              <p>Keep your car fresh & elegant.</p>
+              <img src="https://via.placeholder.com/380x150?text=Car+Perfume" alt="Car Perfume">
+              <h3>Ocean Breeze Perfume</h3>
+              <p>Long-lasting refreshing fragrance.</p>
               <a href="#" class="cta-btn">Shop Now</a>
             </div>
           </div>
@@ -233,8 +253,8 @@
           <div class="products">
             <div class="product-card">
               <img src="https://via.placeholder.com/380x150?text=Car+Antenna" alt="Car Antenna">
-              <h3>Stylish Car Antenna</h3>
-              <p>Better signal & sleek design.</p>
+              <h3>Shark Fin Antenna</h3>
+              <p>Sleek design with clear signal.</p>
               <a href="#" class="cta-btn">Shop Now</a>
             </div>
           </div>
@@ -247,8 +267,8 @@
           <div class="products">
             <div class="product-card">
               <img src="https://via.placeholder.com/380x150?text=Mirror+Cover" alt="Mirror Cover">
-              <h3>Carbon Mirror Covers</h3>
-              <p>Protect & style your mirrors.</p>
+              <h3>Chrome Mirror Cover</h3>
+              <p>Protects & adds premium shine.</p>
               <a href="#" class="cta-btn">Shop Now</a>
             </div>
           </div>
@@ -262,7 +282,7 @@
             <div class="product-card">
               <img src="https://via.placeholder.com/380x150?text=Armrest" alt="Armrest">
               <h3>Comfort Armrest</h3>
-              <p>Relax & store items easily.</p>
+              <p>Extra comfort with storage space.</p>
               <a href="#" class="cta-btn">Shop Now</a>
             </div>
           </div>
@@ -276,7 +296,7 @@
             <div class="product-card">
               <img src="https://via.placeholder.com/380x150?text=Pedal+Cover" alt="Pedal Cover">
               <h3>Sport Pedal Covers</h3>
-              <p>Grip, style & performance.</p>
+              <p>Stylish grip and sporty design.</p>
               <a href="#" class="cta-btn">Shop Now</a>
             </div>
           </div>
@@ -291,11 +311,9 @@
         const content = header.nextElementSibling;
         const isOpen = content.classList.contains("open");
 
-        // Close all
         document.querySelectorAll(".accordion-content").forEach(c => c.classList.remove("open"));
         document.querySelectorAll(".accordion-header span").forEach(s => s.textContent = "+");
 
-        // Open clicked
         if (!isOpen) {
           content.classList.add("open");
           header.querySelector("span").textContent = "−";
