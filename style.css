@@ -33,7 +33,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   animation: bgZoom 20s ease-in-out infinite alternate;
-  /* Correct path to your desktop image */
   background-image: url('images/Mc-Accessories-logo-desktop.png');
 }
 
@@ -51,6 +50,7 @@ body {
     to { background-position: right center; }
   }
 }
+
 /* Car */
 .car-container {
   position: relative;
@@ -122,8 +122,8 @@ body {
 .shop-btn, .cta-btn, .btn {
   display: inline-block;
   padding: 12px 25px;
-  background: linear-gradient(90deg, #FFD700, #FFA500); /* yellow gradient */
-  color: #111; /* dark text for contrast */
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  color: #111;
   font-weight: bold;
   border-radius: 8px;
   text-decoration: none;
@@ -157,11 +157,13 @@ body {
   background: #111;
 }
 .product-card {
-  background: #1a1a1a;
-  padding: 1rem;
-  border-radius: 12px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 14px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 .product-card img {
   width: 100%;
@@ -170,6 +172,25 @@ body {
 }
 .product-card h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 .product-card p { font-size: 0.95rem; color: #bbb; }
+
+/* Hover Glow */
+.product-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: #ffd100;
+  background: #fffbea;
+  box-shadow: 0 6px 20px rgba(255, 209, 0, 0.4);
+}
+
+/* Dark Mode */
+body.dark .product-card {
+  background: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+body.dark .product-card:hover {
+  background: #222;
+  border-color: #ffd100;
+  box-shadow: 0 0 18px rgba(255, 209, 0, 0.7), 0 0 28px rgba(255, 209, 0, 0.5);
+}
 
 /* ---------------- Explore Page ---------------- */
 .explore-page { padding: 2rem; }
@@ -194,19 +215,11 @@ header h1 { font-size: 1.8rem; }
     position: fixed;
   }
 }
+
 .highlight {
   animation: glow 1.5s ease-in-out 2;
 }
-.brand-text h1 {
-  font-family: 'Audiowide', cursive;
-  font-size: 4rem;
-  color: #FFD700 !important; /* Yellow */
-  text-shadow: 0 0 12px #FFD700, 0 0 24px #FFA500 !important;
-  letter-spacing: 3px;
-  margin-bottom: 15px;
-  opacity: 0;
-  animation: fadeDown 1.5s ease-out forwards;
-}
+
 /* Hero image setup */
 .hero {
   position: relative;
@@ -218,18 +231,17 @@ header h1 { font-size: 1.8rem; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-}.hero h2 {
-  font-size: 2.2rem;   /* 🔥 smaller than before */
+}
+.hero h2 {
+  font-size: 2.2rem;
   font-weight: 700;
   letter-spacing: 1px;
   margin: 10px 0;
 }
-
 @media (max-width: 600px) {
-  .hero h2 {
-    font-size: 1.6rem; /* 🔥 auto smaller on mobile */
-  }
+  .hero h2 { font-size: 1.6rem; }
 }
+
 /* Headline */
 .section-headline h2 {
   font-family: "Orbitron", sans-serif;
@@ -240,34 +252,6 @@ header h1 { font-size: 1.8rem; }
   color: #111;
 }
 body.dark .section-headline h2 {
-  color: #fff; /* headline stays white in dark mode */
-  border-bottom: 3px solid #ff3b3b; /* red accent */
+  color: #fff; /* white headline in dark mode */
+  border-bottom: 3px solid #ff3b3b;
 }
-/* Product Card */
-.product-card {
-  background: #fff;
-  padding: 16px;
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-body.dark .product-card {
-  background: #1a1a1a;
-  box-shadow: 0 4px 12px rgba(255,255,255,0.05);
-}
-
-/* Hover Glow */
-.product-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  border-color: #ffd100;
-  background: #fffbea;
-  box-shadow: 0 6px 20px rgba(255, 209, 0, 0.4);
-}
-body.dark .product-card:hover {
-  background: #222;
-  border-color: #ffd100;
-  box-shadow: 0 0 18px rgba(255, 209, 0, 0.7), 0 0 28px rgba(255, 209, 0, 0.5);
-}
-
