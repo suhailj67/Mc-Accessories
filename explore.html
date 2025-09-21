@@ -460,6 +460,20 @@ navLinksClick.forEach(link => {
   });
 });
 </script>
-
 </body>
 </html>
+<script>
+// ✅ Fix search filter (don’t redeclare variables)
+document.getElementById("searchInput").addEventListener("keyup", () => {
+  const filter = document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".product-card").forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(filter) ? "" : "none"; 
+  });
+});
+
+// ✅ Prevent Shop Now links from reloading the page
+document.querySelectorAll(".cta-btn").forEach(btn => {
+  btn.setAttribute("href", "javascript:void(0)");
+});
+</script>
