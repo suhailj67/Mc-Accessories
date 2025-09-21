@@ -137,29 +137,28 @@ body, html {
 .shop-btn:hover, .cta-btn:hover, .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 8px #FFD700;
-}/* ---------------- Contact Button - Gold Theme ---------------- */
+}/* ---------------- Contact Button - Gold Theme (Left Side) ---------------- */
 .contact-btn {
   position: absolute;
-  top: 65px;  /* below Mafia Cars */
-  right: 20px;
+  top: 65px;       /* below Mafia Cars */
+  left: 20px;      /* left side */
   padding: 8px 16px;
   min-width: 90px;
   text-align: center;
   background: linear-gradient(90deg, #FFD700, #FFA500); /* gold gradient */
-  color: #111; /* dark text for contrast */
+  color: #111; /* dark text */
   font-weight: bold;
   font-size: 0.95rem;
   border-radius: 8px;
   text-decoration: none;
-  box-shadow: 0 0 6px #FFD700; /* subtle glow */
+  box-shadow: 0 0 6px #FFD700;
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s, opacity 0.3s;
   z-index: 5;
   cursor: pointer;
-  opacity: 0.85; /* subtle opacity for clean look */
+  opacity: 0.85;
   animation: fadeInContact 1.2s ease-out forwards 0.8s;
 }
 
-/* Hover: slightly brighter gold + glow */
 .contact-btn:hover {
   transform: translateY(-2px);
   background: linear-gradient(90deg, #fff176, #ffc107);
@@ -167,7 +166,6 @@ body, html {
   opacity: 1;
 }
 
-/* Active / pressed effect */
 .contact-btn:active {
   transform: translateY(0);
   box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
@@ -183,7 +181,7 @@ body, html {
 .contact-dropdown {
   position: absolute;
   top: 115px; /* below contact button */
-  right: 20px;
+  left: 20px; /* align with button */
   background: #111; /* dark background */
   padding: 18px 20px;
   border-radius: 12px;
@@ -200,6 +198,7 @@ body, html {
   box-shadow: 0 0 15px #FFD70055;
   transition: all 0.5s ease;
   z-index: 4;
+  pointer-events: none; /* prevents interaction when hidden */
 }
 
 .contact-dropdown p { margin: 6px 0; }
@@ -218,9 +217,11 @@ body, html {
   text-shadow: 0 0 8px #FFD700aa;
 }
 
+/* Show dropdown with fade + slide */
 .contact-dropdown.show {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
   animation: dropdownGlow 3s ease-in-out infinite;
 }
 
@@ -233,20 +234,19 @@ body, html {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .contact-btn { 
-    right: 15px; 
+    left: 15px; 
     top: 60px; 
     padding: 6px 14px; 
     font-size: 0.85rem; 
     border-radius: 6px; 
   }
   .contact-dropdown { 
-    right: 15px; 
+    left: 15px; 
     top: 110px; 
     width: 220px; 
     font-size: 0.95rem; 
   }
 }
-
 /* Logo */
 .logo {
   position: absolute;
