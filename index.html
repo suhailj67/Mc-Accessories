@@ -15,7 +15,6 @@
       font-family: 'Orbitron', sans-serif;
       background: #0a0a0a;
       color: white;
-      scroll-behavior: smooth; /* enables smooth scrolling */
     }
 
     /* Hero Section */
@@ -38,10 +37,7 @@
       z-index: 1;
       animation: bgZoom 20s ease-in-out infinite alternate;
     }
-    @keyframes bgZoom {
-      from { transform: scale(1); }
-      to { transform: scale(1.08); }
-    }
+    @keyframes bgZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
 
     /* Brand Text */
     .brand-text {
@@ -70,15 +66,12 @@
       opacity: 0;
       animation: fadeDown 1.5s ease-out 0.5s forwards, glowPulseSubtitle 4s ease-in-out infinite;
     }
-    @keyframes fadeDown {
-      from { transform: translateY(-20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+    @keyframes fadeDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
     /* Contact Button */
     .contact-btn {
-      display: inline-block;
-      padding: 10px 22px;
+      display: block;
+      margin-top: 8px;
       background: linear-gradient(90deg, #FFD700, #FFA500);
       color: #111;
       font-weight: bold;
@@ -86,7 +79,9 @@
       text-decoration: none;
       font-size: 1rem;
       box-shadow: 0 0 5px #FFD700;
+      padding: 6px 14px;
       transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
     .contact-btn:hover {
       transform: translateY(-2px);
@@ -104,12 +99,31 @@
       letter-spacing: 1px;
       text-shadow: 1px 1px 3px black;
       z-index: 5;
-      cursor: default;
       animation: glowPulse 4s ease-in-out infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
     }
-    .top-right-name:hover {
-      color: #FFD700;
-      text-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500;
+
+    /* Contact dropdown (hidden initially) */
+    .contact-dropdown {
+      background: #111;
+      padding: 20px;
+      margin-top: 10px;
+      border-radius: 12px;
+      border: 2px solid #FFD700;
+      width: 220px;
+      text-align: right;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .contact-dropdown.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Glow Animations */
@@ -123,49 +137,21 @@
       50% { text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); }
       100% { text-shadow: 0 0 1px rgba(255, 215, 0, 0.3); }
     }
-
-    /* Contact Section */
-    #contact {
-      width: 100%;
-      padding: 80px 20px;
-      text-align: center;
-      background: #111;
-      position: relative;
-      z-index: 2;
-    }
-    #contact h2 {
-      font-family: 'Audiowide', cursive;
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      color: #FFD700;
-      text-shadow: 0 0 5px #FFA500;
-    }
-    #contact p {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1.2rem;
-      margin: 8px 0;
-      color: #f0f0f0;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
-      .brand-text p { font-size: 1.1rem; }
-      .contact-btn { padding: 8px 18px; font-size: 0.95rem; }
-      .top-right-name { font-size: 1rem; }
-      .parallax-bg {
-        background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
-        animation: moveBg 15s linear infinite alternate;
-      }
-      @keyframes moveBg {
-        from { background-position: left center; }
-        to { background-position: right center; }
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="top-right-name">Mafia Cars</div>
+  <!-- Top-right Mafia Cars + Contact Button -->
+  <div class="top-right-name">
+    <span>Mafia Cars</span>
+    <button class="contact-btn" id="contactBtn">Contact</button>
+
+    <!-- Contact Info Dropdown -->
+    <div class="contact-dropdown" id="contactDropdown">
+      <p>📞 +91 93447 38217</p>
+      <p>📞 +91 93450 45379</p>
+      <p>📧 mcaccessories2025@gmail.com</p>
+    </div>
+  </div>
 
   <div class="hero">
     <div class="parallax-bg"></div>
@@ -174,17 +160,16 @@
     <div class="brand-text">
       <h1>Mc Accessories</h1>
       <p>Premium Car Accessories • Style • Performance</p>
-      <!-- Changed Explore to Contact -->
-      <a href="#contact" class="contact-btn">Contact</a>
     </div>
   </div>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>📞 +91 93447 38217</p>
-    <p>📞 +91 93450 45379</p>
-    <p>📧 mcaccessories2025@gmail.com</p>
-  </section>
+  <script>
+    const contactBtn = document.getElementById('contactBtn');
+    const contactDropdown = document.getElementById('contactDropdown');
+
+    contactBtn.addEventListener('click', () => {
+      contactDropdown.classList.toggle('show'); // toggle dropdown visibility
+    });
+  </script>
 </body>
 </html>
