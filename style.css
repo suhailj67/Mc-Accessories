@@ -139,30 +139,50 @@ body, html {
   box-shadow: 0 0 8px #FFD700;
 }
 
-/* ---------------- Contact Button ---------------- */
+/* ---------------- Stylish Contact Button ---------------- */
 .contact-btn {
   position: absolute;
-  top: 15px;
-  left: 20px; /* top-left for cleaner look */
-  padding: 6px 14px; /* smaller & compact */
-  min-width: 80px;
+  top: 18px;
+  left: 18px; /* top-left corner */
+  padding: 7px 18px;
+  min-width: 90px;
   text-align: center;
-  background: linear-gradient(90deg, #2196F3, #64B5F6); /* blue gradient */
-  color: #fff;
+  font-size: 0.95rem;
   font-weight: bold;
-  border-radius: 20px; /* pill-shaped */
+  color: #fff;
+  background: linear-gradient(135deg, #00fff7, #00c3ff);
+  border-radius: 25px; /* capsule shape */
+  border: 2px solid #00fff7;
   text-decoration: none;
-  font-size: 0.9rem;
-  box-shadow: 0 0 4px #2196F3;
-  transition: transform 0.3s, box-shadow 0.3s;
-  z-index: 5;
-  animation: contactGlow 3s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  z-index: 10;
+  animation: contactGlow 3s ease-in-out infinite alternate;
 }
 
 .contact-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 12px #2196F3, 0 0 18px #64B5F6;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.9), 0 0 18px rgba(0, 195, 255, 0.7);
 }
+
+/* Glow Animation */
+@keyframes contactGlow {
+  0% { box-shadow: 0 0 6px rgba(0,255,255,0.5); }
+  50% { box-shadow: 0 0 12px rgba(0,255,255,0.8); }
+  100% { box-shadow: 0 0 6px rgba(0,255,255,0.5); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-btn {
+    top: 12px;
+    left: 12px;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    min-width: 75px;
+  }
+}
+
 
 @keyframes contactGlow {
   0% { box-shadow: 0 0 4px #2196F3, 0 0 6px #64B5F6; }
