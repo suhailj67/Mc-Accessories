@@ -336,3 +336,10 @@ body.dark .section-headline h2 {
   50% { text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); }
   100% { text-shadow: 0 0 1px rgba(255, 215, 0, 0.3); }
 }
+/* Remove default focus/active styles */
+.contact-btn:focus,
+.contact-btn:active {
+  outline: none;          /* removes the blue outline */
+  background: linear-gradient(135deg, #FFD700, #FFA500); /* keeps golden gradient */
+  box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
+}
