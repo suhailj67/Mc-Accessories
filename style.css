@@ -343,3 +343,23 @@ body.dark .section-headline h2 {
   background: linear-gradient(135deg, #FFD700, #FFA500); /* keeps golden gradient */
   box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
 }
+.contact-btn,
+.contact-btn:link,
+.contact-btn:visited,
+.contact-btn:hover,
+.contact-btn:active,
+.contact-btn:focus {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #111;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
+}
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px #FFD700, 0 0 15px #FFA500;
+}
+.contact-btn:active {
+  transform: translateY(0); /* press effect */
+  box-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500;
+}
