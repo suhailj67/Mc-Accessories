@@ -138,37 +138,40 @@ body, html {
   transform: translateY(-2px);
   box-shadow: 0 0 8px #FFD700;
 }
-/* ---------------- Contact Button (gold theme) ---------------- */
+/* ---------------- Contact Button (compact & glowing) ---------------- */
 .contact-btn {
   position: absolute;
   top: 18px;
-  right: 15px; /* space from top-right name */
-  padding: 6px 14px; /* compact size */
+  right: 15px;
+  padding: 6px 14px;         /* slightly smaller */
   font-size: 0.9rem;
   font-weight: bold;
-  color: #111; /* dark text like Shop Now */
-  background: linear-gradient(90deg, #FFD700, #FFA500); /* gold/orange */
-  border-radius: 20px; /* capsule shape */
+  color: #111;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  border-radius: 25px;       /* more rounded for modern look */
   text-decoration: none;
   border: 2px solid #FFD700;
   box-shadow: 0 0 6px #FFD700;
   z-index: 10;
-  transition: transform 0.3s, box-shadow 0.3s;
-  min-width: 80px;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, text-shadow 0.3s;
+  min-width: 75px;           /* keeps button compact */
   text-align: center;
   animation: contactGlow 3s ease-in-out infinite alternate;
 }
 
+/* Hover effect with gradient shift and text glow */
 .contact-btn:hover {
   transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(90deg, #FFA500, #FFD700);
   box-shadow: 0 0 12px #FFD700, 0 0 16px #FFA500;
+  text-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
 }
 
 /* Glow animation */
 @keyframes contactGlow {
-  0% { box-shadow: 0 0 5px #FFD700; }
-  50% { box-shadow: 0 0 10px #FFD700, 0 0 14px #FFA500; }
-  100% { box-shadow: 0 0 5px #FFD700; }
+  0% { box-shadow: 0 0 5px #FFD700; text-shadow: 0 0 2px #FFD700; }
+  50% { box-shadow: 0 0 10px #FFD700, 0 0 14px #FFA500; text-shadow: 0 0 6px #FFD700, 0 0 10px #FFA500; }
+  100% { box-shadow: 0 0 5px #FFD700; text-shadow: 0 0 2px #FFD700; }
 }
 
 /* Mobile adjustments */
@@ -176,9 +179,10 @@ body, html {
   .contact-btn {
     top: 12px;
     right: 12px;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    min-width: 65px; /* prevents it from being too long on small screens */
+    padding: 4px 10px;      /* smaller padding for mobile */
+    font-size: 0.75rem;     /* smaller font size */
+    min-width: 60px;        /* keeps it compact */
+    border-radius: 20px;    /* slightly smaller radius for mobile */
   }
 }
 
