@@ -138,44 +138,39 @@ body, html {
   transform: translateY(-2px);
   box-shadow: 0 0 8px #FFD700;
 }
-/* ---------------- Contact Button Upgraded ---------------- */
+/* ---------------- Contact Button Clean & Matching ---------------- */
 .contact-btn {
   position: absolute;
   top: 15px;
-  right: 120px; /* adjust spacing from top-right */
+  right: 120px; /* adjust for desktop */
   padding: 8px 20px;
-  background: linear-gradient(135deg, #FFD700, #FFAA00);
+  background: linear-gradient(135deg, #FFD700, #FFAA00); /* golden gradient like site */
   color: #111;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
   font-size: 0.95rem;
-  box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
+  box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500; /* subtle glow */
   opacity: 0;
-  transform: scale(0.5);
-  animation: contactPopGlow 1.5s ease-out forwards 1s; /* fade in + pop */
+  transform: scale(0.9);
+  animation: contactFadeIn 1.5s ease-out forwards 1s; /* fade in smoothly */
   z-index: 5;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .contact-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px #FFD700, 0 0 24px #FFA500;
+  transform: scale(1);
+  box-shadow: 0 0 10px #FFD700, 0 0 20px #FFA500; /* gentle hover glow */
   background: linear-gradient(135deg, #FFE135, #FFB500);
 }
 
-/* Pop-in + Glow Animation */
-@keyframes contactPopGlow {
+/* Fade-in animation only */
+@keyframes contactFadeIn {
   0% {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.9);
     box-shadow: 0 0 0px #FFD700;
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.1);
-    box-shadow: 0 0 14px #FFD700, 0 0 28px #FFA500;
   }
   100% {
     opacity: 1;
@@ -187,7 +182,7 @@ body, html {
 /* ---------------- Mobile Adjustments ---------------- */
 @media (max-width: 768px) {
   .contact-btn {
-    right: 20px; /* fit smaller screens */
+    right: 20px; /* fits smaller screens */
     padding: 6px 14px;
     font-size: 0.85rem;
   }
