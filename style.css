@@ -176,6 +176,23 @@ body, html {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 0.7; transform: translateY(0); }
 }
+/* Mobile optimization for Contact Button */
+@media (max-width: 768px) {
+  .contact-btn {
+    right: 15px;            /* closer to the edge for smaller screens */
+    top: 10px;               /* slight adjustment from top */
+    padding: 5px 12px;       /* smaller padding for mobile */
+    font-size: 0.85rem;      /* smaller text */
+    border-radius: 5px;      /* slightly smaller radius */
+    opacity: 0.7;            /* subtle, not dominating */
+    background: rgba(255, 215, 0, 0.15); /* same subtle gold */
+  }
+  .contact-btn:hover {
+    background: rgba(255, 215, 0, 0.25);
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+    opacity: 1;
+  }
+}
 
 /* Logo */
 .logo {
