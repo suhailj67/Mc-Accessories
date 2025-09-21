@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -99,8 +99,8 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      padding: 6px 18px;
-      font-size: 0.95rem;
+      padding: 6px 14px;
+      font-size: 0.9rem;
       font-weight: bold;
       border-radius: 6px;
       color: #111;
@@ -109,6 +109,8 @@
       text-decoration: none;
       cursor: pointer;
       z-index: 5;
+      white-space: nowrap;   /* makes button only as wide as text */
+      width: auto;           /* prevents full stretch */
       transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
     }
     .contact-btn:hover {
@@ -134,7 +136,7 @@
       font-family: 'Rajdhani', sans-serif;
       font-size: 1.05rem;
       font-weight: 600;
-      color: #111;
+      color: #fff;   /* FIXED: now visible */
       line-height: 1.6;
       opacity: 0;
       transform: translateY(-15px);
@@ -145,7 +147,7 @@
     }
     .contact-dropdown p { margin: 6px 0; }
     .contact-dropdown p span.icon { color: #FFD700; font-weight: bold; margin-right: 6px; }
-    .contact-dropdown a { color: #111; text-decoration: none; transition: 0.3s; }
+    .contact-dropdown a { color: #fff; text-decoration: none; transition: 0.3s; }
     .contact-dropdown a:hover { color: #FFD700; text-shadow: 0 0 8px #FFD700aa; }
     .contact-dropdown.show {
       opacity: 1;
@@ -192,8 +194,8 @@
       .contact-btn {
         left: 15px;
         top: 15px;
-        padding: 6px 18px;
-        font-size: 0.95rem;
+        padding: 6px 12px;
+        font-size: 0.9rem;
       }
       .parallax-bg {
         background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
