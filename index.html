@@ -55,21 +55,21 @@
     }
     .brand-text h1 {
       font-family: 'Audiowide', cursive;
-      font-size: 3rem; /* balanced size */
+      font-size: 3rem;
       color: #FFD700;
       text-shadow: 0 0 3px #FFD700, 0 0 6px #FFA500;
       letter-spacing: 2px;
       margin-bottom: 12px;
       opacity: 0;
-      animation: fadeDown 1.5s ease-out forwards;
+      animation: fadeDown 1.5s ease-out forwards, glowPulse 3s ease-in-out infinite;
     }
     .brand-text p {
       font-family: 'Rajdhani', sans-serif;
-      font-size: 1.1rem; /* balanced subtitle */
-      text-shadow: 0 0 3px rgba(255, 215, 0, 0.4);
+      font-size: 1.1rem;
+      text-shadow: 0 0 1px rgba(255, 215, 0, 0.3);
       margin-bottom: 20px;
       opacity: 0;
-      animation: fadeDown 1.5s ease-out 0.5s forwards;
+      animation: fadeDown 1.5s ease-out 0.5s forwards, glowPulseSubtitle 4s ease-in-out infinite;
     }
     @keyframes fadeDown {
       from { transform: translateY(-20px); opacity: 0; }
@@ -79,19 +79,41 @@
     /* Shop Now Button */
     .shop-btn {
       display: inline-block;
-      padding: 10px 22px; /* balanced button */
+      padding: 10px 22px;
       background: linear-gradient(90deg, #FFD700, #FFA500);
       color: #111;
       font-weight: bold;
       border-radius: 6px;
       text-decoration: none;
-      font-size: 1rem; /* balanced font size */
+      font-size: 1rem;
       box-shadow: 0 0 5px #FFD700;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .shop-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 0 8px #FFD700;
+    }
+
+    /* Contact Button */
+    .contact-btn {
+      position: absolute;
+      top: 15px;
+      right: 120px; /* space from top-right name */
+      padding: 6px 18px;
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      color: #111;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      box-shadow: 0 0 4px #FFD700;
+      transition: transform 0.3s, box-shadow 0.3s;
+      z-index: 5;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 10px #FFD700, 0 0 15px #FFA500;
     }
 
     /* Small Professional Top-right Text with Glow */
@@ -101,16 +123,29 @@
       right: 15px;
       font-family: 'Orbitron', sans-serif;
       color: #fff;
-      font-size: 1.1rem; /* slightly bigger to match hero */
+      font-size: 1.1rem;
       letter-spacing: 1px;
       text-shadow: 1px 1px 3px black;
       z-index: 5;
       transition: text-shadow 0.4s, color 0.4s;
       cursor: default;
+      animation: glowPulse 4s ease-in-out infinite;
     }
     .top-right-name:hover {
       color: #FFD700;
       text-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500;
+    }
+
+    /* Glow Animations */
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 3px #FFD700, 0 0 6px #FFA500; }
+      50% { text-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500; }
+      100% { text-shadow: 0 0 3px #FFD700, 0 0 6px #FFA500; }
+    }
+    @keyframes glowPulseSubtitle {
+      0% { text-shadow: 0 0 1px rgba(255, 215, 0, 0.3); }
+      50% { text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); }
+      100% { text-shadow: 0 0 1px rgba(255, 215, 0, 0.3); }
     }
 
     /* Responsive Mobile Fix */
@@ -118,9 +153,10 @@
       .brand-text h1 { font-size: 2rem; letter-spacing: 1.5px; }
       .brand-text p { font-size: 1rem; }
       .shop-btn { padding: 8px 18px; font-size: 0.95rem; }
+      .contact-btn { right: 100px; padding: 5px 14px; font-size: 0.85rem; }
       .parallax-bg {
         background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
-        position: absolute; /* avoid scroll bug */
+        position: absolute;
         top: 0; left: 0;
         width: 100%; height: 100%;
         animation: moveBg 15s linear infinite alternate;
@@ -142,17 +178,22 @@
   </style>
 </head>
 <body>
+  <div class="top-right-name">Mafia Cars</div>
+<a href="contact.html" class="contact-btn">Contact</a>
+
   <div class="hero">
     <div class="parallax-bg"></div>
 
+    <!-- Top-right Name and Contact -->
+    <div class="top-right-name">Mafia Cars</div>
+    <a href="contact.html" class="contact-btn">Contact</a>
+
+    <!-- Brand Text -->
     <div class="brand-text">
       <h1>Mc Accessories</h1>
       <p>Premium Car Accessories • Style • Performance</p>
       <a href="explore.html" class="shop-btn">Shop Now</a>
     </div>
-
-    <!-- Small Top-right Name with Glow -->
-    <div class="top-right-name">Mafia Cars</div>
   </div>
 </body>
 </html>

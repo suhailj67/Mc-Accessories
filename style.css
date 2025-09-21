@@ -114,7 +114,7 @@ body, html {
   text-shadow: 0 0 3px rgba(255, 215, 0, 0.4);
   margin-bottom: 20px;
   opacity: 0;
-  animation: fadeDown 1.5s ease-out 0.5s forwards, glowPulse 4s ease-in-out infinite;
+  animation: fadeDown 1.5s ease-out 0.5s forwards, glowPulseSubtitle 4s ease-in-out infinite;
 }
 @keyframes fadeDown {
   from { transform: translateY(-20px); opacity: 0; }
@@ -137,6 +137,28 @@ body, html {
 .shop-btn:hover, .cta-btn:hover, .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 8px #FFD700;
+}
+
+/* Contact Button integrated */
+.contact-btn {
+  position: absolute;
+  top: 15px;
+  right: 120px; /* space from top-right name */
+  padding: 6px 18px;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  color: #111;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  box-shadow: 0 0 4px #FFD700;
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 5;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px #FFD700, 0 0 15px #FFA500;
 }
 
 /* Logo */
@@ -201,6 +223,7 @@ header h1 { font-size: 1.8rem; }
   .brand-text h1 { font-size: 2rem; letter-spacing: 1.5px; }
   .brand-text p { font-size: 1rem; }
   .shop-btn { padding: 8px 18px; font-size: 0.95rem; }
+  .contact-btn { right: 100px; padding: 5px 14px; font-size: 0.85rem; }
   .car-container .car { width: 90%; }
   .parallax-bg {
     background: url('images/Mc-Accessories-logo-mobile.png') top center/contain no-repeat;
@@ -259,7 +282,6 @@ body.dark .section-headline h2 {
 .brand-text p {
   animation: fadeDown 1.5s ease-out 0.5s forwards, glowPulseSubtitle 4s ease-in-out infinite;
 }
-
 @keyframes glowPulseSubtitle {
   0% { text-shadow: 0 0 1px rgba(255, 215, 0, 0.3); }
   50% { text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); }
