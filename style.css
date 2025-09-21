@@ -138,68 +138,58 @@ body, html {
   transform: translateY(-2px);
   box-shadow: 0 0 8px #FFD700;
 }
-/* ---------------- Contact Button (compact & glowing) ---------------- */
+/* ---------------- Contact Button Upgraded ---------------- */
 .contact-btn {
   position: absolute;
-  top: 18px;
-  right: 15px;
-  padding: 6px 14px;         /* slightly smaller */
-  font-size: 0.9rem;
-  font-weight: bold;
+  top: 15px;
+  right: 120px; /* adjust spacing from top-right */
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #FFD700, #FFAA00);
   color: #111;
-  background: linear-gradient(90deg, #FFD700, #FFA500);
-  border-radius: 25px;       /* more rounded for modern look */
+  font-weight: bold;
+  border-radius: 8px;
   text-decoration: none;
-  border: 2px solid #FFD700;
-  box-shadow: 0 0 6px #FFD700;
-  z-index: 10;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, text-shadow 0.3s;
-  min-width: 75px;           /* keeps button compact */
-  text-align: center;
-  animation: contactGlow 3s ease-in-out infinite alternate;
+  font-size: 0.95rem;
+  box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: contactPopGlow 1.5s ease-out forwards 1s; /* fade in + pop */
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
-/* Hover effect with gradient shift and text glow */
 .contact-btn:hover {
-  transform: translateY(-2px) scale(1.05);
-  background: linear-gradient(90deg, #FFA500, #FFD700);
-  box-shadow: 0 0 12px #FFD700, 0 0 16px #FFA500;
-  text-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #FFD700, 0 0 24px #FFA500;
+  background: linear-gradient(135deg, #FFE135, #FFB500);
 }
 
-/* Glow animation */
-@keyframes contactGlow {
-  0% { box-shadow: 0 0 5px #FFD700; text-shadow: 0 0 2px #FFD700; }
-  50% { box-shadow: 0 0 10px #FFD700, 0 0 14px #FFA500; text-shadow: 0 0 6px #FFD700, 0 0 10px #FFA500; }
-  100% { box-shadow: 0 0 5px #FFD700; text-shadow: 0 0 2px #FFD700; }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .contact-btn {
-    top: 12px;
-    right: 12px;
-    padding: 4px 10px;      /* smaller padding for mobile */
-    font-size: 0.75rem;     /* smaller font size */
-    min-width: 60px;        /* keeps it compact */
-    border-radius: 20px;    /* slightly smaller radius for mobile */
+/* Pop-in + Glow Animation */
+@keyframes contactPopGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    box-shadow: 0 0 0px #FFD700;
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 14px #FFD700, 0 0 28px #FFA500;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
   }
 }
 
-@keyframes contactGlow {
-  0% { box-shadow: 0 0 4px #2196F3, 0 0 6px #64B5F6; }
-  50% { box-shadow: 0 0 6px #2196F3, 0 0 10px #64B5F6; }
-  100% { box-shadow: 0 0 4px #2196F3, 0 0 6px #64B5F6; }
-}
-
-/* Responsive adjustments */
+/* ---------------- Mobile Adjustments ---------------- */
 @media (max-width: 768px) {
   .contact-btn {
-    top: 12px;
-    left: 12px;
-    padding: 5px 12px;
-    font-size: 0.8rem;
-    min-width: 70px;
+    right: 20px; /* fit smaller screens */
+    padding: 6px 14px;
+    font-size: 0.85rem;
   }
 }
 
