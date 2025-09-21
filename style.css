@@ -420,3 +420,31 @@ body.dark .section-headline h2 {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+@media (max-width: 768px) {
+  .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
+  .brand-text p { font-size: 1.1rem; }
+  .shop-btn { padding: 8px 18px; font-size: 0.95rem; }
+  
+  /* Mobile Contact Button */
+  .contact-btn {
+    left: 15px;          /* keep left-aligned */
+    top: 20px;           /* aligned with top */
+    padding: 10px 20px;  /* bigger padding like desktop */
+    font-size: 0.95rem;  /* bigger text like desktop */
+    border-radius: 6px;  
+    box-shadow: 0 0 6px #00CFFF, 0 0 12px #00A1D6;
+  }
+  
+  .parallax-bg {
+    background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    animation: moveBg 15s linear infinite alternate;
+  }
+  @keyframes moveBg {
+    from { background-position: left center; }
+    to { background-position: right center; }
+  }
+  .top-right-name { font-size: 1rem; }
+}
