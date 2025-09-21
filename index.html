@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body, html {
       width: 100%;
       height: 100%;
+      overflow: hidden;
       font-family: 'Orbitron', sans-serif;
       background: #0a0a0a;
       color: white;
@@ -21,7 +23,7 @@
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -37,7 +39,10 @@
       z-index: 1;
       animation: bgZoom 20s ease-in-out infinite alternate;
     }
-    @keyframes bgZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+    @keyframes bgZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
 
     /* Brand Text */
     .brand-text {
@@ -66,9 +71,103 @@
       opacity: 0;
       animation: fadeDown 1.5s ease-out 0.5s forwards, glowPulseSubtitle 4s ease-in-out infinite;
     }
-    @keyframes fadeDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes fadeDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-    /* Top-right Mafia Cars + Contact */
+    /* Shop Now Button */
+    .shop-btn {
+      display: inline-block;
+      padding: 10px 22px;
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      color: #111;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 0 5px #FFD700;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .shop-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 8px #FFD700;
+    }
+
+    /* Contact Button */
+    .contact-btn {
+      position: absolute;
+      top: 65px;  /* moved under Mafia Cars */
+      right: 20px;
+      padding: 6px 14px;
+      min-width: 80px;
+      text-align: center;
+      background: linear-gradient(90deg, #2196F3, #64B5F6);
+      color: #fff;
+      font-weight: bold;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      box-shadow: 0 0 6px #2196F3;
+      transition: transform 0.3s, box-shadow 0.3s;
+      z-index: 5;
+      cursor: pointer;
+    }
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 10px #2196F3, 0 0 15px #64B5F6;
+    }
+
+    /* Contact Dropdown */
+    .contact-dropdown {
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      background: #111;
+      padding: 18px 20px;
+      margin-top: 6px;
+      border-radius: 12px;
+      border: 2px solid #FFD700;
+      width: 260px;
+      text-align: left;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #f8f8f8;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(-20px);
+      box-shadow: 0 0 15px #FFD70055;
+      transition: all 0.5s ease;
+      z-index: 4;
+    }
+    .contact-dropdown p { margin: 6px 0; }
+    .contact-dropdown p span.icon {
+      color: #FFD700;
+      font-weight: bold;
+      margin-right: 6px;
+    }
+    .contact-dropdown a {
+      color: #f8f8f8;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .contact-dropdown a:hover {
+      color: #FFD700;
+      text-shadow: 0 0 8px #FFD700aa;
+    }
+    .contact-dropdown.show {
+      opacity: 1;
+      transform: translateY(0);
+      animation: dropdownGlow 3s ease-in-out infinite;
+    }
+    @keyframes dropdownGlow {
+      0% { box-shadow: 0 0 10px #FFD70055; }
+      50% { box-shadow: 0 0 20px #FFD700aa; }
+      100% { box-shadow: 0 0 10px #FFD70055; }
+    }
+
+    /* Top-right Name */
     .top-right-name {
       position: absolute;
       top: 20px;
@@ -79,71 +178,12 @@
       letter-spacing: 1px;
       text-shadow: 1px 1px 3px black;
       z-index: 5;
+      cursor: default;
       animation: glowPulse 4s ease-in-out infinite;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end; /* align text & button neatly */
-      gap: 6px; /* spacing between Mafia Cars and Contact */
     }
-
-    /* Contact Button */
-    .contact-btn {
-      background: linear-gradient(90deg, #FFD700, #FFA500);
-      color: #111;
-      font-weight: bold;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      box-shadow: 0 0 5px #FFD700;
-      padding: 6px 14px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .contact-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 8px #FFD700;
-    }
-    /* Glow when active */
-    .contact-btn.active {
-      animation: glowPulseButton 2s ease-in-out infinite;
-    }
-    @keyframes glowPulseButton {
-      0%   { box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500; }
-      50%  { box-shadow: 0 0 12px #FFD700, 0 0 20px #FFA500; }
-      100% { box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500; }
-    }
-
-    /* Contact Dropdown */
-    .contact-dropdown {
-      background: #111;
-      padding: 18px 20px;
-      margin-top: 6px;
-      border-radius: 12px;
-      border: 2px solid #FFD700;
-      width: 260px;
-      text-align: right;
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #f8f8f8;
-      line-height: 1.6;
-      opacity: 0;
-      transform: translateY(-20px);
-      box-shadow: 0 0 15px #FFD70055;
-      transition: all 0.5s ease;
-    }
-    .contact-dropdown p {
-      margin: 6px 0;
-    }
-    .contact-dropdown p span.icon {
-      color: #FFD700; /* icons gold */
-      font-weight: bold;
-      margin-left: 6px;
-    }
-    .contact-dropdown.show {
-      opacity: 1;
-      transform: translateY(0);
-      animation: dropdownGlow 3s ease-in-out infinite;
+    .top-right-name:hover {
+      color: #FFD700;
+      text-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500;
     }
 
     /* Glow Animations */
@@ -157,25 +197,40 @@
       50% { text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); }
       100% { text-shadow: 0 0 1px rgba(255, 215, 0, 0.3); }
     }
-    @keyframes dropdownGlow {
-      0% { box-shadow: 0 0 12px #FFD70055, 0 0 24px #FFA50033; }
-      50% { box-shadow: 0 0 20px #FFD700AA, 0 0 40px #FFA50066; }
-      100% { box-shadow: 0 0 12px #FFD70055, 0 0 24px #FFA50033; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
+      .brand-text p { font-size: 1.1rem; }
+      .shop-btn { padding: 8px 18px; font-size: 0.95rem; }
+      .contact-btn { right: 15px; top: 60px; padding: 5px 12px; font-size: 0.85rem; }
+      .parallax-bg {
+        background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        animation: moveBg 15s linear infinite alternate;
+      }
+      @keyframes moveBg {
+        from { background-position: left center; }
+        to { background-position: right center; }
+      }
+      .top-right-name { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Top-right Mafia Cars + Contact Button -->
-  <div class="top-right-name">
-    <span>Mafia Cars</span>
-    <button class="contact-btn" id="contactBtn">Contact</button>
+  <!-- Top-right Name -->
+  <div class="top-right-name">Mafia Cars</div>
 
-    <!-- Animated Dropdown Contact Info -->
-    <div class="contact-dropdown" id="contactDropdown">
-      <p><span class="icon">📞</span> +91 93447 38217</p>
-      <p><span class="icon">📞</span> +91 93450 45379</p>
-      <p><span class="icon">📧</span> mcaccessories2025@gmail.com</p>
-    </div>
+  <!-- Contact Button -->
+  <button class="contact-btn" onclick="toggleContact()">Contact</button>
+
+  <!-- Contact Dropdown -->
+  <div class="contact-dropdown" id="contactDropdown">
+    <p><span class="icon">📞</span> <a href="tel:+919344738217">+91 93447 38217</a></p>
+    <p><span class="icon">📞</span> <a href="tel:+919345045379">+91 93450 45379</a></p>
+    <p><span class="icon">📧</span> <a href="mailto:mcaccessories2025@gmail.com">mcaccessories2025@gmail.com</a></p>
   </div>
 
   <div class="hero">
@@ -185,26 +240,14 @@
     <div class="brand-text">
       <h1>Mc Accessories</h1>
       <p>Premium Car Accessories • Style • Performance</p>
+      <a href="explore.html" class="shop-btn">Shop Now</a>
     </div>
   </div>
 
   <script>
-    const contactBtn = document.getElementById('contactBtn');
-    const contactDropdown = document.getElementById('contactDropdown');
-
-    contactBtn.addEventListener('click', () => {
-      contactDropdown.classList.toggle('show');
-      contactBtn.classList.toggle('active'); // button glows when dropdown is open
-    });
-
-    // Close dropdown if clicked outside
-    document.addEventListener('click', (e) => {
-      if (!contactBtn.contains(e.target) && !contactDropdown.contains(e.target)) {
-        contactDropdown.classList.remove('show');
-        contactBtn.classList.remove('active');
-      }
-    });
+    function toggleContact() {
+      document.getElementById("contactDropdown").classList.toggle("show");
+    }
   </script>
 </body>
 </html>
-<html>
