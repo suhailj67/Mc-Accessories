@@ -129,8 +129,8 @@
       }
 
       body, .hero {
-        overflow: hidden;
-        height: 100vh;
+        min-height: 100vh;   /* ✅ fixed scrolling */
+        overflow-x: hidden;  /* ✅ allow vertical scroll */
       }
     }
 
@@ -164,15 +164,16 @@
     <!-- Top-right name -->
     <div class="top-right-name">Mafia Cars</div>
   </div>
+
+  <!-- Background / Hero Section -->
+  <section class="hero">
+    <img src="images/Mc-Accessories-logo-desktop.png" alt="Mc Accessories Car" class="hero-car">
+
+    <!-- Invisible glow circles (will blink on Shop Now click) -->
+    <div class="headlight left"></div>
+    <div class="headlight right"></div>
+
+    <button class="cta-btn" id="shopNowBtn">Shop Now</button>
+  </section>
 </body>
 </html>
-<!-- Background / Hero Section -->
-<section class="hero">
-  <img src="Mc-Accessories-logo-desktop.png" alt="Mc Accessories Car" class="hero-car">
-
-  <!-- Invisible glow circles (will blink on Shop Now click) -->
-  <div class="headlight left"></div>
-  <div class="headlight right"></div>
-
-  <button class="cta-btn" id="shopNowBtn">Shop Now</button>
-</section>
