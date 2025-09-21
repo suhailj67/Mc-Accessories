@@ -139,26 +139,46 @@ body, html {
   box-shadow: 0 0 8px #FFD700;
 }
 
-/* Contact Button integrated */
+/* ---------------- Contact Button ---------------- */
 .contact-btn {
   position: absolute;
   top: 15px;
-  right: 120px; /* space from top-right name */
-  padding: 6px 18px;
-  background: linear-gradient(90deg, #FFD700, #FFA500);
-  color: #111;
+  left: 20px; /* top-left for cleaner look */
+  padding: 6px 14px; /* smaller & compact */
+  min-width: 80px;
+  text-align: center;
+  background: linear-gradient(90deg, #2196F3, #64B5F6); /* blue gradient */
+  color: #fff;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 20px; /* pill-shaped */
   text-decoration: none;
-  font-size: 0.95rem;
-  box-shadow: 0 0 4px #FFD700;
+  font-size: 0.9rem;
+  box-shadow: 0 0 4px #2196F3;
   transition: transform 0.3s, box-shadow 0.3s;
   z-index: 5;
-  animation: glowPulse 4s ease-in-out infinite;
+  animation: contactGlow 3s ease-in-out infinite;
 }
+
 .contact-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 10px #FFD700, 0 0 15px #FFA500;
+  box-shadow: 0 0 12px #2196F3, 0 0 18px #64B5F6;
+}
+
+@keyframes contactGlow {
+  0% { box-shadow: 0 0 4px #2196F3, 0 0 6px #64B5F6; }
+  50% { box-shadow: 0 0 6px #2196F3, 0 0 10px #64B5F6; }
+  100% { box-shadow: 0 0 4px #2196F3, 0 0 6px #64B5F6; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-btn {
+    top: 12px;
+    left: 12px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    min-width: 70px;
+  }
 }
 
 /* Logo */
