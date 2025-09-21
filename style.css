@@ -261,3 +261,8 @@ body.dark .section-headline h2 {
   border-bottom-color: #ff0000;
   text-shadow: 0 0 12px #ff0000;
 }
+/* Prevent scrolling */
+body, html {
+    overflow: hidden; /* hides scrollbars */
+    height: 100%;     /* ensures full viewport height */
+}
