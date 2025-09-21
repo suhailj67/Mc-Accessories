@@ -138,76 +138,43 @@ body, html {
   transform: translateY(-2px);
   box-shadow: 0 0 8px #FFD700;
 }
-/* ---------------- Contact Button with Golden Theme ---------------- */
+/* ---------------- Contact Button ---------------- */
 .contact-btn {
   position: absolute;
   top: 15px;
   right: 120px;
-  padding: 8px 20px;
-  background: linear-gradient(135deg, #FFD700, #FFA500); /* Golden-orange gradient */
-  color: #111;
+  padding: 6px 18px;
+  background: rgba(255, 215, 0, 0.15); /* very subtle gold */
+  color: #FFD700; /* gold text to match site */
   font-weight: bold;
+  font-size: 0.95rem;
   border-radius: 6px;
   text-decoration: none;
-  font-size: 0.95rem;
-  box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
-  opacity: 0;
-  transform: scale(0.9);
-  animation: contactFadeIn 1.5s ease-out forwards 1s, contactGlow 3s ease-in-out infinite 2s;
+  box-shadow: 0 0 3px rgba(255, 215, 0, 0.3); /* subtle glow */
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, opacity 0.3s;
   z-index: 5;
-  cursor: pointer;
-  overflow: hidden; /* for sliding shine */
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  opacity: 0.7; /* less dominant */
+  animation: fadeInContact 1.2s ease-out forwards 0.8s;
 }
 
+/* Hover: subtle glow & slight brightness increase */
 .contact-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 10px #FFD700, 0 0 15px #FFA500;
-  background: linear-gradient(135deg, #FFE066, #FFB733); /* Slightly brighter on hover */
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6), 0 0 12px rgba(255, 215, 0, 0.4);
+  background: rgba(255, 215, 0, 0.25);
+  opacity: 1;
 }
 
-/* Sliding shine effect */
-.contact-btn::before {
-  content: "";
-  position: absolute;
-  top: 0; left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
-  transform: skewX(-20deg);
-  pointer-events: none;
-}
-
-.contact-btn:hover::before {
-  animation: shine 1s infinite;
+/* Active / click effect */
+.contact-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0 4px rgba(255, 215, 0, 0.5);
 }
 
 /* Fade-in animation */
-@keyframes contactFadeIn {
-  0% { opacity: 0; transform: scale(0.9); box-shadow: 0 0 0px #FFD700; }
-  100% { opacity: 1; transform: scale(1); box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500; }
-}
-
-/* Subtle pulse glow */
-@keyframes contactGlow {
-  0%, 100% { box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500; }
-  50% { box-shadow: 0 0 10px #FFD700, 0 0 18px #FFA500; }
-}
-
-/* Sliding shine */
-@keyframes shine {
-  0% { left: -75%; }
-  100% { left: 125%; }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .contact-btn {
-    right: 20px;
-    padding: 6px 14px;
-    font-size: 0.85rem;
-  }
+@keyframes fadeInContact {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 0.7; transform: translateY(0); }
 }
 
 /* Logo */
