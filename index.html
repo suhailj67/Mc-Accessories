@@ -55,7 +55,7 @@
     }
     .brand-text h1 {
       font-family: 'Audiowide', cursive;
-      font-size: 3rem; /* smaller, professional */
+      font-size: 3rem; /* balanced size */
       color: #FFD700;
       text-shadow: 0 0 3px #FFD700, 0 0 6px #FFA500;
       letter-spacing: 2px;
@@ -65,7 +65,7 @@
     }
     .brand-text p {
       font-family: 'Rajdhani', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.1rem; /* balanced subtitle */
       text-shadow: 0 0 3px rgba(255, 215, 0, 0.4);
       margin-bottom: 20px;
       opacity: 0;
@@ -79,13 +79,13 @@
     /* Shop Now Button */
     .shop-btn {
       display: inline-block;
-      padding: 10px 22px;
+      padding: 10px 22px; /* balanced button */
       background: linear-gradient(90deg, #FFD700, #FFA500);
       color: #111;
       font-weight: bold;
       border-radius: 6px;
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 1rem; /* balanced font size */
       box-shadow: 0 0 5px #FFD700;
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -94,24 +94,30 @@
       box-shadow: 0 0 8px #FFD700;
     }
 
-    /* Small Professional Top-right Text */
+    /* Small Professional Top-right Text with Glow */
     .top-right-name {
       position: absolute;
       top: 15px;
       right: 15px;
       font-family: 'Orbitron', sans-serif;
       color: #fff;
-      font-size: 1rem; /* smaller & professional */
+      font-size: 1.1rem; /* slightly bigger to match hero */
       letter-spacing: 1px;
       text-shadow: 1px 1px 3px black;
       z-index: 5;
+      transition: text-shadow 0.4s, color 0.4s;
+      cursor: default;
+    }
+    .top-right-name:hover {
+      color: #FFD700;
+      text-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500;
     }
 
     /* Responsive Mobile Fix */
     @media (max-width: 768px) {
-      .brand-text h1 { font-size: 2rem; letter-spacing: 1px; }
-      .brand-text p { font-size: 0.9rem; }
-      .shop-btn { padding: 8px 18px; font-size: 0.9rem; }
+      .brand-text h1 { font-size: 2rem; letter-spacing: 1.5px; }
+      .brand-text p { font-size: 1rem; }
+      .shop-btn { padding: 8px 18px; font-size: 0.95rem; }
       .parallax-bg {
         background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
         position: absolute; /* avoid scroll bug */
@@ -123,8 +129,16 @@
         from { background-position: left center; }
         to { background-position: right center; }
       }
+      .top-right-name { font-size: 0.95rem; }
     }
 
+    /* iPhone/iOS fix: reduce glow only on Safari (WebKit) */
+    @supports (-webkit-touch-callout: none) {
+      .brand-text h1 { text-shadow: 0 0 2px #FFD700, 0 0 4px #FFA500; }
+      .brand-text p { text-shadow: 0 0 2px rgba(255, 215, 0, 0.3); }
+      .shop-btn { box-shadow: 0 0 3px #FFD700; }
+      .shop-btn:hover { box-shadow: 0 0 6px #FFD700; }
+    }
   </style>
 </head>
 <body>
@@ -137,7 +151,7 @@
       <a href="explore.html" class="shop-btn">Shop Now</a>
     </div>
 
-    <!-- Small Top-right Name -->
+    <!-- Small Top-right Name with Glow -->
     <div class="top-right-name">Mafia Cars</div>
   </div>
 </body>
