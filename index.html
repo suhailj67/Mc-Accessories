@@ -94,7 +94,7 @@
       box-shadow: 0 0 8px #FFD700;
     }
 
-    /* Contact Button - cyan/teal */
+    /* Contact Button - Clean Yellow */
     .contact-btn {
       position: absolute;
       top: 20px;
@@ -103,9 +103,9 @@
       font-size: 0.95rem;
       font-weight: bold;
       border-radius: 6px;
-      color: #fff;
-      background: linear-gradient(135deg, #00CFFF, #00A1D6);
-      box-shadow: 0 0 6px #00CFFF, 0 0 12px #00A1D6;
+      color: #111;
+      background: linear-gradient(90deg, #FFD700, #FFC700);
+      box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
       text-decoration: none;
       cursor: pointer;
       z-index: 5;
@@ -113,14 +113,14 @@
     }
     .contact-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 10px #00CFFF, 0 0 15px #00A1D6;
+      box-shadow: 0 0 10px #FFD700, 0 0 15px #FFA500;
     }
     .contact-btn:active {
       transform: translateY(0);
-      box-shadow: 0 0 4px #00CFFF, 0 0 8px #00A1D6;
+      box-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500;
     }
 
-    /* Contact Dropdown - cyan glow */
+    /* Contact Dropdown - Clean Yellow */
     .contact-dropdown {
       position: absolute;
       top: 55px;
@@ -128,25 +128,25 @@
       background: #111;
       padding: 18px 20px;
       border-radius: 12px;
-      border: 2px solid #00CFFF;
+      border: 2px solid #FFD700;
       width: 260px;
       text-align: left;
       font-family: 'Rajdhani', sans-serif;
       font-size: 1.05rem;
       font-weight: 600;
-      color: #f8f8f8;
+      color: #111;
       line-height: 1.6;
       opacity: 0;
       transform: translateY(-15px);
-      box-shadow: 0 0 15px #00CFFF55;
+      box-shadow: 0 0 15px #FFD70055;
       transition: all 0.5s ease;
       pointer-events: none;
       z-index: 4;
     }
     .contact-dropdown p { margin: 6px 0; }
-    .contact-dropdown p span.icon { color: #00CFFF; font-weight: bold; margin-right: 6px; }
-    .contact-dropdown a { color: #f8f8f8; text-decoration: none; transition: 0.3s; }
-    .contact-dropdown a:hover { color: #00CFFF; text-shadow: 0 0 8px #00CFFFaa; }
+    .contact-dropdown p span.icon { color: #FFD700; font-weight: bold; margin-right: 6px; }
+    .contact-dropdown a { color: #111; text-decoration: none; transition: 0.3s; }
+    .contact-dropdown a:hover { color: #FFD700; text-shadow: 0 0 8px #FFD700aa; }
     .contact-dropdown.show {
       opacity: 1;
       transform: translateY(5px);
@@ -154,9 +154,9 @@
       animation: dropdownGlow 3s ease-in-out infinite;
     }
     @keyframes dropdownGlow {
-      0% { box-shadow: 0 0 10px #00CFFF55; }
-      50% { box-shadow: 0 0 20px #00CFFFaa; }
-      100% { box-shadow: 0 0 10px #00CFFF55; }
+      0% { box-shadow: 0 0 10px #FFD70055; }
+      50% { box-shadow: 0 0 20px #FFD700aa; }
+      100% { box-shadow: 0 0 10px #FFD70055; }
     }
 
     /* Top-right Name */
@@ -192,10 +192,8 @@
       .contact-btn {
         left: 15px;
         top: 15px;
-        padding: 10px 20px;
+        padding: 6px 18px;
         font-size: 0.95rem;
-        border-radius: 6px;
-        box-shadow: 0 0 6px #00CFFF, 0 0 12px #00A1D6;
       }
       .parallax-bg {
         background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
