@@ -55,7 +55,7 @@
     }
     .brand-text h1 {
       font-family: 'Audiowide', cursive;
-      font-size: 3rem;
+      font-size: 3.5rem; /* slightly bigger */
       color: #FFD700;
       text-shadow: 0 0 3px #FFD700, 0 0 6px #FFA500;
       letter-spacing: 2px;
@@ -65,7 +65,7 @@
     }
     .brand-text p {
       font-family: 'Rajdhani', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.3rem; /* slightly bigger */
       text-shadow: 0 0 1px rgba(255, 215, 0, 0.3);
       margin-bottom: 20px;
       opacity: 0;
@@ -97,33 +97,33 @@
     /* Contact Button */
     .contact-btn {
       position: absolute;
-      top: 15px;
-      right: 120px; /* space from top-right name */
+      top: 20px;
+      left: 20px; /* top-left clean */
       padding: 6px 18px;
-      background: linear-gradient(90deg, #FFD700, #FFA500);
-      color: #111;
+      background: linear-gradient(90deg, #2196F3, #64B5F6); /* blue gradient professional */
+      color: #fff;
       font-weight: bold;
       border-radius: 6px;
       text-decoration: none;
-      font-size: 0.95rem;
-      box-shadow: 0 0 4px #FFD700;
+      font-size: 1rem;
+      box-shadow: 0 0 6px #2196F3;
       transition: transform 0.3s, box-shadow 0.3s;
       z-index: 5;
-      animation: glowPulse 4s ease-in-out infinite;
+      animation: none; /* subtle */
     }
     .contact-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 10px #FFD700, 0 0 15px #FFA500;
+      box-shadow: 0 0 10px #2196F3, 0 0 15px #64B5F6;
     }
 
     /* Small Professional Top-right Text with Glow */
     .top-right-name {
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 20px;
+      right: 20px;
       font-family: 'Orbitron', sans-serif;
       color: #fff;
-      font-size: 1.1rem;
+      font-size: 1.3rem; /* slightly bigger */
       letter-spacing: 1px;
       text-shadow: 1px 1px 3px black;
       z-index: 5;
@@ -150,10 +150,10 @@
 
     /* Responsive Mobile Fix */
     @media (max-width: 768px) {
-      .brand-text h1 { font-size: 2rem; letter-spacing: 1.5px; }
-      .brand-text p { font-size: 1rem; }
+      .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
+      .brand-text p { font-size: 1.1rem; }
       .shop-btn { padding: 8px 18px; font-size: 0.95rem; }
-      .contact-btn { right: 100px; padding: 5px 14px; font-size: 0.85rem; }
+      .contact-btn { left: 15px; top: 15px; padding: 5px 14px; font-size: 0.85rem; }
       .parallax-bg {
         background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
         position: absolute;
@@ -165,28 +165,17 @@
         from { background-position: left center; }
         to { background-position: right center; }
       }
-      .top-right-name { font-size: 0.95rem; }
-    }
-
-    /* iPhone/iOS fix: reduce glow only on Safari (WebKit) */
-    @supports (-webkit-touch-callout: none) {
-      .brand-text h1 { text-shadow: 0 0 2px #FFD700, 0 0 4px #FFA500; }
-      .brand-text p { text-shadow: 0 0 2px rgba(255, 215, 0, 0.3); }
-      .shop-btn { box-shadow: 0 0 3px #FFD700; }
-      .shop-btn:hover { box-shadow: 0 0 6px #FFD700; }
+      .top-right-name { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
+  <!-- Top-right Name and Contact -->
   <div class="top-right-name">Mafia Cars</div>
-<a href="contact.html" class="contact-btn">Contact</a>
+  <a href="contact.html" class="contact-btn">Contact</a>
 
   <div class="hero">
     <div class="parallax-bg"></div>
-
-    <!-- Top-right Name and Contact -->
-    <div class="top-right-name">Mafia Cars</div>
-    <a href="contact.html" class="contact-btn">Contact</a>
 
     <!-- Brand Text -->
     <div class="brand-text">
