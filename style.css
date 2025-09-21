@@ -349,17 +349,37 @@ body.dark .section-headline h2 {
 .contact-btn:hover,
 .contact-btn:active,
 .contact-btn:focus {
-  background: linear-gradient(135deg, #FFD700, #FFA500);
-  color: #111;
+  background: linear-gradient(135deg, #00CFFF, #00A1D6); /* cyan/teal gradient */
+  color: #fff;
   text-decoration: none;
   outline: none;
-  box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500;
+  border-radius: 6px;
+  padding: 6px 18px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  box-shadow: 0 0 6px #00CFFF, 0 0 12px #00A1D6;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
+  z-index: 5;
 }
+
+/* Hover effect */
 .contact-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 10px #FFD700, 0 0 15px #FFA500;
+  box-shadow: 0 0 10px #00CFFF, 0 0 15px #00A1D6;
 }
+
+/* Active/pressed effect */
 .contact-btn:active {
-  transform: translateY(0); /* press effect */
-  box-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500;
+  transform: translateY(0);
+  box-shadow: 0 0 4px #00CFFF, 0 0 8px #00A1D6;
+}
+
+/* Optional fade-in animation */
+.contact-btn {
+  opacity: 0;
+  animation: fadeInContact 1.2s ease-out forwards 0.8s; /* fades in after 0.8s delay */
+}
+@keyframes fadeInContact {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
