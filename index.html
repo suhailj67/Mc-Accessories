@@ -68,27 +68,7 @@
     }
     @keyframes fadeDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-    /* Contact Button */
-    .contact-btn {
-      display: block;
-      margin-top: 8px;
-      background: linear-gradient(90deg, #FFD700, #FFA500);
-      color: #111;
-      font-weight: bold;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1rem;
-      box-shadow: 0 0 5px #FFD700;
-      padding: 6px 14px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-    }
-    .contact-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 8px #FFD700;
-    }
-
-    /* Top-right Name */
+    /* Top-right Mafia Cars + Contact */
     .top-right-name {
       position: absolute;
       top: 20px;
@@ -102,28 +82,49 @@
       animation: glowPulse 4s ease-in-out infinite;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-end; /* align text & button neatly */
+      gap: 6px; /* spacing between Mafia Cars and Contact */
     }
 
-    /* Contact dropdown (hidden initially) */
+    /* Contact Button */
+    .contact-btn {
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      color: #111;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      box-shadow: 0 0 5px #FFD700;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 8px #FFD700;
+    }
+
+    /* Contact Dropdown */
     .contact-dropdown {
       background: #111;
-      padding: 20px;
-      margin-top: 10px;
+      padding: 18px;
+      margin-top: 6px;
       border-radius: 12px;
       border: 2px solid #FFD700;
-      width: 220px;
+      width: 240px;
       text-align: right;
       font-family: 'Rajdhani', sans-serif;
       font-size: 0.95rem;
       color: #f0f0f0;
       opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(-20px);
+      box-shadow: 0 0 15px #FFD70055;
+      transition: all 0.5s ease;
     }
     .contact-dropdown.show {
       opacity: 1;
       transform: translateY(0);
+      animation: dropdownGlow 3s ease-in-out infinite;
     }
 
     /* Glow Animations */
@@ -137,6 +138,11 @@
       50% { text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); }
       100% { text-shadow: 0 0 1px rgba(255, 215, 0, 0.3); }
     }
+    @keyframes dropdownGlow {
+      0% { box-shadow: 0 0 12px #FFD70055, 0 0 24px #FFA50033; }
+      50% { box-shadow: 0 0 20px #FFD700AA, 0 0 40px #FFA50066; }
+      100% { box-shadow: 0 0 12px #FFD70055, 0 0 24px #FFA50033; }
+    }
   </style>
 </head>
 <body>
@@ -145,7 +151,7 @@
     <span>Mafia Cars</span>
     <button class="contact-btn" id="contactBtn">Contact</button>
 
-    <!-- Contact Info Dropdown -->
+    <!-- Animated Dropdown Contact Info -->
     <div class="contact-dropdown" id="contactDropdown">
       <p>📞 +91 93447 38217</p>
       <p>📞 +91 93450 45379</p>
@@ -168,7 +174,7 @@
     const contactDropdown = document.getElementById('contactDropdown');
 
     contactBtn.addEventListener('click', () => {
-      contactDropdown.classList.toggle('show'); // toggle dropdown visibility
+      contactDropdown.classList.toggle('show'); // slide down/up animation
     });
   </script>
 </body>
