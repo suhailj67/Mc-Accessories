@@ -138,24 +138,24 @@ body, html {
   transform: translateY(-2px);
   box-shadow: 0 0 8px #FFD700;
 }
-/* ---------------- Themed Contact Button ---------------- */
+/* ---------------- Contact Button (gold theme) ---------------- */
 .contact-btn {
   position: absolute;
   top: 18px;
-  right: 15px; /* keeps it near top-right name */
+  right: 15px; /* space from top-right name */
   padding: 6px 14px; /* compact size */
   font-size: 0.9rem;
   font-weight: bold;
-  color: #111; /* dark text matches Shop Now button */
-  background: linear-gradient(90deg, #FFD700, #FFA500); /* gold/orange gradient */
-  border-radius: 20px; /* slightly rounded capsule */
+  color: #111; /* dark text like Shop Now */
+  background: linear-gradient(90deg, #FFD700, #FFA500); /* gold/orange */
+  border-radius: 20px; /* capsule shape */
   text-decoration: none;
   border: 2px solid #FFD700;
   box-shadow: 0 0 6px #FFD700;
   z-index: 10;
   transition: transform 0.3s, box-shadow 0.3s;
-  text-align: center;
   min-width: 80px;
+  text-align: center;
   animation: contactGlow 3s ease-in-out infinite alternate;
 }
 
@@ -171,14 +171,14 @@ body, html {
   100% { box-shadow: 0 0 5px #FFD700; }
 }
 
-/* Responsive mobile */
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .contact-btn {
     top: 12px;
     right: 12px;
     padding: 5px 10px;
     font-size: 0.8rem;
-    min-width: 65px; /* smaller width for mobile */
+    min-width: 65px; /* prevents it from being too long on small screens */
   }
 }
 
