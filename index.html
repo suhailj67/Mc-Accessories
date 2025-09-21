@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body, html {
@@ -16,7 +15,7 @@
       font-family: 'Orbitron', sans-serif;
       background: #0a0a0a;
       color: white;
-      scroll-behavior: smooth;
+      scroll-behavior: smooth; /* enables smooth scrolling */
     }
 
     /* Hero Section */
@@ -66,6 +65,7 @@
     .brand-text p {
       font-family: 'Rajdhani', sans-serif;
       font-size: 1.3rem;
+      text-shadow: 0 0 1px rgba(255, 215, 0, 0.3);
       margin-bottom: 20px;
       opacity: 0;
       animation: fadeDown 1.5s ease-out 0.5s forwards, glowPulseSubtitle 4s ease-in-out infinite;
@@ -75,8 +75,8 @@
       to { transform: translateY(0); opacity: 1; }
     }
 
-    /* Shop Now Button */
-    .shop-btn {
+    /* Contact Button */
+    .contact-btn {
       display: inline-block;
       padding: 10px 22px;
       background: linear-gradient(90deg, #FFD700, #FFA500);
@@ -88,7 +88,7 @@
       box-shadow: 0 0 5px #FFD700;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .shop-btn:hover {
+    .contact-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 0 8px #FFD700;
     }
@@ -106,64 +106,10 @@
       z-index: 5;
       cursor: default;
       animation: glowPulse 4s ease-in-out infinite;
-      text-align: center;
     }
-
-    /* Contact Button under Mafia Cars */
-    .contact-btn {
-      display: block;
-      margin-top: 8px;
-      background: linear-gradient(90deg, #2196F3, #64B5F6);
-      padding: 6px 16px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      border-radius: 20px;
-      text-decoration: none;
-      color: #fff;
-      box-shadow: 0 0 6px #2196F3;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .contact-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 10px #2196F3, 0 0 15px #64B5F6;
-    }
-
-    /* Contact Section */
-    .contact-section {
-      min-height: 50vh;
-      background: #111;
-      padding: 60px 20px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
-    .contact-section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .contact-card {
-      display: inline-block;
-      background: #1a1a1a;
-      border: 2px solid #2196F3;
-      border-radius: 15px;
-      padding: 25px 30px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 0 15px rgba(33,150,243,0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(33,150,243,0.9);
-    }
-    .contact-card h2 {
-      margin-bottom: 15px;
+    .top-right-name:hover {
       color: #FFD700;
-    }
-    .contact-card p {
-      margin: 8px 0;
-      font-size: 1rem;
+      text-shadow: 0 0 4px #FFD700, 0 0 8px #FFA500;
     }
 
     /* Glow Animations */
@@ -177,43 +123,68 @@
       50% { text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); }
       100% { text-shadow: 0 0 1px rgba(255, 215, 0, 0.3); }
     }
+
+    /* Contact Section */
+    #contact {
+      width: 100%;
+      padding: 80px 20px;
+      text-align: center;
+      background: #111;
+      position: relative;
+      z-index: 2;
+    }
+    #contact h2 {
+      font-family: 'Audiowide', cursive;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #FFD700;
+      text-shadow: 0 0 5px #FFA500;
+    }
+    #contact p {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.2rem;
+      margin: 8px 0;
+      color: #f0f0f0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .brand-text h1 { font-size: 2.2rem; letter-spacing: 1.5px; }
+      .brand-text p { font-size: 1.1rem; }
+      .contact-btn { padding: 8px 18px; font-size: 0.95rem; }
+      .top-right-name { font-size: 1rem; }
+      .parallax-bg {
+        background: url('images/Mc-Accessories-logo-mobile.png') center/cover no-repeat;
+        animation: moveBg 15s linear infinite alternate;
+      }
+      @keyframes moveBg {
+        from { background-position: left center; }
+        to { background-position: right center; }
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Top-right Name with Contact button -->
-  <div class="top-right-name">
-    Mafia Cars
-    <a href="#contact" class="contact-btn">Contact</a>
-  </div>
+  <div class="top-right-name">Mafia Cars</div>
 
   <div class="hero">
     <div class="parallax-bg"></div>
+
+    <!-- Brand Text -->
     <div class="brand-text">
       <h1>Mc Accessories</h1>
       <p>Premium Car Accessories • Style • Performance</p>
-      <a href="explore.html" class="shop-btn">Shop Now</a>
+      <!-- Changed Explore to Contact -->
+      <a href="#contact" class="contact-btn">Contact</a>
     </div>
   </div>
 
   <!-- Contact Section -->
-  <div id="contact" class="contact-section">
-    <div class="contact-card">
-      <h2>Contact Us</h2>
-      <p>📞 Phone 1: 9344738217</p>
-      <p>📞 Phone 2: 9345045379</p>
-      <p>📧 Email: mcaccessories2025@gmail.com</p>
-    </div>
-  </div>
-
-  <script>
-    // Reveal contact section when scrolled into view
-    window.addEventListener("scroll", () => {
-      const section = document.querySelector(".contact-section");
-      const rect = section.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        section.classList.add("show");
-      }
-    });
-  </script>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 +91 93447 38217</p>
+    <p>📞 +91 93450 45379</p>
+    <p>📧 mcaccessories2025@gmail.com</p>
+  </section>
 </body>
 </html>
