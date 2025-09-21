@@ -103,23 +103,42 @@
       transform: translateY(-2px);
       box-shadow: 0 0 8px #FFD700;
     }
+    /* Glow when active */
+    .contact-btn.active {
+      animation: glowPulseButton 2s ease-in-out infinite;
+    }
+    @keyframes glowPulseButton {
+      0%   { box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500; }
+      50%  { box-shadow: 0 0 12px #FFD700, 0 0 20px #FFA500; }
+      100% { box-shadow: 0 0 6px #FFD700, 0 0 12px #FFA500; }
+    }
 
     /* Contact Dropdown */
     .contact-dropdown {
       background: #111;
-      padding: 18px;
+      padding: 18px 20px;
       margin-top: 6px;
       border-radius: 12px;
       border: 2px solid #FFD700;
-      width: 240px;
+      width: 260px;
       text-align: right;
       font-family: 'Rajdhani', sans-serif;
-      font-size: 0.95rem;
-      color: #f0f0f0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #f8f8f8;
+      line-height: 1.6;
       opacity: 0;
       transform: translateY(-20px);
       box-shadow: 0 0 15px #FFD70055;
       transition: all 0.5s ease;
+    }
+    .contact-dropdown p {
+      margin: 6px 0;
+    }
+    .contact-dropdown p span.icon {
+      color: #FFD700; /* icons gold */
+      font-weight: bold;
+      margin-left: 6px;
     }
     .contact-dropdown.show {
       opacity: 1;
@@ -153,9 +172,9 @@
 
     <!-- Animated Dropdown Contact Info -->
     <div class="contact-dropdown" id="contactDropdown">
-      <p>📞 +91 93447 38217</p>
-      <p>📞 +91 93450 45379</p>
-      <p>📧 mcaccessories2025@gmail.com</p>
+      <p><span class="icon">📞</span> +91 93447 38217</p>
+      <p><span class="icon">📞</span> +91 93450 45379</p>
+      <p><span class="icon">📧</span> mcaccessories2025@gmail.com</p>
     </div>
   </div>
 
@@ -174,8 +193,18 @@
     const contactDropdown = document.getElementById('contactDropdown');
 
     contactBtn.addEventListener('click', () => {
-      contactDropdown.classList.toggle('show'); // slide down/up animation
+      contactDropdown.classList.toggle('show');
+      contactBtn.classList.toggle('active'); // button glows when dropdown is open
+    });
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', (e) => {
+      if (!contactBtn.contains(e.target) && !contactDropdown.contains(e.target)) {
+        contactDropdown.classList.remove('show');
+        contactBtn.classList.remove('active');
+      }
     });
   </script>
 </body>
 </html>
+<html>
