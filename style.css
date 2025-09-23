@@ -397,3 +397,13 @@ body.dark .section-headline h2 {
   }
   .top-right-name { font-size: 1rem; }
 }
+/* Mobile Contact Button Fix */
+@media (max-width: 768px) {
+  .contact-btn {
+    display: inline-block;   /* prevent full width */
+    width: auto;             /* shrink to content */
+    padding: 5px 14px;       /* smaller padding */
+    font-size: 0.85rem;      /* smaller text */
+  }
+}
+
