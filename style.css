@@ -88,8 +88,8 @@ body, html {
 /* Contact Button */
 .contact-btn {
   position: absolute;
-  top: 20px;       /* aligned with Mafia Cars */
-  left: 20px;      /* top-left position */
+  top: 20px;       
+  left: 20px;      
   padding: 6px 18px;
   font-size: 0.95rem;
   font-weight: bold;
@@ -114,7 +114,7 @@ body, html {
 /* Contact Dropdown */
 .contact-dropdown {
   position: absolute;
-  top: 55px;       /* slide down below button */
+  top: 55px;       
   left: 20px;
   background: #111;
   padding: 18px 20px;
@@ -198,15 +198,14 @@ body, html {
 [id]::before {
   content: "";
   display: block;
-  height: 120px;   /* equal to your fixed nav height */
+  height: 120px;   
   margin-top: -120px;
 }
 .section-title {
-  scroll-margin-top: 120px; /* adjust to your nav height */
+  scroll-margin-top: 120px; 
 }
-/* Make sure section headlines don't get hidden under sticky nav */
 .section-headline {
-  scroll-margin-top: 120px; /* adjust: equal to nav height */
+  scroll-margin-top: 120px; 
 }
 
 /* Optional highlight color for nav click */
@@ -214,4 +213,15 @@ body, html {
   color: #FF4C4C;
   text-shadow: 0 0 6px #FF0000AA;
   transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* ======= PRODUCT CARD IMAGE FIX ======= */
+.product-card img {
+  width: 100%;
+  height: auto;        /* maintain original aspect ratio */
+  max-height: 180px;   /* optional: limit image height */
+  object-fit: contain; /* ensures full image fits inside the card */
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
