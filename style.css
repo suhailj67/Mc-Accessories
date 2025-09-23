@@ -204,3 +204,14 @@ body, html {
 .section-title {
   scroll-margin-top: 120px; /* adjust to your nav height */
 }
+/* Make sure section headlines don't get hidden under sticky nav */
+.section-headline {
+  scroll-margin-top: 120px; /* adjust: equal to nav height */
+}
+
+/* Optional highlight color for nav click */
+.highlight-red {
+  color: #FF4C4C;
+  text-shadow: 0 0 6px #FF0000AA;
+  transition: color 0.3s, text-shadow 0.3s;
+}

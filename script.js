@@ -113,7 +113,7 @@ navLinks.forEach(link => {
 
       // Remove highlight after 2 seconds
       setTimeout(() => headline.classList.remove("highlight-red"), 2000);
+
     }
   });
 });
-
