@@ -201,3 +201,6 @@ body, html {
   height: 120px;   /* equal to your fixed nav height */
   margin-top: -120px;
 }
+.section-title {
+  scroll-margin-top: 120px; /* adjust to your nav height */
+}
