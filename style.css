@@ -248,3 +248,25 @@ body, html {
   margin-bottom: 12px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+/* --- Product Images (Responsive) --- */
+.product-card img {
+  width: 100%;          /* fill card width */
+  height: auto;         /* maintain aspect ratio */
+  max-height: 220px;    /* desktop max height */
+  object-fit: contain;  /* no cropping, scale inside card */
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Mobile adjustments */
+@media(max-width:768px) {
+  .product-card img {
+    max-height: 180px;  /* smaller height on tablets */
+  }
+}
+@media(max-width:480px) {
+  .product-card img {
+    max-height: 150px;  /* smaller height on phones */
+  }
+}
