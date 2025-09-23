@@ -338,3 +338,10 @@ body.dark .section-headline h2 {
   height: 80px;   /* adjust to your header height */
   margin-top: -80px;
 }
+/* Fix scroll position so headlines are not hidden under menu */
+[id]::before {
+  content: "";
+  display: block;
+  height: 100px;   /* adjust this height */
+  margin-top: -100px;
+}
