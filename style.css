@@ -331,3 +331,10 @@ body.dark .section-headline h2 {
   50% { text-shadow: 0 0 3px rgba(255, 215, 0, 0.5); }
   100% { text-shadow: 0 0 1px rgba(255, 215, 0, 0.3); }
 }
+/* Scroll offset fix for headlines */
+[id]::before {
+  content: "";
+  display: block;
+  height: 80px;   /* adjust to your header height */
+  margin-top: -80px;
+}
