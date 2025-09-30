@@ -139,9 +139,9 @@ body.dark .product-card { background: #1a1a1a; color: #fff; box-shadow: 0 4px 12
 /* --- Product Images --- */
 .product-card img {
   width: 100%;
-  height: auto;        /* maintain aspect ratio */
-  max-height: 220px;   /* allow full image to show */
-  object-fit: contain; /* no cropping */
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
   border-radius: 10px;
   margin-bottom: 12px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -197,7 +197,6 @@ body.dark .product-card:hover img {
 
 /* ✅ Prevent sticky nav from covering headlines */
 .section-headline { scroll-margin-top: 120px; }
-
 </style>
 </head>
 <body>
@@ -224,7 +223,6 @@ body.dark .product-card:hover img {
   <a href="#pedal-covers"><i class="fas fa-shoe-prints"></i> Pedal Covers</a>
 </nav>
 
-<!-- --- Sections --- -->
 <!-- Gear Knobs -->
 <section id="gear-knobs">
   <div class="section-headline"><h2>Gear Knobs</h2></div>
@@ -233,13 +231,37 @@ body.dark .product-card:hover img {
       <img src="images/gear knob.png" alt="Gear Knob 1">
       <h3>Premium Gear Knob</h3>
       <p>Upgrade your driving feel.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
       <img src="images/gear knob2.png" alt="Gear Knob 2">
       <h3>Sparco Gear Knob</h3>
       <p>Stylish & comfortable.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="images/gear knob3.png" alt="Gear Knob 3">
+      <h3>Carbon Gear Knob</h3>
+      <p>Sporty and durable.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="images/gear knob4.png" alt="Gear Knob 4">
+      <h3>Chrome Gear Knob</h3>
+      <p>Elegant finish.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="images/gear knob5.png" alt="Gear Knob 5">
+      <h3>Leather Gear Knob</h3>
+      <p>Premium comfort.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="images/gear knob6.png" alt="Gear Knob 6">
+      <h3>Classic Gear Knob</h3>
+      <p>Timeless design.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
@@ -252,13 +274,13 @@ body.dark .product-card:hover img {
       <img src="images/drl1.png" alt="DRL Light 1">
       <h3>LED DRL Light</h3>
       <p>Bright and efficient.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
       <img src="images/drl2.png" alt="DRL Light 2">
       <h3>Sport DRL Light</h3>
       <p>Modern design for your car.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
@@ -271,8 +293,11 @@ body.dark .product-card:hover img {
       <img src="images/mobile1.png" alt="Mobile Holder 1">
       <h3>360° Mobile Holder</h3>
       <p>Flexible and secure.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
+    <!-- ❌ Removed 2nd Mobile Holder -->
+  </div>
+</section>
 
 <!-- Steerings -->
 <section id="steerings">
@@ -282,13 +307,13 @@ body.dark .product-card:hover img {
       <img src="images/steering1.png" alt="Steering 1">
       <h3>Leather Steering</h3>
       <p>Premium grip and comfort.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
       <img src="images/steering2.png" alt="Steering 2">
       <h3>Sport Steering</h3>
       <p>Perfect for racing look.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
@@ -301,14 +326,9 @@ body.dark .product-card:hover img {
       <img src="images/wax1.png" alt="Dashboard Wax 1">
       <h3>Shine Wax</h3>
       <p>Keep your dashboard glossy.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
-    <div class="product-card">
-      <img src="images/wax2.png" alt="Dashboard Wax 2">
-      <h3>Quick Wax</h3>
-      <p>Easy application, lasting shine.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
-    </div>
+    <!-- ❌ Removed 2nd Wax -->
   </div>
 </section>
 
@@ -320,13 +340,26 @@ body.dark .product-card:hover img {
       <img src="images/perfume1.png" alt="Perfume 1">
       <h3>Luxury Perfume</h3>
       <p>Fresh scent for your car.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
       <img src="images/perfume2.png" alt="Perfume 2">
       <h3>Sport Perfume</h3>
       <p>Energizing fragrance.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <!-- ✅ Added 2 more perfumes -->
+    <div class="product-card">
+      <img src="images/perfume3.png" alt="Perfume 3">
+      <h3>Ocean Breeze Perfume</h3>
+      <p>Cool & refreshing scent.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
+    </div>
+    <div class="product-card">
+      <img src="images/perfume4.png" alt="Perfume 4">
+      <h3>Classic Musk Perfume</h3>
+      <p>Elegant long-lasting aroma.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
@@ -339,14 +372,9 @@ body.dark .product-card:hover img {
       <img src="images/antenna1.png" alt="Antenna 1">
       <h3>Short Antenna</h3>
       <p>Compact design.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
-    <div class="product-card">
-      <img src="images/antenna2.png" alt="Antenna 2">
-      <h3>Long Antenna</h3>
-      <p>Improved signal reception.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
-    </div>
+    <!-- ❌ Removed 2nd Antenna -->
   </div>
 </section>
 
@@ -358,13 +386,13 @@ body.dark .product-card:hover img {
       <img src="images/mirror1.png" alt="Mirror Cover 1">
       <h3>Carbon Mirror Cover</h3>
       <p>Sporty look.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
       <img src="images/mirror2.png" alt="Mirror Cover 2">
       <h3>Chrome Mirror Cover</h3>
       <p>Stylish & durable.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
@@ -377,13 +405,13 @@ body.dark .product-card:hover img {
       <img src="images/armrest1.png" alt="Armrest 1">
       <h3>Leather Armrest</h3>
       <p>Comfortable support.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
       <img src="images/armrest2.png" alt="Armrest 2">
-      <h3>Adjustable Armrest</h3>
-      <p>Ergonomic design.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <h3>Universal Armrest</h3>
+      <p>Fits most cars.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
@@ -395,46 +423,37 @@ body.dark .product-card:hover img {
     <div class="product-card">
       <img src="images/pedal1.png" alt="Pedal Cover 1">
       <h3>Sport Pedal Cover</h3>
-      <p>Enhanced grip & style.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
+      <p>Non-slip and stylish.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
-    <div class="product-card">
-      <img src="images/pedal2.png" alt="Pedal Cover 2">
-      <h3>Aluminum Pedal Cover</h3>
-      <p>Durable and sleek.</p>
-      <a href="javascript:void(0)" class="cta-btn">Shop Now</a>
-    </div>
+    <!-- ❌ Removed 2nd Pedal Cover -->
   </div>
 </section>
 
 <script>
-// Dark Mode Toggle
-function toggleDarkMode() { document.body.classList.toggle("dark"); }
+function toggleDarkMode(){
+  document.body.classList.toggle('dark');
+  let btn = document.querySelector(".search-box button i");
+  btn.classList.toggle("fa-moon");
+  btn.classList.toggle("fa-sun");
+}
 
-// Search Filter
-document.getElementById("searchInput").addEventListener("keyup", () => {
-  const filter = document.getElementById("searchInput").value.toLowerCase();
-  document.querySelectorAll(".product-card").forEach(card => {
-    const text = card.innerText.toLowerCase();
-    card.style.display = text.includes(filter) ? "" : "none"; 
+/* Search filter */
+document.getElementById("searchInput").addEventListener("input",function(){
+  let filter=this.value.toLowerCase();
+  document.querySelectorAll(".product-card").forEach(card=>{
+    let text=card.innerText.toLowerCase();
+    card.style.display=text.includes(filter)?"flex":"none";
   });
 });
 
-// Fade-in Observer
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("visible"); });
-}, { threshold: 0.1 });
-document.querySelectorAll(".section-headline, .products, .product-card").forEach(el => observer.observe(el));
-
-// Active Nav on Scroll
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => { if(window.scrollY >= section.offsetTop - 100) current = section.id; });
-  navLinks.forEach(link => link.classList.remove("active"));
-  navLinks.forEach(link => { if(link.getAttribute("href").includes(current)) link.classList.add("active"); });
-});
+/* Scroll animations */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){ entry.target.classList.add("visible"); }
+  });
+},{ threshold:0.1 });
+document.querySelectorAll('.products, .section-headline, .product-card').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
