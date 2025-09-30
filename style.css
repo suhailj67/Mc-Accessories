@@ -270,3 +270,11 @@ body, html {
     max-height: 150px;  /* smaller height on phones */
   }
 }
+/* Modal Buy Now button glow */
+.modal-content .cta-btn {
+  transition: all 0.3s ease, box-shadow 0.6s ease-in-out;
+}
+.modal-content .cta-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px #ffd100, 0 0 25px #ffa500, 0 0 40px #ffd700;
+}
