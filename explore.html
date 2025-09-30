@@ -92,7 +92,7 @@ nav a.active, nav a:hover { color: #ffd100; border-bottom: 2px solid #ffd100; }
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
-  scroll-margin-top: 130px;
+  scroll-margin-top: 130px; /* prevents overlap under sticky nav */
 }
 .section-headline.visible { opacity: 1; transform: translateY(0); }
 .section-headline h2 {
@@ -183,7 +183,6 @@ body.dark .product-card:hover img {
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 .cta-btn:hover { 
   background: #ffcc00; 
@@ -196,57 +195,9 @@ body.dark .product-card:hover img {
   .products { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
   .search-box input { width: 80%; }
 }
-
-/* --- Modal Styles --- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.65);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  transition: opacity 0.3s ease;
-}
-.modal-overlay.active { display: flex; }
-.modal-content {
-  background: #fff;
-  padding: 24px;
-  border-radius: 12px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-body.dark .modal-content { background: #1a1a1a; color: #fff; }
-.modal-content img {
-  width: 100%;
-  height: auto;
-  max-height: 250px;
-  object-fit: contain;
-  margin-bottom: 16px;
-  border-radius: 10px;
-}
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  font-size: 1.4rem;
-  font-weight: 700;
-  cursor: pointer;
-  color: #333;
-  transition: color 0.2s;
-}
-body.dark .modal-close { color: #fff; }
-.modal-close:hover { color: #ff0000; }
 </style>
 </head>
 <body>
-
 <header>
   <h1>Mc Accessories</h1>
   <a href="index.html">← Back to Home</a>
@@ -270,258 +221,193 @@ body.dark .modal-close { color: #fff; }
   <a href="#pedal-covers"><i class="fas fa-shoe-prints"></i> Pedal Covers</a>
 </nav>
 
-<!-- Sections -->
-<!-- Each section has 3 products, with Shop Now buttons that trigger modal -->
+<!-- ==================== All Product Sections ==================== -->
+
+<!-- Gear Knobs -->
 <section id="gear-knobs">
   <div class="section-headline"><h2>Gear Knobs</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/gear1.png" alt="Carbon Gear Knob">
-      <h3>Carbon Gear Knob</h3>
-      <p>Premium carbon fiber design.</p>
-      <button class="cta-btn shop-btn" data-name="Carbon Gear Knob" data-desc="Premium carbon fiber design." data-img="images/gear1.png">Shop Now</button>
+      <img src="images/gear knob.png" alt="Sport Gear Knob">
+      <h3>Sport Gear Knob</h3>
+      <p>Comfortable grip with stylish design.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
-      <img src="images/gear2.png" alt="Aluminium Gear Knob">
-      <h3>Aluminium Gear Knob</h3>
-      <p>Lightweight aluminium style.</p>
-      <button class="cta-btn shop-btn" data-name="Aluminium Gear Knob" data-desc="Lightweight aluminium style." data-img="images/gear2.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/gear3.png" alt="Leather Gear Knob">
+      <img src="images/gear knob2.png" alt="Leather Gear Knob">
       <h3>Leather Gear Knob</h3>
-      <p>Soft leather grip for comfort.</p>
-      <button class="cta-btn shop-btn" data-name="Leather Gear Knob" data-desc="Soft leather grip for comfort." data-img="images/gear3.png">Shop Now</button>
+      <p>Premium leather finish for smooth shifting.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
+<!-- DRL Lights -->
 <section id="drl-lights">
   <div class="section-headline"><h2>DRL Lights</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/drl1.png" alt="LED DRL Strip">
-      <h3>LED DRL Strip</h3>
-      <p>Stylish front lights for your car.</p>
-      <button class="cta-btn shop-btn" data-name="LED DRL Strip" data-desc="Stylish front lights for your car." data-img="images/drl1.png">Shop Now</button>
+      <img src="images/drl1.png" alt="LED DRL Light">
+      <h3>LED DRL Light</h3>
+      <p>Bright and energy-efficient design.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
-      <img src="images/drl2.png" alt="Daylight DRL">
-      <h3>Daylight DRL</h3>
-      <p>Modern daylight running lights.</p>
-      <button class="cta-btn shop-btn" data-name="Daylight DRL" data-desc="Modern daylight running lights." data-img="images/drl2.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/drl3.png" alt="Flexible DRL Tube">
-      <h3>Flexible DRL Tube</h3>
-      <p>Durable and flexible lighting tube.</p>
-      <button class="cta-btn shop-btn" data-name="Flexible DRL Tube" data-desc="Durable and flexible lighting tube." data-img="images/drl3.png">Shop Now</button>
+      <img src="images/drl2.png" alt="Flexible DRL Strip">
+      <h3>Flexible DRL Strip</h3>
+      <p>Customizable length, easy installation.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
+<!-- Mobile Holders -->
 <section id="mobile-holders">
   <div class="section-headline"><h2>Mobile Holders</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/holder1.png" alt="Magnetic Holder">
+      <img src="images/mobile1.png" alt="Magnetic Mobile Holder">
       <h3>Magnetic Holder</h3>
-      <p>Easy attach & remove magnetic holder.</p>
-      <button class="cta-btn shop-btn" data-name="Magnetic Holder" data-desc="Easy attach & remove magnetic holder." data-img="images/holder1.png">Shop Now</button>
+      <p>Strong grip, easy access.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
-      <img src="images/holder2.png" alt="360° Rotatable Holder">
-      <h3>360° Rotatable Holder</h3>
-      <p>Adjustable angle for all phones.</p>
-      <button class="cta-btn shop-btn" data-name="360° Rotatable Holder" data-desc="Adjustable angle for all phones." data-img="images/holder2.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/holder3.png" alt="Dashboard Clamp Holder">
-      <h3>Dashboard Clamp Holder</h3>
-      <p>Secure clamp for dashboards.</p>
-      <button class="cta-btn shop-btn" data-name="Dashboard Clamp Holder" data-desc="Secure clamp for dashboards." data-img="images/holder3.png">Shop Now</button>
+      <img src="images/mobile-holder2.png" alt="Dashboard Mobile Holder">
+      <h3>Dashboard Holder</h3>
+      <p>Flexible and durable design.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
+<!-- Steerings -->
 <section id="steerings">
   <div class="section-headline"><h2>Steerings</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/steering1.png" alt="Sport Steering">
-      <h3>Sport Steering</h3>
-      <p>High grip sport steering wheel.</p>
-      <button class="cta-btn shop-btn" data-name="Sport Steering" data-desc="High grip sport steering wheel." data-img="images/steering1.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/steering2.png" alt="Leather Steering">
+      <img src="images/steering1.png" alt="Leather Steering">
       <h3>Leather Steering</h3>
-      <p>Luxury leather finish.</p>
-      <button class="cta-btn shop-btn" data-name="Leather Steering" data-desc="Luxury leather finish." data-img="images/steering2.png">Shop Now</button>
+      <p>Soft touch, stylish design.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
-      <img src="images/steering3.png" alt="Wooden Steering">
-      <h3>Wooden Steering</h3>
-      <p>Elegant wood design for classics.</p>
-      <button class="cta-btn shop-btn" data-name="Wooden Steering" data-desc="Elegant wood design for classics." data-img="images/steering3.png">Shop Now</button>
+      <img src="images/steering2.png" alt="Sport Steering">
+      <h3>Sport Steering</h3>
+      <p>Enhanced grip and comfort.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
+<!-- Dashboard Wax -->
 <section id="dashboard-wax">
   <div class="section-headline"><h2>Dashboard Wax</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/wax1.png" alt="Premium Wax">
-      <h3>Premium Wax</h3>
-      <p>Long-lasting dashboard shine.</p>
-      <button class="cta-btn shop-btn" data-name="Premium Wax" data-desc="Long-lasting dashboard shine." data-img="images/wax1.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/wax2.png" alt="Natural Wax">
-      <h3>Natural Wax</h3>
-      <p>Eco-friendly dashboard polish.</p>
-      <button class="cta-btn shop-btn" data-name="Natural Wax" data-desc="Eco-friendly dashboard polish." data-img="images/wax2.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/wax3.png" alt="Spray Wax">
-      <h3>Spray Wax</h3>
-      <p>Quick spray for instant shine.</p>
-      <button class="cta-btn shop-btn" data-name="Spray Wax" data-desc="Quick spray for instant shine." data-img="images/wax3.png">Shop Now</button>
+      <img src="images/wax.png" alt="Glossy Wax">
+      <h3>Glossy Wax</h3>
+      <p>Shiny and dust-resistant.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
+<!-- Dashboard Perfumes -->
 <section id="dashboard-perfumes">
   <div class="section-headline"><h2>Dashboard Perfumes</h2></div>
   <div class="products">
     <div class="product-card">
       <img src="images/perfume1.png" alt="Vanilla Perfume">
       <h3>Vanilla Perfume</h3>
-      <p>Sweet fragrance for your car.</p>
-      <button class="cta-btn shop-btn" data-name="Vanilla Perfume" data-desc="Sweet fragrance for your car." data-img="images/perfume1.png">Shop Now</button>
+      <p>Sweet & refreshing aroma.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
       <img src="images/perfume2.png" alt="Ocean Breeze Perfume">
-      <h3>Ocean Breeze Perfume</h3>
-      <p>Fresh marine scent.</p>
-      <button class="cta-btn shop-btn" data-name="Ocean Breeze Perfume" data-desc="Fresh marine scent." data-img="images/perfume2.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/perfume3.png" alt="Rose Perfume">
-      <h3>Rose Perfume</h3>
-      <p>Classic floral aroma.</p>
-      <button class="cta-btn shop-btn" data-name="Rose Perfume" data-desc="Classic floral aroma." data-img="images/perfume3.png">Shop Now</button>
+      <h3>Ocean Breeze</h3>
+      <p>Cool and calming scent.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
+<!-- Car Antennas -->
 <section id="car-antennas">
   <div class="section-headline"><h2>Car Antennas</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/antenna1.png" alt="Short Antenna">
+      <img src="images/antenna.png" alt="Short Antenna">
       <h3>Short Antenna</h3>
-      <p>Compact & durable antenna.</p>
-      <button class="cta-btn shop-btn" data-name="Short Antenna" data-desc="Compact & durable antenna." data-img="images/antenna1.png">Shop Now</button>
+      <p>Modern and sleek.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
-      <img src="images/antenna2.png" alt="Shark Fin Antenna">
-      <h3>Shark Fin Antenna</h3>
-      <p>Modern style, easy install.</p>
-      <button class="cta-btn shop-btn" data-name="Shark Fin Antenna" data-desc="Modern style, easy install." data-img="images/antenna2.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/antenna3.png" alt="Telescopic Antenna">
-      <h3>Telescopic Antenna</h3>
-      <p>Adjustable length, strong signal.</p>
-      <button class="cta-btn shop-btn" data-name="Telescopic Antenna" data-desc="Adjustable length, strong signal." data-img="images/antenna3.png">Shop Now</button>
+      <img src="images/antenna2.png" alt="Long Antenna">
+      <h3>Long Antenna</h3>
+      <p>Classic style & better signal.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
+<!-- Mirror Covers -->
 <section id="mirror-covers">
   <div class="section-headline"><h2>Mirror Covers</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/mirror1.png" alt="Chrome Mirror Cover">
-      <h3>Chrome Mirror Cover</h3>
-      <p>Stylish chrome finish.</p>
-      <button class="cta-btn shop-btn" data-name="Chrome Mirror Cover" data-desc="Stylish chrome finish." data-img="images/mirror1.png">Shop Now</button>
+      <img src="images/mirror.png" alt="Chrome Cover">
+      <h3>Chrome Cover</h3>
+      <p>Shiny and premium look.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
-      <img src="images/mirror2.png" alt="Carbon Mirror Cover">
-      <h3>Carbon Mirror Cover</h3>
-      <p>Sporty carbon fiber look.</p>
-      <button class="cta-btn shop-btn" data-name="Carbon Mirror Cover" data-desc="Sporty carbon fiber look." data-img="images/mirror2.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/mirror3.png" alt="Black Gloss Mirror Cover">
-      <h3>Black Gloss Mirror Cover</h3>
-      <p>Glossy black finish.</p>
-      <button class="cta-btn shop-btn" data-name="Black Gloss Mirror Cover" data-desc="Glossy black finish." data-img="images/mirror3.png">Shop Now</button>
+      <img src="images/mirror2.png" alt="Matte Cover">
+      <h3>Matte Cover</h3>
+      <p>Stylish subtle finish.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
+<!-- Armrest -->
 <section id="armrest">
   <div class="section-headline"><h2>Armrest</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/armrest1.png" alt="Leather Armrest">
+      <img src="images/arm.png" alt="Leather Armrest">
       <h3>Leather Armrest</h3>
-      <p>Comfortable leather padding.</p>
-      <button class="cta-btn shop-btn" data-name="Leather Armrest" data-desc="Comfortable leather padding." data-img="images/armrest1.png">Shop Now</button>
+      <p>Comfortable padding.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
-      <img src="images/armrest2.png" alt="Adjustable Armrest">
-      <h3>Adjustable Armrest</h3>
-      <p>Height adjustable for comfort.</p>
-      <button class="cta-btn shop-btn" data-name="Adjustable Armrest" data-desc="Height adjustable for comfort." data-img="images/armrest2.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/armrest3.png" alt="Memory Foam Armrest">
-      <h3>Memory Foam Armrest</h3>
-      <p>Soft memory foam support.</p>
-      <button class="cta-btn shop-btn" data-name="Memory Foam Armrest" data-desc="Soft memory foam support." data-img="images/armrest3.png">Shop Now</button>
+      <img src="images/armrest2.png" alt="Memory Foam Armrest">
+      <h3>Memory Foam</h3>
+      <p>Ergonomic support.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
+<!-- Pedal Covers -->
 <section id="pedal-covers">
   <div class="section-headline"><h2>Pedal Covers</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/pedal1.png" alt="Sport Pedal Cover">
-      <h3>Sport Pedal Cover</h3>
-      <p>High grip aluminum pedal.</p>
-      <button class="cta-btn shop-btn" data-name="Sport Pedal Cover" data-desc="High grip aluminum pedal." data-img="images/pedal1.png">Shop Now</button>
+      <img src="images/pedal.png" alt="Sport Pedals">
+      <h3>Sport Pedals</h3>
+      <p>Non-slip & stylish.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
-      <img src="images/pedal2.png" alt="Rubber Pedal Cover">
-      <h3>Rubber Pedal Cover</h3>
-      <p>Non-slip rubber design.</p>
-      <button class="cta-btn shop-btn" data-name="Rubber Pedal Cover" data-desc="Non-slip rubber design." data-img="images/pedal2.png">Shop Now</button>
-    </div>
-    <div class="product-card">
-      <img src="images/pedal3.png" alt="Aluminium Racing Pedal">
-      <h3>Aluminium Racing Pedal</h3>
-      <p>Lightweight racing design.</p>
-      <button class="cta-btn shop-btn" data-name="Aluminium Racing Pedal" data-desc="Lightweight racing design." data-img="images/pedal3.png">Shop Now</button>
+      <img src="images/pedal2.png" alt="Aluminum Pedals">
+      <h3>Aluminum Pedals</h3>
+      <p>Durable & elegant.</p>
+      <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
-<!-- Modal -->
-<div class="modal-overlay" id="modal">
-  <div class="modal-content">
-    <span class="modal-close" id="modalClose">&times;</span>
-    <img id="modalImg" src="" alt="">
-    <h3 id="modalName"></h3>
-    <p id="modalDesc"></p>
-    <a href="#" class="cta-btn">Buy Now</a>
-  </div>
-</div>
+<!-- ==================== End Product Sections ==================== -->
 
 <script>
 function toggleDarkMode(){
@@ -562,34 +448,7 @@ window.addEventListener("scroll",()=>{
     if(link.getAttribute("href")==="#"+current){ link.classList.add("active"); }
   });
 });
-
-/* Modal Shop Now */
-const modal=document.getElementById("modal");
-const modalClose=document.getElementById("modalClose");
-const modalImg=document.getElementById("modalImg");
-const modalName=document.getElementById("modalName");
-const modalDesc=document.getElementById("modalDesc");
-
-document.querySelectorAll(".shop-btn").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    modalImg.src=btn.dataset.img;
-    modalName.innerText=btn.dataset.name;
-    modalDesc.innerText=btn.dataset.desc;
-    modal.classList.add("active");
-  });
-});
-
-modalClose.addEventListener("click",()=>{ modal.classList.remove("active"); });
-modal.addEventListener("click",(e)=>{ if(e.target===modal) modal.classList.remove("active"); });
 </script>
 </body>
 </html>
-<div class="modal-overlay" id="modal">
-  <div class="modal-content">
-    <span class="modal-close" id="modalClose">&times;</span>
-    <img id="modalImg" src="" alt="">
-    <h3 id="modalName"></h3>
-    <p id="modalDesc"></p>
-    <a href="#" class="cta-btn">Buy Now</a>
-  </div>
-</div>
+
