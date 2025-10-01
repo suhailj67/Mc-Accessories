@@ -408,6 +408,161 @@ body.dark .product-card:hover img {
 </section>
 
 <!-- ==================== End Product Sections ==================== -->
+<!-- ==================== Add this before </body> ==================== -->
+
+<!-- Modal Overlay -->
+<div class="modal-overlay">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <img src="" alt="Product Image" id="modal-img">
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+    <form id="buy-form">
+      <input type="text" id="buyer-name" placeholder="Your Name" required>
+      <input type="text" id="buyer-phone" placeholder="Phone Number" required>
+      <textarea id="buyer-address" placeholder="Delivery Address" required></textarea>
+      <button type="button" class="buy-btn">Buy via WhatsApp</button>
+      <button type="button" class="qr-btn">Generate QR Payment</button>
+    </form>
+  </div>
+</div>
+
+<!-- ==================== Add this CSS inside <style> ==================== -->
+
+<style>
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #fff;
+  color: #111;
+  padding: 24px;
+  border-radius: 14px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+body.dark .modal-content { background: #1a1a1a; color: #fff; }
+
+.modal-content img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.modal-content h3 { font-size: 1.2rem; margin: 8px 0; }
+.modal-content p { font-size: 0.95rem; margin: 6px 0 14px; }
+
+.modal-content input, .modal-content textarea {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+body.dark .modal-content input,
+body.dark .modal-content textarea { background: #222; color: #fff; border-color: #555; }
+
+.modal-content .buy-btn, .modal-content .qr-btn {
+  margin: 8px 4px 0 4px;
+  padding: 8px 12px;
+  background: #ffd100;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-content .buy-btn:hover, .modal-content .qr-btn:hover {
+  background: #ffcc00;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffd100, 0 0 20px #ffa500;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ff0000;
+  font-weight: bold;
+}
+</style>
+
+<!-- ==================== Add this JS inside <script> ==================== -->
+
+<script>
+/* ======= MODAL SHOP NOW ======= */
+
+const modalOverlay = document.querySelector('.modal-overlay');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+
+document.querySelectorAll('.product-card .cta-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const card = btn.closest('.product-card');
+    modalImg.src = card.querySelector('img').src;
+    modalTitle.innerText = card.querySelector('h3').innerText;
+    modalDesc.innerText = card.querySelector('p').innerText;
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // prevent background scroll
+  });
+});
+
+modalOverlay.querySelector('.modal-close').addEventListener('click', () => {
+  modalOverlay.classList.remove('active');
+  document.body.style.overflow = 'auto';
+});
+
+/* Buy via WhatsApp */
+modalOverlay.querySelector('.buy-btn').addEventListener('click', () => {
+  const name = document.getElementById('buyer-name').value.trim();
+  const phone = document.getElementById('buyer-phone').value.trim();
+  const address = document.getElementById('buyer-address').value.trim();
+  const product = modalTitle.innerText;
+  if(!name || !phone || !address){
+    alert("Please fill all details!");
+    return;
+  }
+  const message = encodeURIComponent(
+    `Hi, I want to buy:\nProduct: ${product}\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`
+  );
+  window.open(`https://wa.me/YOUR_PHONE_NUMBER?text=${message}`, '_blank');
+});
+
+/* QR Payment placeholder */
+modalOverlay.querySelector('.qr-btn').addEventListener('click', () => {
+  const product = modalTitle.innerText;
+  alert(`QR payment generated for "${product}" (integrate real QR API).`);
+});
+</script>
 
 <script>
 function toggleDarkMode(){
@@ -448,6 +603,7 @@ window.addEventListener("scroll",()=>{
     if(link.getAttribute("href")==="#"+current){ link.classList.add("active"); }
   });
 });
+
 </script>
 </body>
 </html>
