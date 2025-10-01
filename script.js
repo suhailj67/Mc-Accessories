@@ -184,3 +184,24 @@ window.addEventListener("click", e => {
     document.body.classList.remove("modal-open");
   }
 });
+buyButtons.forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    const card = btn.closest(".product-card");
+    const name = card.dataset.name;
+    const desc = card.dataset.desc;
+
+    modalTitle.innerText = name;
+    modalDesc.innerText = desc;
+
+    // WhatsApp link
+    whatsappLink.href = `https://wa.me/${whatsappNumber}?text=Hi,%20I%20want%20to%20buy%20${encodeURIComponent(name)}`;
+
+    // Mock QR Payment Message
+    const qrMessage = document.getElementById("qrMessage");
+    qrMessage.innerText = `QR Payment Generated for "${name}" (integrate real QR API)`;
+
+    modal.style.display = "flex";
+    document.body.classList.add("modal-open");
+  });
+});
