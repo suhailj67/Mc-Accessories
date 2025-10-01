@@ -150,8 +150,8 @@ modalOverlay.querySelector('.modal-close').addEventListener('click', ()=>{
 });
 // ================= Modal Buy Now =================
 const modal = document.getElementById("productModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalDesc = document.getElementById("modalDesc");
+// const modalTitle = document.getElementById("modalTitle"); // Removed redeclaration
+// const modalDesc = document.getElementById("modalDesc"); // Removed redeclaration
 const whatsappLink = document.getElementById("whatsappLink");
 const buyButtons = document.querySelectorAll(".buy-btn");
 const closeBtn = document.querySelector(".modal .close");
