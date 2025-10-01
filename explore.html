@@ -7,194 +7,177 @@
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* --- Reset & Base --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  min-height: 100vh;
-  background: #fff;
-  font-family: 'Orbitron', sans-serif;
-  color: #111;
-  overflow-x: hidden;
-  line-height: 1.5;
-  scroll-behavior: smooth;
-  transition: background 0.3s, color 0.3s;
-}
-body.dark { background: #0a0a0a; color: #fff; }
+/* ================== RESET & BASE ================== */
+* { margin:0; padding:0; box-sizing:border-box; }
+body, html { width:100%; height:100%; font-family:'Orbitron', sans-serif; color:#111; background:#fff; overflow-x:hidden; scroll-behavior:smooth; transition:0.3s; }
+body.dark { background:#0a0a0a; color:#fff; }
 
-/* --- Header --- */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #f5f5f5;
-}
-body.dark header { background: #111; color: #fff; }
-header h1 { font-size: 1.8rem; }
-header a { color: #ff0000; text-decoration: none; font-weight: 700; }
+/* ================== HEADER ================== */
+header { display:flex; justify-content:space-between; align-items:center; padding:20px; background:#f5f5f5; }
+body.dark header { background:#111; color:#fff; }
+header h1 { font-size:1.8rem; }
+header a { color:#ff0000; text-decoration:none; font-weight:700; }
 
-/* --- Search --- */
-.search-box { text-align: center; margin: 20px; }
+/* ================== SEARCH ================== */
+.search-box { text-align:center; margin:20px; }
 .search-box input {
-  padding: 10px 14px;
-  width: 300px;
-  max-width: 90%;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #fff;
-  color: #111;
-  transition: border 0.3s, background 0.3s, color 0.3s;
+  padding:10px 14px;
+  width:300px;
+  max-width:90%;
+  border:2px solid #ccc;
+  border-radius:8px;
+  font-size:1rem;
+  background:#fff;
+  color:#111;
+  transition:0.3s;
 }
-body.dark .search-box input { background: #222; color: #fff; border-color: #555; }
-.search-box input:focus { border-color: #ff0000; outline: none; }
+body.dark .search-box input { background:#222; color:#fff; border-color:#555; }
+.search-box input:focus { border-color:#ff0000; outline:none; }
 .search-box button {
-  padding: 10px 12px;
-  margin-left: 8px;
-  background: #ffd100;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s;
+  padding:10px 12px;
+  margin-left:8px;
+  background:#ffd100;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  transition:0.2s;
 }
-.search-box button:hover { transform: scale(1.05); }
+.search-box button:hover { transform:scale(1.05); }
 
-/* --- Nav --- */
+/* ================== NAV ================== */
 nav {
-  position: sticky;
-  top: 0;
-  background: #f5f5f5;
-  padding: 12px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  z-index: 100;
+  position:sticky;
+  top:0;
+  background:#f5f5f5;
+  padding:12px 20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:16px;
+  z-index:100;
 }
-body.dark nav { background: #111; }
+body.dark nav { background:#111; }
 nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 6px 8px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: color 0.2s, border-bottom 0.2s;
+  text-decoration:none;
+  color:#333;
+  font-weight:700;
+  font-size:0.95rem;
+  padding:6px 8px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  transition:0.2s;
 }
-nav a.active, nav a:hover { color: #ffd100; border-bottom: 2px solid #ffd100; }
+nav a.active, nav a:hover { color:#ffd100; border-bottom:2px solid #ffd100; }
 
-/* --- Section Headline --- */
+/* ================== HEADLINES ================== */
 .section-headline {
-  text-align: center;
-  margin: 60px 0 25px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-  scroll-margin-top: 130px; /* prevents overlap under sticky nav */
+  text-align:center;
+  margin:60px 0 25px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:0.6s;
+  scroll-margin-top:130px;
 }
-.section-headline.visible { opacity: 1; transform: translateY(0); }
+.section-headline.visible { opacity:1; transform:translateY(0); }
 .section-headline h2 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.6rem;
-  display: inline-block;
-  border-bottom: 3px solid #ff0000;
-  padding-bottom: 5px;
-  color: #111;
-  transition: color 0.3s, border-color 0.3s;
+  font-family:"Orbitron", sans-serif;
+  font-size:1.6rem;
+  display:inline-block;
+  border-bottom:3px solid #ff0000;
+  padding-bottom:5px;
+  color:#111;
+  transition:0.3s;
 }
-body.dark .section-headline h2 { color: #fff; border-bottom: 3px solid #ff3b3b; }
+body.dark .section-headline h2 { color:#fff; border-bottom:3px solid #ff3b3b; }
+.highlight-red { color:#FF4C4C; text-shadow:0 0 6px #FF0000AA; transition:0.3s; }
 
-/* --- Products Grid --- */
+/* ================== PRODUCTS ================== */
 .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 0 20px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:0 20px 40px;
+  max-width:1200px;
+  margin:0 auto;
+  opacity:0;
+  transform:translateY(30px);
+  transition:0.8s;
 }
-.products.visible { opacity: 1; transform: translateY(0); }
+.products.visible { opacity:1; transform:translateY(0); }
 
-/* --- Product Card --- */
 .product-card {
-  background: #fff;
-  padding: 16px;
-  border-radius: 14px;
-  text-align: center;
-  border: 2px solid transparent;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.3s ease, box-shadow 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-  display: flex;
-  flex-direction: column;
+  background:#fff;
+  padding:16px;
+  border-radius:14px;
+  text-align:center;
+  border:2px solid transparent;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:all 0.3s, box-shadow 0.3s;
+  opacity:0;
+  transform:translateY(20px);
+  display:flex;
+  flex-direction:column;
 }
-body.dark .product-card { background: #1a1a1a; color: #fff; box-shadow: 0 4px 12px rgba(255,255,255,0.05); }
-.product-card.visible { opacity: 1; transform: translateY(0); }
+body.dark .product-card { background:#1a1a1a; color:#fff; box-shadow:0 4px 12px rgba(255,255,255,0.05); }
+.product-card.visible { opacity:1; transform:translateY(0); }
 
-/* --- Product Images --- */
 .product-card img {
-  width: 100%;
-  height: auto;
-  max-height: 220px;
-  object-fit: contain;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width:100%;
+  height:auto;
+  max-height:220px;
+  object-fit:contain;
+  border-radius:10px;
+  margin-bottom:12px;
+  transition:0.4s;
 }
+body.dark .product-card p { color:#ccc; }
+.product-card:hover { transform:translateY(-5px) scale(1.02); border-color:#ffd100; box-shadow:0 8px 20px rgba(255,209,0,0.4); background:#fffbea; }
+body.dark .product-card:hover { background:#222; border-color:#ffd100; box-shadow:0 0 18px rgba(255,209,0,0.7),0 0 28px rgba(255,209,0,0.5); }
+.product-card:hover img { transform:scale(1.05); box-shadow:0 8px 20px rgba(255,200,0,0.4); }
+body.dark .product-card:hover img { box-shadow:0 8px 25px rgba(255,209,0,0.7),0 0 15px rgba(255,209,0,0.4); }
 
-/* --- Product Text --- */
-.product-card h3 { font-size: 1rem; margin: 6px 0; }
-.product-card p { font-size: 0.9rem; margin: 0 0 12px; color: #555; }
-body.dark .product-card p { color: #ccc; }
-
-/* Hover Effects */
-.product-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  border-color: #ffd100;
-  box-shadow: 0 8px 20px rgba(255, 209, 0, 0.4);
-  background: #fffbea;
-}
-body.dark .product-card:hover {
-  background: #222;
-  border-color: #ffd100;
-  box-shadow: 0 0 18px rgba(255, 209, 0, 0.7), 0 0 28px rgba(255, 209, 0, 0.5);
-}
-.product-card:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(255, 200, 0, 0.4);
-}
-body.dark .product-card:hover img {
-  box-shadow: 0 8px 25px rgba(255, 209, 0, 0.7), 0 0 15px rgba(255, 209, 0, 0.4);
-}
-
-/* --- CTA --- */
 .cta-btn {
-  display: inline-block;
-  padding: 8px 16px;
-  background: #ffd100;
-  color: #111;
-  border-radius: 6px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  display:inline-block;
+  padding:8px 16px;
+  background:#ffd100;
+  color:#111;
+  border-radius:6px;
+  font-weight:700;
+  text-decoration:none;
+  transition:0.3s;
 }
-.cta-btn:hover { 
-  background: #ffcc00; 
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #ffd100, 0 0 20px #ffa500;
-}
+.cta-btn:hover { background:#ffcc00; transform:scale(1.05); box-shadow:0 0 10px #ffd100,0 0 20px #ffa500; }
 
-/* --- Responsive --- */
-@media(max-width:600px){
-  .products { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-  .search-box input { width: 80%; }
+/* ================== RESPONSIVE ================== */
+@media(max-width:600px){ .products{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));} .search-box input{width:80%;} }
+
+/* ================== MODAL ================== */
+.modal-overlay {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  display:flex; justify-content:center; align-items:center;
+  opacity:0; pointer-events:none; transition:0.3s; z-index:9999;
 }
+.modal-overlay.active { opacity:1; pointer-events:auto; }
+.modal-content {
+  background:#fff; color:#111; padding:24px; border-radius:14px;
+  max-width:400px; width:90%; text-align:center; position:relative;
+}
+body.dark .modal-content { background:#1a1a1a; color:#fff; }
+.modal-content img { width:100%; max-height:220px; object-fit:contain; border-radius:10px; margin-bottom:12px; }
+.modal-content h3 { font-size:1.2rem; margin:8px 0; }
+.modal-content p { font-size:0.95rem; margin:6px 0 14px; }
+.modal-content input, .modal-content textarea {
+  width:100%; padding:8px 12px; margin:6px 0; border-radius:8px; border:1px solid #ccc; font-size:0.95rem;
+}
+body.dark .modal-content input, body.dark .modal-content textarea { background:#222; color:#fff; border-color:#555; }
+.modal-content .buy-btn, .modal-content .qr-btn {
+  margin:8px 4px 0 4px; padding:8px 12px; background:#ffd100; border:none; border-radius:6px; font-weight:700; cursor:pointer; transition:0.3s;
+}
+.modal-content .buy-btn:hover, .modal-content .qr-btn:hover { background:#ffcc00; transform:scale(1.05); box-shadow:0 0 10px #ffd100,0 0 20px #ffa500; }
+.modal-close { position:absolute; top:10px; right:12px; font-size:1.5rem; cursor:pointer; color:#ff0000; font-weight:bold; }
 </style>
 </head>
 <body>
@@ -214,203 +197,89 @@ body.dark .product-card:hover img {
   <a href="#mobile-holders"><i class="fas fa-mobile-alt"></i> Mobile Holders</a>
   <a href="#steerings"><i class="fas fa-circle-notch"></i> Steerings</a>
   <a href="#dashboard-wax"><i class="fas fa-spray-can"></i> Dashboard Wax</a>
-  <a href="#dashboard-perfumes"><i class="fas fa-wind"></i> Dashboard Perfumes</a>
-  <a href="#car-antennas"><i class="fas fa-signal"></i> Car Antennas</a>
-  <a href="#mirror-covers"><i class="fas fa-car-side"></i> Mirror Covers</a>
-  <a href="#armrest"><i class="fas fa-chair"></i> Armrest</a>
-  <a href="#pedal-covers"><i class="fas fa-shoe-prints"></i> Pedal Covers</a>
+  <a href="#dashboard-covers"><i class="fas fa-car"></i> Dash Covers</a>
 </nav>
 
-<!-- ==================== All Product Sections ==================== -->
-
-<!-- Gear Knobs -->
+<!-- ================== PRODUCTS SECTIONS ================== -->
 <section id="gear-knobs">
   <div class="section-headline"><h2>Gear Knobs</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/gear knob.png" alt="Sport Gear Knob">
+      <img src="images/gear1.png" alt="Gear 1">
       <h3>Sport Gear Knob</h3>
-      <p>Comfortable grip with stylish design.</p>
+      <p>Premium sport gear knob for your car.</p>
       <a href="#" class="cta-btn">Shop Now</a>
     </div>
     <div class="product-card">
-      <img src="images/gear knob2.png" alt="Leather Gear Knob">
-      <h3>Leather Gear Knob</h3>
-      <p>Premium leather finish for smooth shifting.</p>
+      <img src="images/gear2.png" alt="Gear 2">
+      <h3>Luxury Gear Knob</h3>
+      <p>Luxury chrome gear knob design.</p>
       <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
-<!-- DRL Lights -->
 <section id="drl-lights">
   <div class="section-headline"><h2>DRL Lights</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/drl1.png" alt="LED DRL Light">
-      <h3>LED DRL Light</h3>
-      <p>Bright and energy-efficient design.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="images/drl2.png" alt="Flexible DRL Strip">
-      <h3>Flexible DRL Strip</h3>
-      <p>Customizable length, easy installation.</p>
+      <img src="images/drl1.png" alt="DRL 1">
+      <h3>LED DRL Strip</h3>
+      <p>High brightness LED DRL lights.</p>
       <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
-<!-- Mobile Holders -->
 <section id="mobile-holders">
   <div class="section-headline"><h2>Mobile Holders</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/mobile1.png" alt="Magnetic Mobile Holder">
-      <h3>Magnetic Holder</h3>
-      <p>Strong grip, easy access.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="images/mobile-holder2.png" alt="Dashboard Mobile Holder">
+      <img src="images/holder1.png" alt="Holder 1">
       <h3>Dashboard Holder</h3>
-      <p>Flexible and durable design.</p>
+      <p>Strong and flexible dashboard phone holder.</p>
       <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
-<!-- Steerings -->
 <section id="steerings">
   <div class="section-headline"><h2>Steerings</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/steering1.png" alt="Leather Steering">
-      <h3>Leather Steering</h3>
-      <p>Soft touch, stylish design.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="images/steering2.png" alt="Sport Steering">
+      <img src="images/steer1.png" alt="Steer 1">
       <h3>Sport Steering</h3>
-      <p>Enhanced grip and comfort.</p>
+      <p>Comfortable sport steering wheel cover.</p>
       <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
-<!-- Dashboard Wax -->
 <section id="dashboard-wax">
   <div class="section-headline"><h2>Dashboard Wax</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/wax.png" alt="Glossy Wax">
-      <h3>Glossy Wax</h3>
-      <p>Shiny and dust-resistant.</p>
+      <img src="images/wax1.png" alt="Wax 1">
+      <h3>Premium Dashboard Wax</h3>
+      <p>Keep your dashboard shiny and clean.</p>
       <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
-<!-- Dashboard Perfumes -->
-<section id="dashboard-perfumes">
-  <div class="section-headline"><h2>Dashboard Perfumes</h2></div>
+<section id="dashboard-covers">
+  <div class="section-headline"><h2>Dashboard Covers</h2></div>
   <div class="products">
     <div class="product-card">
-      <img src="images/perfume1.png" alt="Vanilla Perfume">
-      <h3>Vanilla Perfume</h3>
-      <p>Sweet & refreshing aroma.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="images/perfume2.png" alt="Ocean Breeze Perfume">
-      <h3>Ocean Breeze</h3>
-      <p>Cool and calming scent.</p>
+      <img src="images/cover1.png" alt="Cover 1">
+      <h3>Leather Dash Cover</h3>
+      <p>Protect your dashboard with leather cover.</p>
       <a href="#" class="cta-btn">Shop Now</a>
     </div>
   </div>
 </section>
 
-<!-- Car Antennas -->
-<section id="car-antennas">
-  <div class="section-headline"><h2>Car Antennas</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="images/antenna.png" alt="Short Antenna">
-      <h3>Short Antenna</h3>
-      <p>Modern and sleek.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="images/antenna2.png" alt="Long Antenna">
-      <h3>Long Antenna</h3>
-      <p>Classic style & better signal.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
-
-<!-- Mirror Covers -->
-<section id="mirror-covers">
-  <div class="section-headline"><h2>Mirror Covers</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="images/mirror.png" alt="Chrome Cover">
-      <h3>Chrome Cover</h3>
-      <p>Shiny and premium look.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="images/mirror2.png" alt="Matte Cover">
-      <h3>Matte Cover</h3>
-      <p>Stylish subtle finish.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
-
-<!-- Armrest -->
-<section id="armrest">
-  <div class="section-headline"><h2>Armrest</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="images/arm.png" alt="Leather Armrest">
-      <h3>Leather Armrest</h3>
-      <p>Comfortable padding.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="images/armrest2.png" alt="Memory Foam Armrest">
-      <h3>Memory Foam</h3>
-      <p>Ergonomic support.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
-
-<!-- Pedal Covers -->
-<section id="pedal-covers">
-  <div class="section-headline"><h2>Pedal Covers</h2></div>
-  <div class="products">
-    <div class="product-card">
-      <img src="images/pedal.png" alt="Sport Pedals">
-      <h3>Sport Pedals</h3>
-      <p>Non-slip & stylish.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-    <div class="product-card">
-      <img src="images/pedal2.png" alt="Aluminum Pedals">
-      <h3>Aluminum Pedals</h3>
-      <p>Durable & elegant.</p>
-      <a href="#" class="cta-btn">Shop Now</a>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== End Product Sections ==================== -->
-<!-- ==================== Add this before </body> ==================== -->
-
-<!-- Modal Overlay -->
+<!-- ================== MODAL ================== -->
 <div class="modal-overlay">
   <div class="modal-content">
     <span class="modal-close">&times;</span>
@@ -427,184 +296,90 @@ body.dark .product-card:hover img {
   </div>
 </div>
 
-<!-- ==================== Add this CSS inside <style> ==================== -->
-
-<style>
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 9999;
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-content {
-  background: #fff;
-  color: #111;
-  padding: 24px;
-  border-radius: 14px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-}
-
-body.dark .modal-content { background: #1a1a1a; color: #fff; }
-
-.modal-content img {
-  width: 100%;
-  max-height: 220px;
-  object-fit: contain;
-  border-radius: 10px;
-  margin-bottom: 12px;
-}
-
-.modal-content h3 { font-size: 1.2rem; margin: 8px 0; }
-.modal-content p { font-size: 0.95rem; margin: 6px 0 14px; }
-
-.modal-content input, .modal-content textarea {
-  width: 100%;
-  padding: 8px 12px;
-  margin: 6px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
-}
-
-body.dark .modal-content input,
-body.dark .modal-content textarea { background: #222; color: #fff; border-color: #555; }
-
-.modal-content .buy-btn, .modal-content .qr-btn {
-  margin: 8px 4px 0 4px;
-  padding: 8px 12px;
-  background: #ffd100;
-  border: none;
-  border-radius: 6px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.modal-content .buy-btn:hover, .modal-content .qr-btn:hover {
-  background: #ffcc00;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #ffd100, 0 0 20px #ffa500;
-}
-
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #ff0000;
-  font-weight: bold;
-}
-</style>
-
-<!-- ==================== Add this JS inside <script> ==================== -->
-
 <script>
-/* ======= MODAL SHOP NOW ======= */
+// ================== DARK MODE ==================
+function toggleDarkMode(){ document.body.classList.toggle('dark'); }
 
+// ================== SEARCH FILTER ==================
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("keyup", () => {
+  const filter = searchInput.value.toLowerCase();
+  document.querySelectorAll("section").forEach(section=>{
+    let hasMatch=false;
+    section.querySelectorAll(".product-card").forEach(card=>{
+      const text=card.innerText.toLowerCase();
+      if(text.includes(filter)){ card.style.display="block"; hasMatch=true; }
+      else{ card.style.display="none"; }
+    });
+    section.style.display = hasMatch ? "block" : "none";
+  });
+});
+
+// ================== FADE-IN ON SCROLL ==================
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("visible");
+  });
+},{threshold:0.1});
+document.querySelectorAll(".section-headline, .products, .product-card").forEach(el=>observer.observe(el));
+
+// ================== SMOOTH SCROLL NAV ==================
+const navLinks=document.querySelectorAll("nav a");
+navLinks.forEach(link=>{
+  link.addEventListener("click", e=>{
+    e.preventDefault();
+    const targetId = link.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+    if(targetSection){
+      const offsetTop = targetSection.offsetTop - 70;
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+      document.querySelectorAll(".section-headline h2").forEach(h=>h.classList.remove("highlight-red"));
+      const headline = targetSection.querySelector(".section-headline h2");
+      headline.classList.add("highlight-red");
+      setTimeout(()=>headline.classList.remove("highlight-red"),2000);
+    }
+  });
+});
+
+// ================== SHOP NOW MODAL ==================
 const modalOverlay = document.querySelector('.modal-overlay');
 const modalImg = document.getElementById('modal-img');
 const modalTitle = document.getElementById('modal-title');
 const modalDesc = document.getElementById('modal-desc');
 
-document.querySelectorAll('.product-card .cta-btn').forEach(btn => {
-  btn.addEventListener('click', e => {
+document.querySelectorAll('.product-card .cta-btn').forEach(btn=>{
+  btn.addEventListener('click', e=>{
     e.preventDefault();
     const card = btn.closest('.product-card');
     modalImg.src = card.querySelector('img').src;
     modalTitle.innerText = card.querySelector('h3').innerText;
     modalDesc.innerText = card.querySelector('p').innerText;
     modalOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // prevent background scroll
+    document.body.style.overflow = 'hidden';
   });
 });
 
-modalOverlay.querySelector('.modal-close').addEventListener('click', () => {
+modalOverlay.querySelector('.modal-close').addEventListener('click', ()=>{
   modalOverlay.classList.remove('active');
   document.body.style.overflow = 'auto';
 });
 
-/* Buy via WhatsApp */
-modalOverlay.querySelector('.buy-btn').addEventListener('click', () => {
-  const name = document.getElementById('buyer-name').value.trim();
-  const phone = document.getElementById('buyer-phone').value.trim();
-  const address = document.getElementById('buyer-address').value.trim();
+// ================== BUY BUTTON ==================
+modalOverlay.querySelector('.buy-btn').addEventListener('click', ()=>{
+  const name=document.getElementById('buyer-name').value.trim();
+  const phone=document.getElementById('buyer-phone').value.trim();
+  const address=document.getElementById('buyer-address').value.trim();
   const product = modalTitle.innerText;
-  if(!name || !phone || !address){
-    alert("Please fill all details!");
-    return;
-  }
-  const message = encodeURIComponent(
-    `Hi, I want to buy:\nProduct: ${product}\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`
-  );
-  window.open(`https://wa.me/YOUR_PHONE_NUMBER?text=${message}`, '_blank');
+  if(!name||!phone||!address){ alert("Please fill all details!"); return; }
+  const message = encodeURIComponent(`Hi, I want to buy:\nProduct: ${product}\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`);
+  window.open(`https://wa.me/919345045379?text=${message}`,'_blank');
 });
 
-/* QR Payment placeholder */
-modalOverlay.querySelector('.qr-btn').addEventListener('click', () => {
+// ================== QR BUTTON ==================
+modalOverlay.querySelector('.qr-btn').addEventListener('click', ()=>{
   const product = modalTitle.innerText;
   alert(`QR payment generated for "${product}" (integrate real QR API).`);
 });
 </script>
-
-<script>
-function toggleDarkMode(){
-  document.body.classList.toggle('dark');
-  let btn = document.querySelector(".search-box button i");
-  btn.classList.toggle("fa-moon");
-  btn.classList.toggle("fa-sun");
-}
-
-/* Search filter */
-document.getElementById("searchInput").addEventListener("input",function(){
-  let filter=this.value.toLowerCase();
-  document.querySelectorAll(".product-card").forEach(card=>{
-    let text=card.innerText.toLowerCase();
-    card.style.display=text.includes(filter)?"flex":"none";
-  });
-});
-
-/* Scroll animations */
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){ entry.target.classList.add("visible"); }
-  });
-},{ threshold:0.1 });
-document.querySelectorAll('.products, .section-headline, .product-card').forEach(el=>observer.observe(el));
-
-/* Active nav link highlight */
-const sections=document.querySelectorAll("section");
-const navLinks=document.querySelectorAll("nav a");
-window.addEventListener("scroll",()=>{
-  let current="";
-  sections.forEach(sec=>{
-    const secTop=sec.offsetTop-150;
-    if(pageYOffset>=secTop){ current=sec.getAttribute("id"); }
-  });
-  navLinks.forEach(link=>{
-    link.classList.remove("active");
-    if(link.getAttribute("href")==="#"+current){ link.classList.add("active"); }
-  });
-});
-
-</script>
 </body>
 </html>
-
