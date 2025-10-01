@@ -117,3 +117,34 @@ navLinks.forEach(link => {
     }
   });
 });
+// ================== SHOP NOW MODAL WITH SCROLL ==================
+const modalOverlay = document.querySelector('.modal-overlay');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+
+document.querySelectorAll('.product-card .cta-btn').forEach(btn=>{
+  btn.addEventListener('click', e=>{
+    e.preventDefault();
+    const card = btn.closest('.product-card');
+    const section = card.closest('section');
+
+    // Smooth scroll to section first
+    const offsetTop = section.offsetTop - 70;
+    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+
+    // Wait until scroll completes (approx 500ms) then open modal
+    setTimeout(()=>{
+      modalImg.src = card.querySelector('img').src;
+      modalTitle.innerText = card.querySelector('h3').innerText;
+      modalDesc.innerText = card.querySelector('p').innerText;
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }, 500);
+  });
+});
+
+modalOverlay.querySelector('.modal-close').addEventListener('click', ()=>{
+  modalOverlay.classList.remove('active');
+  document.body.style.overflow = 'auto';
+});
