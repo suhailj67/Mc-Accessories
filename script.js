@@ -148,3 +148,39 @@ modalOverlay.querySelector('.modal-close').addEventListener('click', ()=>{
   modalOverlay.classList.remove('active');
   document.body.style.overflow = 'auto';
 });
+// ================= Modal Buy Now =================
+const modal = document.getElementById("productModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const whatsappLink = document.getElementById("whatsappLink");
+const buyButtons = document.querySelectorAll(".buy-btn");
+const closeBtn = document.querySelector(".modal .close");
+const whatsappNumber = "919344738217"; // Updated number
+
+buyButtons.forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    const card = btn.closest(".product-card");
+    const name = card.dataset.name;
+    const desc = card.dataset.desc;
+
+    modalTitle.innerText = name;
+    modalDesc.innerText = desc;
+    whatsappLink.href = `https://wa.me/${whatsappNumber}?text=Hi,%20I%20want%20to%20buy%20${encodeURIComponent(name)}`;
+
+    modal.style.display = "flex";
+    document.body.classList.add("modal-open");
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+});
+
+window.addEventListener("click", e => {
+  if(e.target === modal){
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+  }
+});
