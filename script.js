@@ -195,7 +195,7 @@ buyButtons.forEach(btn => {
     modalDesc.innerText = desc;
 
     // WhatsApp link
-    whatsappLink.href = `https://wa.me/${whatsappNumber}?text=Hi,%20I%20want%20to%20buy%20${encodeURIComponent(name)}`;
+    whatsappLink.href = `https://wa.me/${+919344738217}?text=Hi,%20I%20want%20to%20buy%20${encodeURIComponent(name)}`;
 
     // Mock QR Payment Message
     const qrMessage = document.getElementById("qrMessage");
