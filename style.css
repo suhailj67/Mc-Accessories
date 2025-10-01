@@ -278,3 +278,41 @@ body, html {
   transform: scale(1.08);
   box-shadow: 0 0 12px #ffd100, 0 0 25px #ffa500, 0 0 40px #ffd700;
 }
+/* ====== Staggered Product Card Animation ====== */
+.product-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* When visible, fade in and move up */
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation delay for smoother effect */
+.products .product-card:nth-child(1) { transition-delay: 0.1s; }
+.products .product-card:nth-child(2) { transition-delay: 0.2s; }
+.products .product-card:nth-child(3) { transition-delay: 0.3s; }
+.products .product-card:nth-child(4) { transition-delay: 0.4s; }
+.products .product-card:nth-child(5) { transition-delay: 0.5s; }
+.products .product-card:nth-child(6) { transition-delay: 0.6s; }
+.products .product-card:nth-child(7) { transition-delay: 0.7s; }
+.products .product-card:nth-child(8) { transition-delay: 0.8s; }
+.products .product-card:nth-child(9) { transition-delay: 0.9s; }
+.products .product-card:nth-child(10) { transition-delay: 1s; }
+
+/* Optional: For mobile, reduce delay slightly for faster appearance */
+@media(max-width:768px){
+  .products .product-card:nth-child(1) { transition-delay: 0.05s; }
+  .products .product-card:nth-child(2) { transition-delay: 0.1s; }
+  .products .product-card:nth-child(3) { transition-delay: 0.15s; }
+  .products .product-card:nth-child(4) { transition-delay: 0.2s; }
+  .products .product-card:nth-child(5) { transition-delay: 0.25s; }
+  .products .product-card:nth-child(6) { transition-delay: 0.3s; }
+  .products .product-card:nth-child(7) { transition-delay: 0.35s; }
+  .products .product-card:nth-child(8) { transition-delay: 0.4s; }
+  .products .product-card:nth-child(9) { transition-delay: 0.45s; }
+  .products .product-card:nth-child(10) { transition-delay: 0.5s; }
+}
