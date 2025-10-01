@@ -316,3 +316,25 @@ body, html {
   .products .product-card:nth-child(9) { transition-delay: 0.45s; }
   .products .product-card:nth-child(10) { transition-delay: 0.5s; }
 }
+/* ====== Product Image Glow on Scroll ====== */
+.product-card.visible img {
+  animation: imgGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes imgGlow {
+  0% {
+    box-shadow: 0 0 6px #ffd10055, 0 0 12px #ffa50033;
+  }
+  50% {
+    box-shadow: 0 0 12px #ffd100aa, 0 0 20px #ffa50055;
+  }
+  100% {
+    box-shadow: 0 0 6px #ffd10055, 0 0 12px #ffa50033;
+  }
+}
+
+/* Optional: Slight scale for a subtle pop effect */
+.product-card.visible img {
+  transform: scale(1.02);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
