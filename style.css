@@ -378,3 +378,13 @@ body.dark .modal-content {
 body.modal-open {
   overflow: hidden;
 }
+.product-card {
+    background: #fff;  /* clean white card */
+    border-radius: 14px;
+    padding: 16px;
+}
+.product-card img {
+    background: #fff; /* optional: ensures transparency shows as white */
+    border-radius: 10px;
+    padding: 8px;
+}
